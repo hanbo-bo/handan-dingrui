@@ -1105,6 +1105,7 @@
       color: var(--white);
       font: inherit;
       font-weight: 900;
+      line-height: 1;
       cursor: pointer;
       box-shadow: 0 14px 34px rgba(11, 35, 65, 0.18);
       transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
@@ -1117,14 +1118,15 @@
     }
 
     .product-more-btn::after {
-      content: "⌄";
+      content: "";
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 18px;
       height: 18px;
-      font-size: 18px;
-      line-height: 1;
+      flex: 0 0 18px;
+      background: currentColor;
+      clip-path: polygon(50% 68%, 22% 36%, 78% 36%);
       transform-origin: center;
       transition: transform 0.25s ease;
     }
