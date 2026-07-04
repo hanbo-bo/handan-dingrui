@@ -1,108 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Expansion Anchor | Handan Dingrui Metal Products Co., Ltd.</title>
-  <link rel="icon" href="../assets/dingrui-logo.jpg" type="image/jpeg" />
-  <style>
-    :root {
-      --navy:#0b2341;
-      --blue:#1664c0;
-      --orange:#f59a23;
-      --ink:#172033;
-      --muted:#687386;
-      --line:#dfe6ef;
-      --soft:#f5f8fc;
-      --white:#fff;
-    }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif; color:var(--ink); background:#f1f4f8; line-height:1.7; }
-    a { color:inherit; text-decoration:none; }
-    .container { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
-    header { background:rgba(255,255,255,.94); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:10; backdrop-filter:blur(14px); }
-    .nav { min-height:78px; display:flex; justify-content:space-between; align-items:center; gap:22px; }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:900; color:var(--navy); }
-    .brand img { width:56px; height:56px; border-radius:14px; object-fit:cover; border:1px solid var(--line); }
-    .back { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; background:var(--navy); color:#fff; font-weight:800; }
-    .hero { background:linear-gradient(120deg,#071a31,#123d70); color:#fff; padding:82px 0; overflow:hidden; position:relative; }
-    .hero::after { content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px, transparent 1px); background-size:56px 56px; opacity:.7; }
-    .hero .container { position:relative; z-index:1; display:grid; grid-template-columns:1fr .7fr; gap:34px; align-items:center; }
-    .label { color:#f7b95f; text-transform:uppercase; letter-spacing:.18em; font-size:13px; font-weight:900; margin-bottom:14px; }
-    h1 { font-size:clamp(38px,6vw,68px); line-height:1.05; letter-spacing:-.04em; margin-bottom:18px; }
-    h1 span { display:block; font-size:.56em; letter-spacing:0; margin-top:10px; color:rgba(255,255,255,.84); }
-    .hero p { color:rgba(255,255,255,.78); font-size:18px; }
-    .visual { min-height:260px; border-radius:28px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.16); position:relative; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.22); }
-    .visual::before { content:""; position:absolute; width:330px; height:54px; left:50%; top:44%; border-radius:999px; transform:translate(-50%,-50%) rotate(-22deg); background:repeating-linear-gradient(90deg, rgba(104,116,134,.34) 0 6px, transparent 6px 16px), linear-gradient(90deg,#7c8da5,#f7f9fc,#73849d); box-shadow:0 22px 34px rgba(0,0,0,.18); }
-    .visual::after { content:""; position:absolute; width:92px; height:92px; right:70px; bottom:45px; border-radius:50%; background:radial-gradient(circle, transparent 0 30px, rgba(220,226,235,.95) 31px 44px, rgba(255,255,255,.98) 45px); }
-    main { padding:72px 0; }
-    .grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
-    .card { background:#fff; border:1px solid var(--line); border-radius:24px; padding:30px; box-shadow:0 18px 42px rgba(11,35,65,.08); }
-    .card h2 { color:var(--navy); font-size:30px; margin-bottom:14px; }
-    .card p { color:var(--muted); }
-    .list { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:20px; }
-    .list span { padding:12px 14px; border-radius:14px; background:var(--soft); color:#354057; font-weight:800; }
-    .cta { margin-top:30px; display:flex; gap:12px; flex-wrap:wrap; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 20px; border-radius:999px; font-weight:900; }
-    .primary { background:var(--orange); color:#fff; }
-    .secondary { background:#fff; color:var(--navy); border:1px solid var(--line); }
-    footer { padding:28px 0; background:#071a31; color:rgba(255,255,255,.72); }
-    @media (max-width:760px) { .hero .container,.grid,.list { grid-template-columns:1fr; } .nav { align-items:flex-start; padding:12px 0; flex-direction:column; } }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="../index.html">
-        <img src="../assets/dingrui-logo.jpg" alt="Handan Dingrui logo" />
-        <span>Handan Dingrui Metal Products Co., Ltd.<br />邯郸鼎锐金属制品有限公司</span>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Anchors | Handan Dingrui Metal Products Co., Ltd.</title><link rel="icon" href="../assets/dingrui-logo.jpg" type="image/jpeg" /><style>
+    :root{--navy:#0b2341;--blue:#1664c0;--orange:#f59a23;--ink:#172033;--muted:#687386;--line:#dfe6ef;--soft:#f5f8fc;--white:#fff;--red:#e60012}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink);background:#f1f4f8;line-height:1.7}
+    a{color:inherit;text-decoration:none}.container{width:min(1200px,calc(100% - 40px));margin:0 auto}
+    header{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;backdrop-filter:blur(14px)}.nav{min-height:78px;display:flex;justify-content:space-between;align-items:center;gap:22px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--navy);font-size:15px}.brand img{width:56px;height:56px;border-radius:14px;object-fit:cover;border:1px solid var(--line)}.back{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--navy);color:#fff;font-weight:800;font-size:14px}
+    .hero{background:linear-gradient(120deg,#071a31,#123d70);color:#fff;padding:60px 0;overflow:hidden;position:relative}.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;opacity:.7}.hero .container{position:relative;z-index:1;text-align:center}.label{color:#f7b95f;text-transform:uppercase;letter-spacing:.18em;font-size:13px;font-weight:900;margin-bottom:14px}.hero h1{font-size:clamp(38px,6vw,68px);line-height:1.05;letter-spacing:-.04em;margin-bottom:18px}.hero p{color:rgba(255,255,255,.78);font-size:18px;max-width:760px;margin:0 auto}.breadcrumb{padding:16px 0;color:var(--muted);font-size:14px}.breadcrumb a{color:var(--blue);font-weight:700}
+    main{padding:40px 0 72px}.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.product-card{background:#fff;border-radius:24px;overflow:hidden;transition:all .35s cubic-bezier(.4,0,.2,1);cursor:pointer;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(11,35,65,.06)}.product-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(11,35,65,.14)}.product-card:hover .card-img img{transform:scale(1.05)}.card-img{height:270px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;padding:20px}.card-img img{width:100%;height:100%;object-fit:contain;transition:transform .5s cubic-bezier(.4,0,.2,1)}.card-info{padding:22px 24px 28px;flex:1;display:flex;flex-direction:column}.card-info h3{font-size:22px;color:var(--navy);margin-bottom:8px;font-weight:900;line-height:1.25}.card-info p{font-size:14px;color:var(--muted);margin-bottom:20px;flex:1;line-height:1.6}.card-btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 24px;border-radius:999px;background:var(--red);color:#fff;font-weight:800;font-size:13px;align-self:flex-start;box-shadow:0 6px 16px rgba(230,0,18,.25)}
+    footer{padding:28px 0;background:#071a31;color:rgba(255,255,255,.72);font-size:14px}@media(max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.product-grid{grid-template-columns:1fr}.nav{flex-direction:column;align-items:flex-start;padding:12px 0}}
+  </style></head><body>
+  <header><div class="container nav"><a class="brand" href="../index.html"><img src="../assets/dingrui-logo.jpg" alt="Dingrui Logo" /><span>Handan Dingrui Metal Products Co., Ltd.<br/>邯郸鼎锐金属制品有限公司</span></a><a class="back" href="../index.html#products">Back to Products</a></div></header>
+  <section class="hero"><div class="container"><div class="label">Products</div><h1>Anchors</h1><p>Expansion bolts, anchor bolts, chemical anchors and concrete anchors for structural fixing, equipment installation and construction projects.</p></div></section>
+  <div class="container"><div class="breadcrumb"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../index.html#products">Products</a> &nbsp;/&nbsp; Anchors</div></div>
+  <main><div class="container"><div class="product-grid">
+
+      <a class="product-card" href="anchors/expansion-bolt.html">
+        <div class="card-img"><img src="../assets/products/expansion-bolt.jpg" alt="Expansion Bolt" loading="lazy" /></div>
+        <div class="card-info"><h3>Expansion Bolt</h3><p>Carbon Steel / Stainless Steel / Zinc Alloy</p><div class="card-btn">VIEW DETAILS</div></div>
       </a>
-      <a class="back" href="../index.html#products">Back to Product Center / 返回产品中心</a>
-    </div>
-  </header>
-  <section class="hero">
-    <div class="container">
-      <div>
-        <div class="label">Products 产品</div>
-        <h1>Expansion Anchor<span>膨胀锚栓</span></h1>
-        <p>Expansion anchors, wedge anchors, sleeve anchors and anchor bolts for concrete fixing, structural installation and engineering construction.</p>
-      </div>
-      <div class="visual" aria-hidden="true"></div>
-    </div>
-  </section>
-  <main>
-    <div class="container grid">
-      <section class="card">
-        <h2>Product Overview 产品概述</h2>
-        <p>膨胀锚栓、楔形锚栓、套管锚栓和地脚螺栓，适用于混凝土固定、结构安装和工程施工。</p>
-        <div class="cta">
-          <a class="btn primary" href="../index.html#contact">Request Quote / 获取报价</a>
-          <a class="btn secondary" href="../index.html#products">View More Products / 查看更多产品</a>
-        </div>
-      </section>
-      <section class="card">
-        <h2>Available Items 可供产品</h2>
-        <div class="list">
-                    <span>Expansion bolts</span>
-          <span>Wedge anchors</span>
-          <span>Sleeve anchors</span>
-          <span>Anchor bolts</span>
-          <span>Drop-in anchors</span>
-          <span>Concrete fixing parts</span>
-        </div>
-      </section>
-      <section class="card">
-        <h2>Export Support 出口支持</h2>
-        <p>We support material selection, standard confirmation, sample checking, production follow-up, inspection, export packaging, shipping marks and logistics coordination for overseas buyers.</p>
-      </section>
-      <section class="card">
-        <h2>Customization 定制服务</h2>
-        <p>Products can be customized by drawing, sample, material, surface treatment, packing method, label and order quantity. Send your specifications for a practical quotation.</p>
-      </section>
-    </div>
-  </main>
-  <footer>
-    <div class="container">© Handan Dingrui Metal Products Co., Ltd. Fasteners · Export Trade · Custom Metal Parts</div>
-  </footer>
-</body>
-</html>
+
+      <a class="product-card" href="anchors/anchor-bolt.html">
+        <div class="card-img"><img src="../assets/products/anchor-bolt.jpg" alt="Anchor Bolt" loading="lazy" /></div>
+        <div class="card-info"><h3>Anchor Bolt</h3><p>Carbon Steel / Alloy Steel / Stainless Steel</p><div class="card-btn">VIEW DETAILS</div></div>
+      </a>
+
+      <a class="product-card" href="anchors/chemical-anchor-bolt.html">
+        <div class="card-img"><img src="../assets/products/chemical-anchor-bolt.jpg" alt="Chemical Anchor Bolt" loading="lazy" /></div>
+        <div class="card-info"><h3>Chemical Anchor Bolt</h3><p>Carbon Steel / Stainless Steel 304/316 / Alloy Steel</p><div class="card-btn">VIEW DETAILS</div></div>
+      </a>
+
+      <a class="product-card" href="anchors/concrete-undercut-anchor.html">
+        <div class="card-img"><img src="../assets/products/concrete-undercut-anchor.jpg" alt="Concrete Undercut Anchor" loading="lazy" /></div>
+        <div class="card-info"><h3>Concrete Undercut Anchor</h3><p>Carbon Steel / Stainless Steel / Alloy Steel</p><div class="card-btn">VIEW DETAILS</div></div>
+      </a>
+
+      <a class="product-card" href="anchors/hot-dip-galvanized-chemical-anchor.html">
+        <div class="card-img"><img src="../assets/products/hot-dip-galvanized-chemical-anchor.jpg" alt="Hot-Dip Galvanized Chemical Anchor" loading="lazy" /></div>
+        <div class="card-info"><h3>Hot-Dip Galvanized Chemical Anchor</h3><p>Carbon Steel / Alloy Steel</p><div class="card-btn">VIEW DETAILS</div></div>
+      </a>
+
+  </div></div></main><footer><div class="container">&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div></footer>
+</body></html>
