@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hex Socket Bolt (Allen Bolt) (内六角螺栓) | Handan Dingrui Metal Products</title>
+  <link rel="icon" href="../../assets/dingrui-logo.jpg" type="image/jpeg" />
+  <style>
+    :root{--navy:#0b2341;--blue:#1664c0;--orange:#f59a23;--ink:#172033;--muted:#687386;--line:#dfe6ef;--soft:#f5f8fc;--white:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink);background:#f1f4f8;line-height:1.7}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1100px,calc(100% - 40px));margin:0 auto}
+    header{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;backdrop-filter:blur(14px)}
+    .nav{min-height:78px;display:flex;justify-content:space-between;align-items:center;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--navy);font-size:15px}
+    .brand img{width:56px;height:56px;border-radius:14px;object-fit:cover;border:1px solid var(--line)}
+    .back{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--navy);color:#fff;font-weight:800;font-size:14px}
+    .breadcrumb{padding:16px 0;color:var(--muted);font-size:14px}
+    .breadcrumb a{color:var(--blue);font-weight:700}
+
+    /* Hero */
+    .hero{background:linear-gradient(120deg,#071a31,#123d70);color:#fff;padding:60px 0;overflow:hidden;position:relative}
+    .hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;opacity:.7}
+    .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .hero .label{color:#f7b95f;text-transform:uppercase;letter-spacing:.18em;font-size:13px;font-weight:900;margin-bottom:14px}
+    .hero h1{font-size:clamp(32px,5vw,52px);line-height:1.1;letter-spacing:-.04em;margin-bottom:8px}
+    .hero h1 span{display:block;font-size:.5em;letter-spacing:0;margin-top:8px;color:rgba(255,255,255,.84)}
+    .hero p{color:rgba(255,255,255,.78);font-size:16px}
+    .hero-img{border-radius:20px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+    .hero-img img{width:100%;display:block}
+
+    /* Content */
+    main{padding:50px 0}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:0 12px 36px rgba(11,35,65,.06)}
+    .card h2{color:var(--navy);font-size:24px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--orange)}
+    .card p,.card .desc{color:var(--muted);margin-bottom:14px}
+    .card .desc-cn{color:var(--ink);font-weight:600;margin-bottom:10px}
+    .spec-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+    .spec-table th{text-align:left;padding:10px 14px;background:var(--soft);color:var(--navy);font-weight:800;border-bottom:2px solid var(--line);width:35%}
+    .spec-table td{padding:10px 14px;border-bottom:1px solid var(--line);color:var(--muted)}
+
+    /* Applications */
+    .app-list{display:grid;gap:14px;margin-top:10px}
+    .app-item{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;background:var(--soft);border-radius:14px;border-left:4px solid var(--orange);transition:all .25s ease}
+    .app-item:hover{background:#eef3f9;border-left-color:var(--blue)}
+    .app-icon{color:var(--orange);font-size:18px;margin-top:2px}
+    .app-en{font-weight:800;color:var(--navy);font-size:15px}
+    .app-cn{color:var(--muted);font-size:13px}
+
+    /* CTA */
+    .cta-area{text-align:center;padding:40px 0}
+    .cta-area .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 32px;border-radius:999px;font-weight:900;font-size:16px;transition:all .3s ease}
+    .btn-primary{background:var(--orange);color:#fff}
+    .btn-primary:hover{background:#e08a10;transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,154,35,.3)}
+    .btn-secondary{background:#fff;color:var(--navy);border:2px solid var(--line);margin-left:12px}
+    .btn-secondary:hover{border-color:var(--blue);color:var(--blue)}
+    .cta-note{color:var(--muted);font-size:14px;margin-top:16px}
+
+    footer{padding:28px 0;background:#071a31;color:rgba(255,255,255,.72);font-size:14px}
+    @media(max-width:768px){.hero .container,.grid2{grid-template-columns:1fr}.nav{flex-direction:column;align-items:flex-start;padding:12px 0}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="../../index.html">
+        <img src="../../assets/dingrui-logo.jpg" alt="Dingrui Logo" />
+        <span>Handan Dingrui Metal Products Co., Ltd.<br/>邯郸鼎锐金属制品有限公司</span>
+      </a>
+      <a class="back" href="../bolt-class.html">Back to Bolt Class / 返回螺栓类</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &nbsp;/&nbsp; <a href="../../index.html#products">Products</a> &nbsp;/&nbsp; <a href="../bolt-class.html">Bolt Class</a> &nbsp;/&nbsp; Hex Socket Bolt (Allen Bolt)</div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div>
+        <div class="label">Product Detail 产品详情</div>
+        <h1>Hex Socket Bolt (Allen Bolt)<span>内六角螺栓</span></h1>
+        <p>Carbon steel 8.8/10.9/12.9, Stainless steel 304/316, Alloy steel</p>
+      </div>
+      <div class="hero-img">
+        <img src="../assets/products/hex-socket-bolt.jpg" alt="Hex Socket Bolt (Allen Bolt)" />
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container grid2">
+      <section class="card">
+        <h2>Product Description 产品描述</h2>
+        <p class="desc-cn">内六角螺栓（艾伦螺栓）具有内凹六角驱动设计，可实现平齐或接近平齐安装，外观整洁且安全。内驱动设计防止篡改并提供高扭矩传递。可选圆柱头、半圆头、沉头和低头等多种样式。</p>
+        <p class="desc">Hex socket bolts (Allen bolts) feature a recessed hexagonal drive, enabling flush or near-flush installation for clean aesthetics and safety. The internal drive design prevents tampering and provides high torque transmission. Available in cap head, button head, countersunk and low head styles for diverse engineering applications.</p>
+      </section>
+      <section class="card">
+        <h2>Specifications 技术规格</h2>
+        <table class="spec-table">
+          <tr><th>Materials 材质</th><td>Carbon steel 8.8/10.9/12.9, Stainless steel 304/316, Alloy steel</td></tr>
+          <tr><th>Standards 标准</th><td>DIN912, ISO4762, GB/T 70.1, DIN7991 (CSK)</td></tr>
+          <tr><th>Size Range 规格</th><td>M3 - M48, custom sizes available</td></tr>
+          <tr><th>Surface Treatment 表面处理</th><td>Zinc plated, Hot-dip galvanized, Black oxide, Plain, DACROMET</td></tr>
+          <tr><th>Certification 认证</th><td>ISO 9001, SGS test report available</td></tr>
+        </table>
+      </section>
+      <section class="card" style="grid-column:1/-1">
+        <h2>Applications & Use Cases 应用场景与用途</h2>
+        <div class="app-list">
+          
+        <div class="app-item">
+          <div class="app-icon">&#9670;</div>
+          <div>
+            <div class="app-en">Precision machinery and mold assemblies</div>
+            <div class="app-cn">精密机械和模具组装</div>
+          </div>
+        </div>
+        <div class="app-item">
+          <div class="app-icon">&#9670;</div>
+          <div>
+            <div class="app-en">Electronics enclosures and consumer products</div>
+            <div class="app-cn">电子外壳和消费产品</div>
+          </div>
+        </div>
+        <div class="app-item">
+          <div class="app-icon">&#9670;</div>
+          <div>
+            <div class="app-en">Automotive interior and engine components</div>
+            <div class="app-cn">汽车内饰和发动机部件</div>
+          </div>
+        </div>
+        <div class="app-item">
+          <div class="app-icon">&#9670;</div>
+          <div>
+            <div class="app-en">Medical devices and instruments</div>
+            <div class="app-cn">医疗设备和仪器</div>
+          </div>
+        </div>
+        <div class="app-item">
+          <div class="app-icon">&#9670;</div>
+          <div>
+            <div class="app-en">Die sets, tooling and fixture assemblies</div>
+            <div class="app-cn">模具、工装和夹具组件</div>
+          </div>
+        </div>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Why Choose Dingrui 为什么选择鼎锐</h2>
+        <p>Handan Dingrui provides comprehensive export services including quotation, sample confirmation, production follow-up, quality inspection, export packaging, and logistics coordination. We serve buyers worldwide with competitive pricing and reliable delivery.</p>
+      </section>
+      <section class="card">
+        <h2>Customization Options 定制选项</h2>
+        <p>Products can be customized by drawing, sample, material grade, surface treatment, length, thread type, packing method, and private label. Minimum order quantities are flexible. Contact us for detailed quotation.</p>
+      </section>
+    </div>
+
+    <div class="cta-area">
+      <a class="btn btn-primary" href="../../index.html#contact">Request Quote / 获取报价</a>
+      <a class="btn btn-secondary" href="../bolt-class.html">View All Bolts / 查看全部螺栓</a>
+      <p class="cta-note">Email: hebeibinli@gmail.com &nbsp;|&nbsp; WhatsApp: +86 188 0308 1507</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div>
+  </footer>
+</body>
+</html>
