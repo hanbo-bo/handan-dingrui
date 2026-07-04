@@ -114,7 +114,7 @@
 <body>
   <header>
     <div class="container nav">
-      <a class="brand" href="../../index.html"><img src="../../assets/dingrui-logo.jpg" alt="Handan Dingrui logo"><span class="brand-name">Handan Dingrui Metal Products Co., Ltd.</span></a>
+      <a class="brand" href="../../index.html"><img src="../../assets/dingrui-logo.jpg" alt="Handan Dingrui logo"><span class="brand-name" data-brand-name>Handan Dingrui Metal Products Co., Ltd.</span></a>
       <div class="nav-actions"><a class="back" href="../self-tapping-nails.html">Back to Self-Tapping Screws</a><select class="detail-lang-toggle" id="langSelect" aria-label="Switch language"><option value="zh">中文</option><option value="en">English</option><option value="ru">Русский</option><option value="ar">العربية</option></select></div>
     </div>
   </header>
@@ -140,7 +140,7 @@
     </div>
   </details>
 
-  <footer><div class="container">&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div></footer>
+  <footer><div class="container" data-footer-company>&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div></footer>
 
 
 <script>
@@ -693,6 +693,42 @@
     });
   };
 
+
+  const companyTexts = {
+    en: {
+      name: 'Handan Dingrui Metal Products Co., Ltd.',
+      footerCompany: '© Handan Dingrui Metal Products Co., Ltd. Fasteners · Export Trade · Custom Metal Parts'
+    },
+    zh: {
+      name: '邯郸鼎锐金属制品有限公司',
+      footerCompany: '© 邯郸鼎锐金属制品有限公司 紧固件 · 出口贸易 · 定制金属件'
+    },
+    ru: {
+      name: 'Ханьдань Динжуй Металлические изделия Co., Ltd.',
+      footerCompany: '© Ханьдань Динжуй Металлические изделия Co., Ltd. Крепеж · Экспорт · Металлические детали на заказ'
+    },
+    ar: {
+      name: 'شركة هاندان دينغروي للمنتجات المعدنية المحدودة',
+      footerCompany: '© شركة هاندان دينغروي للمنتجات المعدنية المحدودة مثبتات · تجارة تصدير · قطع معدنية مخصصة'
+    }
+  };
+
+  const updateCompanyTexts = (lang) => {
+    const text = companyTexts[lang] || companyTexts.en;
+    document.querySelectorAll('[data-brand-name]').forEach((node) => {
+      node.textContent = text.name;
+    });
+    document.querySelectorAll('.brand').forEach((node) => {
+      node.setAttribute('aria-label', text.name);
+    });
+    document.querySelectorAll('.brand img').forEach((node) => {
+      node.setAttribute('alt', `${text.name} logo`);
+    });
+    document.querySelectorAll('[data-footer-company]').forEach((node) => {
+      node.textContent = text.footerCompany;
+    });
+  };
+
   const setLanguage = (lang) => {
     const dict = dictionaries[lang] || {};
     const phrases = phraseDictionaries[lang] || {};
@@ -719,6 +755,7 @@
     }
     localStorage.setItem('dingruiLang', lang);
     syncProductLinks(lang);
+    updateCompanyTexts(lang);
   };
   if (langSelect) {
     const saved = initialLang;

@@ -1837,7 +1837,7 @@
     <div class="container nav">
       <a class="brand" href="#home" aria-label="Handan Dingrui Metal Products Co., Ltd.">
         <div class="logo"><img src="assets/dingrui-logo.jpg" alt="Handan Dingrui Metal Products Co., Ltd. logo" /></div>
-        <span class="brand-name">Handan Dingrui Metal Products Co., Ltd.</span></a>
+        <span class="brand-name" data-brand-name>Handan Dingrui Metal Products Co., Ltd.</span></a>
       <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <div class="nav-dropdown">
           <button class="nav-dropbtn" type="button">About ▾</button>
@@ -2271,8 +2271,8 @@
 
   <footer>
     <div class="container footer-inner">
-      <div>© <span id="year"></span> Handan Dingrui Metal Products Co., Ltd. All rights reserved.</div>
-      <div>Fasteners · Hardware · Custom Metal Parts · Global Export</div>
+      <div data-footer-company>© <span id="year"></span> Handan Dingrui Metal Products Co., Ltd. All rights reserved.</div>
+      <div data-footer-tagline>Fasteners · Hardware · Custom Metal Parts · Global Export</div>
     </div>
   </footer>
 
@@ -2306,7 +2306,6 @@
     const categoryGrid = document.querySelector('.category-grid');
     let currentLang = 'zh';
 
-    document.getElementById('year').textContent = new Date().getFullYear();
 
     const zhText = {
       'Professional Fasteners & Custom Metal Parts Exporter': '专业紧固件与定制金属制品出口商',
@@ -2876,6 +2875,50 @@
     }
 
 
+
+    const companyTexts = {
+      en: {
+        name: 'Handan Dingrui Metal Products Co., Ltd.',
+        footerCompany: '© {year} Handan Dingrui Metal Products Co., Ltd. All rights reserved.',
+        footerTagline: 'Fasteners · Hardware · Custom Metal Parts · Global Export'
+      },
+      zh: {
+        name: '邯郸鼎锐金属制品有限公司',
+        footerCompany: '© {year} 邯郸鼎锐金属制品有限公司 版权所有。',
+        footerTagline: '紧固件 · 五金制品 · 定制金属件 · 全球出口'
+      },
+      ru: {
+        name: 'Ханьдань Динжуй Металлические изделия Co., Ltd.',
+        footerCompany: '© {year} Ханьдань Динжуй Металлические изделия Co., Ltd. Все права защищены.',
+        footerTagline: 'Крепеж · Металлоизделия · Детали на заказ · Международный экспорт'
+      },
+      ar: {
+        name: 'شركة هاندان دينغروي للمنتجات المعدنية المحدودة',
+        footerCompany: '© {year} شركة هاندان دينغروي للمنتجات المعدنية المحدودة جميع الحقوق محفوظة.',
+        footerTagline: 'مثبتات · منتجات معدنية · قطع معدنية مخصصة · تصدير عالمي'
+      }
+    };
+
+    function updateCompanyTexts(lang) {
+      const text = companyTexts[lang] || companyTexts.en;
+      const year = new Date().getFullYear();
+      document.querySelectorAll('[data-brand-name]').forEach((node) => {
+        node.textContent = text.name;
+      });
+      document.querySelectorAll('.brand').forEach((node) => {
+        node.setAttribute('aria-label', text.name);
+      });
+      document.querySelectorAll('.brand img, .logo img').forEach((node) => {
+        node.setAttribute('alt', `${text.name} logo`);
+      });
+      document.querySelectorAll('[data-footer-company]').forEach((node) => {
+        node.textContent = text.footerCompany.replace('{year}', year);
+      });
+      document.querySelectorAll('[data-footer-tagline]').forEach((node) => {
+        node.textContent = text.footerTagline;
+      });
+    }
+
     function syncLanguageLinks(lang) {
       const targetLang = lang || currentLang || localStorage.getItem('dingruiLang') || 'en';
       document.querySelectorAll('a[href^="products/"]').forEach((link) => {
@@ -2938,6 +2981,7 @@
       });
       updateProductMoreLabel();
       syncLanguageLinks(lang);
+      updateCompanyTexts(lang);
     }
 
     function updateProductMoreLabel() {
