@@ -1810,6 +1810,25 @@
       pointer-events: none;
     }
 
+  
+    .floating-whatsapp-wrap::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 100%;
+      width: 220px;
+      height: 18px;
+      background: transparent;
+      pointer-events: auto;
+    }
+
+    .floating-whatsapp-wrap.is-hover-open .whatsapp-options {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
   </style>
 </head>
 <body>
@@ -2856,6 +2875,19 @@
       return `${leading}${translated}${trailing}`;
     }
 
+
+    function syncLanguageLinks(lang) {
+      const targetLang = lang || currentLang || localStorage.getItem('dingruiLang') || 'en';
+      document.querySelectorAll('a[href^="products/"]').forEach((link) => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const [pathPart, hashPart = ''] = href.split('#');
+        const [cleanPath] = pathPart.split('?');
+        const nextHref = `${cleanPath}?lang=${encodeURIComponent(targetLang)}${hashPart ? `#${hashPart}` : ''}`;
+        link.setAttribute('href', nextHref);
+      });
+    }
+
     function setLanguage(lang) {
       currentLang = lang;
       const langMeta = {
@@ -2905,6 +2937,7 @@
         control.setAttribute('placeholder', placeholders[enPlaceholder] || enPlaceholder);
       });
       updateProductMoreLabel();
+      syncLanguageLinks(lang);
     }
 
     function updateProductMoreLabel() {
@@ -2953,7 +2986,14 @@
 <script>
 (() => {
   document.querySelectorAll('.floating-whatsapp-wrap').forEach((item) => {
-    item.addEventListener('mouseleave', () => item.removeAttribute('open'));
+    item.addEventListener('mouseenter', () => {
+      item.setAttribute('open', '');
+      item.classList.add('is-hover-open');
+    });
+    item.addEventListener('mouseleave', () => {
+      item.classList.remove('is-hover-open');
+      item.removeAttribute('open');
+    });
   });
 })();
 </script>

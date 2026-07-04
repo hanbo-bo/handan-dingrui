@@ -85,6 +85,25 @@
       pointer-events: none;
     }
 
+  
+    .floating-whatsapp-wrap::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 100%;
+      width: 220px;
+      height: 18px;
+      background: transparent;
+      pointer-events: auto;
+    }
+
+    .floating-whatsapp-wrap.is-hover-open .whatsapp-options {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
   </style>
 </head>
 <body>
@@ -632,6 +651,10 @@
     'Blind Rivet': 'برشام أعمى'
   };
   const langSelect = document.getElementById('langSelect');
+
+  const validLangs = ['zh', 'en', 'ru', 'ar'];
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  const initialLang = validLangs.includes(urlLang) ? urlLang : (localStorage.getItem('dingruiLang') || 'en');
   const dictionaries = { zh: zhText, ru: ruText, ar: arText };
   const phraseDictionaries = { zh: zhPhrase, ru: ruPhrase, ar: arPhrase };
   const productName = document.querySelector('h1')?.textContent.trim() || '';
@@ -684,6 +707,19 @@
     ru: ['Крепление инженерных конструкций', 'Сборка машин и оборудования', 'Соединение стальных конструкций', 'Строительные и инфраструктурные проекты', 'Монтаж промышленных рам и кронштейнов'],
     ar: ['تثبيت الهياكل الهندسية', 'تجميع الآلات والمعدات', 'وصل الهياكل الفولاذية', 'مشاريع البناء والبنية التحتية', 'تركيب الإطارات والدعامات الصناعية']
   };
+
+  const syncProductLinks = (lang) => {
+    const targetLang = lang || initialLang || 'en';
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#')) return;
+      const [pathPart, hashPart = ''] = href.split('#');
+      if (!pathPart.endsWith('.html') && !pathPart.includes('.html?')) return;
+      const [cleanPath] = pathPart.split('?');
+      link.setAttribute('href', `${cleanPath}?lang=${encodeURIComponent(targetLang)}${hashPart ? `#${hashPart}` : ''}`);
+    });
+  };
+
   const setLanguage = (lang) => {
     const dict = dictionaries[lang] || {};
     const phrases = phraseDictionaries[lang] || {};
@@ -709,9 +745,10 @@
       }
     }
     localStorage.setItem('dingruiLang', lang);
+    syncProductLinks(lang);
   };
   if (langSelect) {
-    const saved = localStorage.getItem('dingruiLang') || 'en';
+    const saved = initialLang;
     langSelect.value = saved;
     setLanguage(saved);
     langSelect.addEventListener('change', (event) => setLanguage(event.target.value));
@@ -747,7 +784,14 @@
 <script>
 (() => {
   document.querySelectorAll('.floating-whatsapp-wrap').forEach((item) => {
-    item.addEventListener('mouseleave', () => item.removeAttribute('open'));
+    item.addEventListener('mouseenter', () => {
+      item.setAttribute('open', '');
+      item.classList.add('is-hover-open');
+    });
+    item.addEventListener('mouseleave', () => {
+      item.classList.remove('is-hover-open');
+      item.removeAttribute('open');
+    });
   });
 })();
 </script>
