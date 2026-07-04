@@ -114,6 +114,16 @@
       object-fit: cover;
     }
 
+    .brand-name {
+      display: block;
+      max-width: clamp(150px, 18vw, 260px);
+      color: var(--navy);
+      font-size: clamp(13px, 1.2vw, 16px);
+      font-weight: 900;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+    }
+
     .brand-title {
       font-weight: 800;
       color: var(--navy);
@@ -1575,6 +1585,12 @@
         min-width: auto;
       }
 
+      .brand-name {
+        max-width: 172px;
+        font-size: 13px;
+        line-height: 1.15;
+      }
+
       .brand-subtitle {
         display: none;
       }
@@ -1673,8 +1689,7 @@
     <div class="container nav">
       <a class="brand" href="#home" aria-label="Handan Dingrui Metal Products Co., Ltd.">
         <div class="logo"><img src="assets/dingrui-logo.jpg" alt="Handan Dingrui Metal Products Co., Ltd. logo" /></div>
-        
-      </a>
+        <span class="brand-name">Handan Dingrui Metal Products Co., Ltd.</span></a>
       <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <div class="nav-dropdown">
           <button class="nav-dropbtn" type="button">About ▾</button>
