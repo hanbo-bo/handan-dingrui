@@ -41,6 +41,23 @@
   
     .detail-lang-toggle{min-height:42px;padding:0 42px 0 16px;border:1px solid var(--line);border-radius:999px;background-color:#fff;background-image:linear-gradient(45deg,transparent 50%,var(--navy) 50%),linear-gradient(135deg,var(--navy) 50%,transparent 50%);background-position:calc(100% - 18px) 18px,calc(100% - 12px) 18px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;color:var(--navy);font-weight:800;appearance:none;-webkit-appearance:none}
     .nav-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  
+    .whatsapp-options{position:absolute;display:grid;gap:8px;padding:10px;border-radius:18px;background:#fff;border:1px solid var(--line);box-shadow:0 18px 46px rgba(11,35,65,.16);opacity:0;visibility:hidden;transition:opacity .2s ease,transform .2s ease,visibility .2s ease;min-width:190px;z-index:10001}
+    .whatsapp-option{display:grid;gap:2px;padding:10px 12px;border-radius:12px;color:var(--navy);background:#f4fbf7;border:1px solid rgba(37,211,102,.16);font-weight:900;line-height:1.2}
+    .whatsapp-option small{color:var(--muted);font-size:12px;font-weight:800}
+    .floating-whatsapp-wrap{position:fixed;right:24px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:10000;display:block}
+    .floating-whatsapp-wrap summary{list-style:none;cursor:pointer}.floating-whatsapp-wrap summary::-webkit-details-marker{display:none}
+    .floating-whatsapp-wrap[open] .whatsapp-options{opacity:1;visibility:visible;transform:translateY(0)}
+    .floating-whatsapp{display:inline-flex;align-items:center;gap:10px;min-width:66px;min-height:66px;padding:11px 16px 11px 12px;border-radius:999px;color:#fff;background:linear-gradient(135deg,#25d366,#12a84f);box-shadow:0 18px 42px rgba(18,168,79,.38);font-weight:900;border:2px solid rgba(255,255,255,.78);transition:transform .22s ease,box-shadow .22s ease}
+    .floating-whatsapp:hover{transform:translateY(-4px);box-shadow:0 24px 56px rgba(18,168,79,.48)}
+    .floating-whatsapp-icon{display:inline-flex;width:42px;height:42px;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+    .floating-whatsapp svg{width:24px;height:24px;fill:currentColor}.floating-whatsapp-text{display:grid;line-height:1.15}.floating-whatsapp-text small{color:rgba(255,255,255,.78);font-size:11px;font-weight:800}.floating-whatsapp-text span{font-size:13px;white-space:nowrap}
+    .floating-whatsapp-options{right:0;bottom:calc(100% + 12px);transform:translateY(12px)}
+    @media(max-width:680px){.floating-whatsapp-wrap{right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:block!important;visibility:visible!important}.floating-whatsapp{width:58px;height:58px;min-width:58px;min-height:58px;padding:10px;border-radius:50%}.floating-whatsapp-text{display:none}.floating-whatsapp-options{right:0;bottom:calc(100% + 10px);min-width:190px;max-width:calc(100vw - 32px)}}
+
+  
+    .floating-whatsapp-wrap:hover .whatsapp-options,.floating-whatsapp-wrap:focus-within .whatsapp-options{opacity:1;visibility:visible;transform:translateY(0)}
+
   </style>
 </head>
 <body>
@@ -65,6 +82,25 @@
       </a>
 
   </div></div></main>
+
+  <details class="floating-whatsapp-wrap">
+    <summary class="floating-whatsapp" aria-label="Choose a WhatsApp number">
+      <span class="floating-whatsapp-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.5 0 .16 5.34.16 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.26-1.64a11.9 11.9 0 0 0 5.82 1.48h.01c6.57 0 11.92-5.34 11.92-11.92 0-3.18-1.24-6.17-3.49-8.44ZM12.09 21.8h-.01a9.86 9.86 0 0 1-5.02-1.38l-.36-.21-3.72.98.99-3.63-.23-.37a9.85 9.85 0 0 1-1.51-5.27c0-5.44 4.42-9.86 9.87-9.86 2.64 0 5.11 1.03 6.98 2.9a9.78 9.78 0 0 1 2.89 6.97c0 5.43-4.43 9.86-9.88 9.86Zm5.41-7.39c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.08 3.17 5.04 4.45.7.3 1.25.48 1.68.62.71.23 1.35.19 1.86.12.57-.08 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/>
+        </svg>
+      </span>
+      <span class="floating-whatsapp-text">
+        <small data-float-help>Need help?</small>
+        <span data-float-chat>Chat on WhatsApp</span>
+      </span>
+    </summary>
+    <div class="whatsapp-options floating-whatsapp-options">
+      <a class="whatsapp-option" href="https://wa.me/8615831830173" target="_blank" rel="noopener"><span>WhatsApp 1</span><small>+86 158 3183 0173</small></a>
+      <a class="whatsapp-option" href="https://wa.me/8618103304525" target="_blank" rel="noopener"><span>WhatsApp 2</span><small>+86 181 0330 4525</small></a>
+    </div>
+  </details>
+
   <footer><div class="container">&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div></footer>
 
 
@@ -633,6 +669,39 @@
     setLanguage(saved);
     langSelect.addEventListener('change', (event) => setLanguage(event.target.value));
   }
+})();
+</script>
+
+
+<script>
+(() => {
+  const labels = {
+    en: ['Need help?', 'Chat on WhatsApp'],
+    zh: ['需要帮助？', 'WhatsApp 咨询'],
+    ru: ['Нужна помощь?', 'Написать в WhatsApp'],
+    ar: ['هل تحتاج مساعدة؟', 'تواصل عبر واتساب']
+  };
+  const help = document.querySelector('[data-float-help]');
+  const chat = document.querySelector('[data-float-chat]');
+  const select = document.getElementById('langSelect');
+  const apply = (lang) => {
+    const text = labels[lang] || labels.en;
+    if (help) help.textContent = text[0];
+    if (chat) chat.textContent = text[1];
+  };
+  if (select) {
+    apply(select.value || 'en');
+    select.addEventListener('change', (event) => apply(event.target.value));
+  }
+})();
+</script>
+
+
+<script>
+(() => {
+  document.querySelectorAll('.floating-whatsapp-wrap').forEach((item) => {
+    item.addEventListener('mouseleave', () => item.removeAttribute('open'));
+  });
 })();
 </script>
 
