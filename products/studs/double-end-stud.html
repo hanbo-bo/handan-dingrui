@@ -684,7 +684,7 @@
     localStorage.setItem('dingruiLang', lang);
   };
   if (langSelect) {
-    const saved = 'en';
+    const saved = localStorage.getItem('dingruiLang') || 'en';
     langSelect.value = saved;
     setLanguage(saved);
     langSelect.addEventListener('change', (event) => setLanguage(event.target.value));

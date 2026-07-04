@@ -2887,6 +2887,7 @@
       document.body.dir = meta.dir;
       document.title = meta.title;
       langSelect.value = lang;
+      localStorage.setItem('dingruiLang', lang);
 
       textNodes.forEach(({ node, en }) => {
         const key = en.trim();
@@ -2944,7 +2945,7 @@
       setTimeout(() => toast.classList.remove('show'), 4200);
     });
 
-    setLanguage('en');
+    setLanguage(localStorage.getItem('dingruiLang') || 'en');
   </script>
 
 <script>
