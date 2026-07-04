@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bolt class | Handan Dingrui Metal Products Co., Ltd.</title>
+  <link rel="icon" href="../assets/dingrui-logo.jpg" type="image/jpeg" />
+  <style>
+    :root {
+      --navy:#0b2341;
+      --blue:#1664c0;
+      --orange:#f59a23;
+      --ink:#172033;
+      --muted:#687386;
+      --line:#dfe6ef;
+      --soft:#f5f8fc;
+      --white:#fff;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif; color:var(--ink); background:#f1f4f8; line-height:1.7; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
+    header { background:rgba(255,255,255,.94); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:10; backdrop-filter:blur(14px); }
+    .nav { min-height:78px; display:flex; justify-content:space-between; align-items:center; gap:22px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:900; color:var(--navy); }
+    .brand img { width:56px; height:56px; border-radius:14px; object-fit:cover; border:1px solid var(--line); }
+    .back { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 18px; border-radius:999px; background:var(--navy); color:#fff; font-weight:800; }
+    .hero { background:linear-gradient(120deg,#071a31,#123d70); color:#fff; padding:82px 0; overflow:hidden; position:relative; }
+    .hero::after { content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px, transparent 1px); background-size:56px 56px; opacity:.7; }
+    .hero .container { position:relative; z-index:1; display:grid; grid-template-columns:1fr .7fr; gap:34px; align-items:center; }
+    .label { color:#f7b95f; text-transform:uppercase; letter-spacing:.18em; font-size:13px; font-weight:900; margin-bottom:14px; }
+    h1 { font-size:clamp(38px,6vw,68px); line-height:1.05; letter-spacing:-.04em; margin-bottom:18px; }
+    h1 span { display:block; font-size:.56em; letter-spacing:0; margin-top:10px; color:rgba(255,255,255,.84); }
+    .hero p { color:rgba(255,255,255,.78); font-size:18px; }
+    .visual { min-height:260px; border-radius:28px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.16); position:relative; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.22); }
+    .visual::before { content:""; position:absolute; width:330px; height:54px; left:50%; top:44%; border-radius:999px; transform:translate(-50%,-50%) rotate(-22deg); background:repeating-linear-gradient(90deg, rgba(104,116,134,.34) 0 6px, transparent 6px 16px), linear-gradient(90deg,#7c8da5,#f7f9fc,#73849d); box-shadow:0 22px 34px rgba(0,0,0,.18); }
+    .visual::after { content:""; position:absolute; width:92px; height:92px; right:70px; bottom:45px; border-radius:50%; background:radial-gradient(circle, transparent 0 30px, rgba(220,226,235,.95) 31px 44px, rgba(255,255,255,.98) 45px); }
+    main { padding:72px 0; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:24px; padding:30px; box-shadow:0 18px 42px rgba(11,35,65,.08); }
+    .card h2 { color:var(--navy); font-size:30px; margin-bottom:14px; }
+    .card p { color:var(--muted); }
+    .list { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:20px; }
+    .list span { padding:12px 14px; border-radius:14px; background:var(--soft); color:#354057; font-weight:800; }
+    .cta { margin-top:30px; display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 20px; border-radius:999px; font-weight:900; }
+    .primary { background:var(--orange); color:#fff; }
+    .secondary { background:#fff; color:var(--navy); border:1px solid var(--line); }
+    footer { padding:28px 0; background:#071a31; color:rgba(255,255,255,.72); }
+    @media (max-width:760px) { .hero .container,.grid,.list { grid-template-columns:1fr; } .nav { align-items:flex-start; padding:12px 0; flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="../index.html">
+        <img src="../assets/dingrui-logo.jpg" alt="Handan Dingrui logo" />
+        <span>Handan Dingrui Metal Products Co., Ltd.<br />邯郸鼎锐金属制品有限公司</span>
+      </a>
+      <a class="back" href="../index.html#products">Back to Product Center / 返回产品中心</a>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="container">
+      <div>
+        <div class="label">Products 产品</div>
+        <h1>Bolt class<span>螺栓类</span></h1>
+        <p>High-strength bolts, hex bolts, flange bolts, carriage bolts, U-bolts and customized threaded bolts for machinery, construction, equipment assembly and steel structures.</p>
+      </div>
+      <div class="visual" aria-hidden="true"></div>
+    </div>
+  </section>
+  <main>
+    <div class="container grid">
+      <section class="card">
+        <h2>Product Overview 产品概述</h2>
+        <p>高强度螺栓、外六角螺栓、法兰螺栓、马车螺栓、U 型螺栓及定制螺纹螺栓，适用于机械、建筑、设备装配和钢结构工程。</p>
+        <div class="cta">
+          <a class="btn primary" href="../index.html#contact">Request Quote / 获取报价</a>
+          <a class="btn secondary" href="../index.html#products">View More Products / 查看更多产品</a>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Available Items 可供产品</h2>
+        <div class="list">
+                    <span>Hex bolts</span>
+          <span>High strength bolts 8.8 / 10.9 / 12.9</span>
+          <span>U-bolts</span>
+          <span>Flange bolts</span>
+          <span>Carriage bolts</span>
+          <span>Custom threaded bolts</span>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Export Support 出口支持</h2>
+        <p>We support material selection, standard confirmation, sample checking, production follow-up, inspection, export packaging, shipping marks and logistics coordination for overseas buyers.</p>
+      </section>
+      <section class="card">
+        <h2>Customization 定制服务</h2>
+        <p>Products can be customized by drawing, sample, material, surface treatment, packing method, label and order quantity. Send your specifications for a practical quotation.</p>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">© Handan Dingrui Metal Products Co., Ltd. Fasteners · Export Trade · Custom Metal Parts</div>
+  </footer>
+</body>
+</html>
