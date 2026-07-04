@@ -275,6 +275,47 @@
       box-shadow: 0 10px 22px rgba(11, 35, 65, 0.14);
     }
 
+    .header-socials {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px;
+      border-radius: 999px;
+      background: rgba(11, 35, 65, 0.06);
+      border: 1px solid rgba(11, 35, 65, 0.08);
+    }
+
+    .header-social-link {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--white);
+      box-shadow: 0 8px 18px rgba(11, 35, 65, 0.16);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .header-social-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(11, 35, 65, 0.22);
+    }
+
+    .header-social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .header-social-link.whatsapp {
+      background: #25d366;
+    }
+
+    .header-social-link.facebook {
+      background: #1877f2;
+    }
+
     .menu-btn {
       display: none;
       width: 44px;
@@ -1213,6 +1254,62 @@
       border-color: rgba(255,255,255,0.18);
     }
 
+    .floating-whatsapp {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 40;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px 11px 12px;
+      border-radius: 999px;
+      color: var(--white);
+      background: linear-gradient(135deg, #25d366, #12a84f);
+      box-shadow: 0 18px 42px rgba(18, 168, 79, 0.38);
+      font-weight: 900;
+      border: 2px solid rgba(255,255,255,0.78);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 56px rgba(18, 168, 79, 0.48);
+    }
+
+    .floating-whatsapp-icon {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.16);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+    }
+
+    .floating-whatsapp svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .floating-whatsapp-text {
+      display: grid;
+      line-height: 1.15;
+    }
+
+    .floating-whatsapp-text small {
+      color: rgba(255,255,255,0.78);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .floating-whatsapp-text span {
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
     form {
       padding: 34px;
       border-radius: 30px;
@@ -1439,6 +1536,16 @@
       form {
         padding: 24px;
       }
+
+      .floating-whatsapp {
+        right: 16px;
+        bottom: 16px;
+        padding: 10px;
+      }
+
+      .floating-whatsapp-text {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -1480,6 +1587,18 @@
           <option value="ru">Русский</option>
           <option value="ar">العربية</option>
         </select>
+        <div class="header-socials" aria-label="Social media quick links">
+          <a class="header-social-link whatsapp" href="https://wa.me/8615831830173" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.5 0 .16 5.34.16 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.26-1.64a11.9 11.9 0 0 0 5.82 1.48h.01c6.57 0 11.92-5.34 11.92-11.92 0-3.18-1.24-6.17-3.49-8.44ZM12.09 21.8h-.01a9.86 9.86 0 0 1-5.02-1.38l-.36-.21-3.72.98.99-3.63-.23-.37a9.85 9.85 0 0 1-1.51-5.27c0-5.44 4.42-9.86 9.87-9.86 2.64 0 5.11 1.03 6.98 2.9a9.78 9.78 0 0 1 2.89 6.97c0 5.43-4.43 9.86-9.88 9.86Zm5.41-7.39c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.08 3.17 5.04 4.45.7.3 1.25.48 1.68.62.71.23 1.35.19 1.86.12.57-.08 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/>
+            </svg>
+          </a>
+          <a class="header-social-link facebook" href="https://www.facebook.com/profile.php?id=61590217920927" target="_blank" rel="noopener" aria-label="Follow us on Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.88v2.27h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/>
+            </svg>
+          </a>
+        </div>
         <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
       </div>
     </div>
@@ -1897,6 +2016,18 @@
 
   <div class="toast" id="toast">Inquiry form demo: please connect this form to your email or CRM before publishing.</div>
 
+  <a class="floating-whatsapp" href="https://wa.me/8615831830173" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <span class="floating-whatsapp-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.5 0 .16 5.34.16 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.26-1.64a11.9 11.9 0 0 0 5.82 1.48h.01c6.57 0 11.92-5.34 11.92-11.92 0-3.18-1.24-6.17-3.49-8.44ZM12.09 21.8h-.01a9.86 9.86 0 0 1-5.02-1.38l-.36-.21-3.72.98.99-3.63-.23-.37a9.85 9.85 0 0 1-1.51-5.27c0-5.44 4.42-9.86 9.87-9.86 2.64 0 5.11 1.03 6.98 2.9a9.78 9.78 0 0 1 2.89 6.97c0 5.43-4.43 9.86-9.88 9.86Zm5.41-7.39c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.08 3.17 5.04 4.45.7.3 1.25.48 1.68.62.71.23 1.35.19 1.86.12.57-.08 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/>
+      </svg>
+    </span>
+    <span class="floating-whatsapp-text">
+      <small>Need help?</small>
+      <span>Chat on WhatsApp</span>
+    </span>
+  </a>
+
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
@@ -2060,6 +2191,8 @@
       'Quick Quote': '快速询价',
       'WhatsApp 1': 'WhatsApp 1',
       'WhatsApp 2': 'WhatsApp 2',
+      'Need help?': '需要帮助？',
+      'Chat on WhatsApp': 'WhatsApp 咨询',
       'Email': '邮箱',
       'VIEW DETAILS +': '查看详情 +',
       'Handan Dingrui Metal Products Co., Ltd. All rights reserved.': '邯郸鼎锐金属制品有限公司 版权所有。',
@@ -2234,6 +2367,8 @@
       'Quick Quote': 'Быстрый запрос',
       'WhatsApp 1': 'WhatsApp 1',
       'WhatsApp 2': 'WhatsApp 2',
+      'Need help?': 'Нужна помощь?',
+      'Chat on WhatsApp': 'Написать в WhatsApp',
       'Handan Dingrui Metal Products Co., Ltd. All rights reserved.': 'Handan Dingrui Metal Products Co., Ltd. Все права защищены.',
       'OEM / ODM': 'OEM / ODM',
       'Black / Zinc': 'Черное / цинк',
@@ -2399,6 +2534,8 @@
       'Quick Quote': 'طلب سريع',
       'WhatsApp 1': 'واتساب 1',
       'WhatsApp 2': 'واتساب 2',
+      'Need help?': 'هل تحتاج مساعدة؟',
+      'Chat on WhatsApp': 'تواصل عبر واتساب',
       'Email': 'البريد الإلكتروني',
       'Handan Dingrui Metal Products Co., Ltd. All rights reserved.': 'شركة هاندان دينغروي للمنتجات المعدنية المحدودة. جميع الحقوق محفوظة.',
       'OEM / ODM': 'OEM / ODM',
