@@ -38,10 +38,13 @@
     footer{padding:28px 0;background:#071a31;color:rgba(255,255,255,.72);font-size:14px}
     @media(max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:600px){.product-grid{grid-template-columns:1fr}.nav{flex-direction:column;align-items:flex-start;padding:12px 0}}
+  
+    .detail-lang-toggle{min-height:42px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--navy);font-weight:800}
+    .nav-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   </style>
 </head>
 <body>
-  <header><div class="container nav"><a class="brand" href="../index.html"><img src="../assets/dingrui-logo.jpg" alt="Dingrui Logo" /><span>Handan Dingrui Metal Products Co., Ltd.<br/>邯郸鼎锐金属制品有限公司</span></a><a class="back" href="../index.html#products">Back to Products</a></div></header>
+  <header><div class="container nav"><a class="brand" href="../index.html"><img src="../assets/dingrui-logo.jpg" alt="Dingrui Logo" /></a><a class="back" href="../index.html#products">Back to Products</a><select class="detail-lang-toggle" id="langSelect" aria-label="Switch language"><option value="zh">中文</option><option value="en">English</option><option value="ru">Русский</option><option value="ar">العربية</option></select></header>
   <section class="hero"><div class="container"><div class="label">Products</div><h1>Washers Class</h1><p>Flat washers, spring washers, stainless steel washers and high-strength washers for load distribution, anti-loosening support, spacing and surface protection.</p></div></section>
   <div class="container"><div class="breadcrumb"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../index.html#products">Products</a> &nbsp;/&nbsp; Washers Class</div></div>
   <main><div class="container"><div class="product-grid">
@@ -73,5 +76,575 @@
 
   </div></div></main>
   <footer><div class="container">&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div></footer>
+
+
+<script>
+(() => {
+  const zhText = {
+    'Products': '产品中心',
+    'Home': '首页',
+    'Back to Products': '返回产品中心',
+    'Product Detail': '产品详情',
+    'Product Overview': '产品概述',
+    'Key Specifications': '关键规格',
+    'Application Scenarios': '应用场景',
+    'Need a quotation?': '需要报价？',
+    'Request Quote': '获取报价',
+    'Quick RFQ': '快速询价',
+    'VIEW DETAILS': '查看详情',
+    'Material': '材质',
+    'Standard': '标准',
+    'Grade': '等级',
+    'Surface': '表面处理',
+    'Application': '应用',
+    'Type': '类型',
+    'View All Bolts': '查看全部螺栓',
+    'View All Nuts': '查看全部螺母',
+    'View All Studs': '查看全部螺柱',
+    'View All Washers': '查看全部垫圈',
+    'View All Machine Screws': '查看全部机螺钉',
+    'View All Self-Tapping Screws': '查看全部自攻螺钉',
+    'View All Drill Tail Screws': '查看全部钻尾丝',
+    'View All Anchors': '查看全部锚固件',
+    'View All Other Fasteners': '查看全部其他紧固件',
+    'Fasteners · Export Trade · Custom Metal Parts': '紧固件 · 出口贸易 · 定制金属件',
+    'Bolt Class': '螺栓类',
+    'Nuts Class': '螺母类',
+    'Double-Headed Studs': '双头螺柱',
+    'Washer Class': '垫圈类',
+    'Machine Screw': '机螺钉',
+    'Self-Tapping Nails': '自攻螺钉',
+    'Drill Tail Filaments': '钻尾丝',
+    'Expansion Anchor': '锚固件',
+    'Other Fasteners': '其他紧固件',
+    'Custom Metal Parts': '定制金属件',
+    'Hex Bolt': '六角螺栓',
+    'Stainless Steel Hex Bolt': '不锈钢六角螺栓',
+    'Flange Bolt': '法兰螺栓',
+    'High-Strength Flange Bolt': '高强度法兰螺栓',
+    'Square Head Bolt': '方头螺栓',
+    'Hex Socket Bolt (Allen Bolt)': '内六角螺栓',
+    'High-Strength Hex Bolt': '高强度六角螺栓',
+    'Set Screw (Set Bolt)': '紧定螺钉',
+    'Carriage Bolt': '马车螺栓',
+    'Allen Key Bolt (Internal Hex)': '内六角螺栓',
+    'Hex Nut': '六角螺母',
+    'Stainless Steel Hex Nut': '不锈钢六角螺母',
+    'Thin Hex Nut': '薄六角螺母',
+    'Flange Nut': '法兰螺母',
+    'Nylon Lock Nut': '尼龙锁紧螺母',
+    'Wing Nut': '蝶形螺母',
+    'Cap Nut': '盖形螺母',
+    'High-Strength Hex Nut': '高强度六角螺母',
+    'Coupling Nut': '连接螺母',
+    'Heavy Hex Nut': '重型六角螺母',
+    'Double End Stud': '双头螺柱',
+    'Stainless Double End Stud': '不锈钢双头螺柱',
+    'Full Thread Stud': '全螺纹螺柱',
+    'Stainless Full Thread Stud': '不锈钢全螺纹螺柱',
+    'PTFE Full Thread Stud': 'PTFE 全螺纹螺柱',
+    'Flat Washer': '平垫圈',
+    'Stainless Flat Washer': '不锈钢平垫圈',
+    'Spring Washer': '弹簧垫圈',
+    'Stainless Spring Washer': '不锈钢弹簧垫圈',
+    'High-Strength Flat Washer': '高强度平垫圈',
+    'High-Strength Spring Washer': '高强度弹簧垫圈',
+    'Stainless Countersunk Phillips Machine Screw': '不锈钢十字沉头机螺钉',
+    'Stainless Pan Head Phillips Machine Screw': '不锈钢十字盘头机螺钉',
+    'Chipboard Screw': '纤维板钉',
+    'Coarse Thread Drywall Screw': '粗牙干壁钉',
+    'Fine Thread Drywall Screw': '细牙干壁钉',
+    'Flat Head Phillips Self-Tapping Screw': '十字沉头自攻螺钉',
+    'Pan Head Self-Tapping Screw': '盘头自攻螺钉',
+    'Truss Head Self-Tapping Screw': '大扁头自攻螺钉',
+    'Hex Head Drilling Screw': '六角头钻尾丝',
+    'Washer Head Drilling Screw': '带垫头钻尾丝',
+    'Pan Head Drilling Screw': '盘头钻尾丝',
+    'Painted Drilling Screw': '彩色钻尾丝',
+    'Expansion Bolt': '膨胀螺栓',
+    'Anchor Bolt': '地脚螺栓',
+    'Chemical Anchor Bolt': '化学锚栓',
+    'Concrete Undercut Anchor': '混凝土倒锥锚栓',
+    'Hot-Dip Galvanized Chemical Anchor': '热镀锌化学锚栓',
+    'Blind Rivet': '抽芯铆钉'
+  };
+  const ruText = {
+    'Products': 'Продукция',
+    'Home': 'Главная',
+    'Back to Products': 'Назад к продукции',
+    'Product Detail': 'Детали продукта',
+    'Product Overview': 'Обзор продукта',
+    'Key Specifications': 'Основные характеристики',
+    'Application Scenarios': 'Сценарии применения',
+    'Need a quotation?': 'Нужна цена?',
+    'Request Quote': 'Запросить цену',
+    'Quick RFQ': 'Быстрый запрос',
+    'VIEW DETAILS': 'ПОДРОБНЕЕ',
+    'Material': 'Материал',
+    'Standard': 'Стандарт',
+    'Grade': 'Класс',
+    'Surface': 'Покрытие',
+    'Application': 'Применение',
+    'Type': 'Тип',
+    'Fasteners · Export Trade · Custom Metal Parts': 'Крепеж · Экспорт · Металлические детали на заказ',
+    'Bolt Class': 'Болты',
+    'Nuts Class': 'Гайки',
+    'Double-Headed Studs': 'Двухсторонние шпильки',
+    'Washer Class': 'Шайбы',
+    'Machine Screw': 'Машинные винты',
+    'Self-Tapping Nails': 'Саморезы',
+    'Drill Tail Filaments': 'Сверлоконечные винты',
+    'Expansion Anchor': 'Анкеры',
+    'Other Fasteners': 'Другой крепеж',
+    'Custom Metal Parts': 'Металлические детали на заказ',
+    'Hex Bolt': 'Шестигранный болт',
+    'Stainless Steel Hex Bolt': 'Шестигранный болт из нержавеющей стали',
+    'Flange Bolt': 'Фланцевый болт',
+    'High-Strength Flange Bolt': 'Высокопрочный фланцевый болт',
+    'Square Head Bolt': 'Болт с квадратной головкой',
+    'Hex Socket Bolt (Allen Bolt)': 'Болт с внутренним шестигранником',
+    'High-Strength Hex Bolt': 'Высокопрочный шестигранный болт',
+    'Set Screw (Set Bolt)': 'Установочный винт',
+    'Carriage Bolt': 'Кареточный болт',
+    'Allen Key Bolt (Internal Hex)': 'Болт под шестигранный ключ',
+    'Hex Nut': 'Шестигранная гайка',
+    'Stainless Steel Hex Nut': 'Шестигранная гайка из нержавеющей стали',
+    'Thin Hex Nut': 'Тонкая шестигранная гайка',
+    'Flange Nut': 'Фланцевая гайка',
+    'Nylon Lock Nut': 'Гайка с нейлоновым фиксатором',
+    'Wing Nut': 'Барашковая гайка',
+    'Cap Nut': 'Колпачковая гайка',
+    'High-Strength Hex Nut': 'Высокопрочная шестигранная гайка',
+    'Coupling Nut': 'Соединительная гайка',
+    'Heavy Hex Nut': 'Тяжелая шестигранная гайка',
+    'Double End Stud': 'Двухсторонняя шпилька',
+    'Stainless Double End Stud': 'Нержавеющая двухсторонняя шпилька',
+    'Full Thread Stud': 'Полностью резьбовая шпилька',
+    'Stainless Full Thread Stud': 'Нержавеющая полностью резьбовая шпилька',
+    'PTFE Full Thread Stud': 'PTFE полностью резьбовая шпилька',
+    'Flat Washer': 'Плоская шайба',
+    'Stainless Flat Washer': 'Нержавеющая плоская шайба',
+    'Spring Washer': 'Пружинная шайба',
+    'Stainless Spring Washer': 'Нержавеющая пружинная шайба',
+    'High-Strength Flat Washer': 'Высокопрочная плоская шайба',
+    'High-Strength Spring Washer': 'Высокопрочная пружинная шайба',
+    'Stainless Countersunk Phillips Machine Screw': 'Нержавеющий машинный винт с потайной головкой',
+    'Stainless Pan Head Phillips Machine Screw': 'Нержавеющий машинный винт с полукруглой головкой',
+    'Chipboard Screw': 'Винт для ДСП',
+    'Coarse Thread Drywall Screw': 'Винт для гипсокартона с крупной резьбой',
+    'Fine Thread Drywall Screw': 'Винт для гипсокартона с мелкой резьбой',
+    'Flat Head Phillips Self-Tapping Screw': 'Саморез с потайной головкой',
+    'Pan Head Self-Tapping Screw': 'Саморез с полукруглой головкой',
+    'Truss Head Self-Tapping Screw': 'Саморез с широкой головкой',
+    'Hex Head Drilling Screw': 'Сверлоконечный винт с шестигранной головкой',
+    'Washer Head Drilling Screw': 'Сверлоконечный винт с шайбой',
+    'Pan Head Drilling Screw': 'Сверлоконечный винт с полукруглой головкой',
+    'Painted Drilling Screw': 'Окрашенный сверлоконечный винт',
+    'Expansion Bolt': 'Распорный болт',
+    'Anchor Bolt': 'Анкерный болт',
+    'Chemical Anchor Bolt': 'Химический анкерный болт',
+    'Concrete Undercut Anchor': 'Анкер для бетона с подрезкой',
+    'Hot-Dip Galvanized Chemical Anchor': 'Химический анкер горячего цинкования',
+    'Blind Rivet': 'Вытяжная заклепка'
+  };
+  const arText = {
+    'Products': 'المنتجات',
+    'Home': 'الرئيسية',
+    'Back to Products': 'العودة إلى المنتجات',
+    'Product Detail': 'تفاصيل المنتج',
+    'Product Overview': 'نظرة عامة على المنتج',
+    'Key Specifications': 'المواصفات الرئيسية',
+    'Application Scenarios': 'سيناريوهات الاستخدام',
+    'Need a quotation?': 'هل تحتاج عرض سعر؟',
+    'Request Quote': 'طلب عرض سعر',
+    'Quick RFQ': 'طلب سريع',
+    'VIEW DETAILS': 'عرض التفاصيل',
+    'Material': 'المادة',
+    'Standard': 'المعيار',
+    'Grade': 'الدرجة',
+    'Surface': 'معالجة السطح',
+    'Application': 'الاستخدام',
+    'Type': 'النوع',
+    'Fasteners · Export Trade · Custom Metal Parts': 'مثبتات · تجارة تصدير · قطع معدنية مخصصة',
+    'Bolt Class': 'البراغي',
+    'Nuts Class': 'الصواميل',
+    'Double-Headed Studs': 'مسامير مزدوجة الطرف',
+    'Washer Class': 'الغسالات',
+    'Machine Screw': 'مسامير الماكينة',
+    'Self-Tapping Nails': 'مسامير قلاوظ ذاتي',
+    'Drill Tail Filaments': 'مسامير ذات رأس حفر',
+    'Expansion Anchor': 'المثبتات',
+    'Other Fasteners': 'مثبتات أخرى',
+    'Custom Metal Parts': 'قطع معدنية مخصصة',
+    'Hex Bolt': 'برغي سداسي',
+    'Stainless Steel Hex Bolt': 'برغي سداسي من الفولاذ المقاوم للصدأ',
+    'Flange Bolt': 'برغي فلنجة',
+    'High-Strength Flange Bolt': 'برغي فلنجة عالي القوة',
+    'Square Head Bolt': 'برغي برأس مربع',
+    'Hex Socket Bolt (Allen Bolt)': 'برغي سداسي داخلي',
+    'High-Strength Hex Bolt': 'برغي سداسي عالي القوة',
+    'Set Screw (Set Bolt)': 'برغي تثبيت',
+    'Carriage Bolt': 'برغي عربة',
+    'Allen Key Bolt (Internal Hex)': 'برغي ألن داخلي',
+    'Hex Nut': 'صامولة سداسية',
+    'Stainless Steel Hex Nut': 'صامولة سداسية من الفولاذ المقاوم للصدأ',
+    'Thin Hex Nut': 'صامولة سداسية رفيعة',
+    'Flange Nut': 'صامولة فلنجة',
+    'Nylon Lock Nut': 'صامولة قفل نايلون',
+    'Wing Nut': 'صامولة جناحية',
+    'Cap Nut': 'صامولة غطاء',
+    'High-Strength Hex Nut': 'صامولة سداسية عالية القوة',
+    'Coupling Nut': 'صامولة توصيل',
+    'Heavy Hex Nut': 'صامولة سداسية ثقيلة',
+    'Double End Stud': 'مسمار مزدوج الطرف',
+    'Stainless Double End Stud': 'مسمار مزدوج الطرف من الفولاذ المقاوم للصدأ',
+    'Full Thread Stud': 'مسمار كامل القلاوظ',
+    'Stainless Full Thread Stud': 'مسمار كامل القلاوظ من الفولاذ المقاوم للصدأ',
+    'PTFE Full Thread Stud': 'مسمار كامل القلاوظ PTFE',
+    'Flat Washer': 'غسالة مسطحة',
+    'Stainless Flat Washer': 'غسالة مسطحة من الفولاذ المقاوم للصدأ',
+    'Spring Washer': 'غسالة زنبركية',
+    'Stainless Spring Washer': 'غسالة زنبركية من الفولاذ المقاوم للصدأ',
+    'High-Strength Flat Washer': 'غسالة مسطحة عالية القوة',
+    'High-Strength Spring Washer': 'غسالة زنبركية عالية القوة',
+    'Stainless Countersunk Phillips Machine Screw': 'مسمار ماكينة غاطس من الفولاذ المقاوم للصدأ',
+    'Stainless Pan Head Phillips Machine Screw': 'مسمار ماكينة برأس دائري من الفولاذ المقاوم للصدأ',
+    'Chipboard Screw': 'مسمار ألواح خشبية',
+    'Coarse Thread Drywall Screw': 'مسمار دريوال خشن القلاوظ',
+    'Fine Thread Drywall Screw': 'مسمار دريوال ناعم القلاوظ',
+    'Flat Head Phillips Self-Tapping Screw': 'مسمار قلاوظ ذاتي برأس غاطس',
+    'Pan Head Self-Tapping Screw': 'مسمار قلاوظ ذاتي برأس دائري',
+    'Truss Head Self-Tapping Screw': 'مسمار قلاوظ ذاتي برأس عريض',
+    'Hex Head Drilling Screw': 'مسمار حفر برأس سداسي',
+    'Washer Head Drilling Screw': 'مسمار حفر برأس مع غسالة',
+    'Pan Head Drilling Screw': 'مسمار حفر برأس دائري',
+    'Painted Drilling Screw': 'مسمار حفر مطلي',
+    'Expansion Bolt': 'برغي تمدد',
+    'Anchor Bolt': 'برغي تثبيت',
+    'Chemical Anchor Bolt': 'برغي تثبيت كيميائي',
+    'Concrete Undercut Anchor': 'مثبت خرسانة مقطوع',
+    'Hot-Dip Galvanized Chemical Anchor': 'مثبت كيميائي مجلفن بالغمس الساخن',
+    'Blind Rivet': 'برشام أعمى'
+  };
+  const zhPhrase = {
+    'Back to': '返回',
+    'View All': '查看全部',
+    'Carbon Steel': '碳钢',
+    'Stainless Steel': '不锈钢',
+    'Alloy Steel': '合金钢',
+    'Brass': '黄铜',
+    'Aluminum': '铝',
+    'Copper': '铜',
+    'Zinc Plated': '镀锌',
+    'Hot-dip Galvanized': '热镀锌',
+    'Hot-Dip Galvanized': '热镀锌',
+    'Black Oxide': '发黑',
+    'Plain': '本色',
+    'Custom Drawing': '按图定制',
+    'Customized': '定制',
+    'Construction': '建筑工程',
+    'machinery': '机械',
+    'steel structures': '钢结构',
+    'equipment': '设备',
+    'Bolt Class': '螺栓类',
+    'Nuts Class': '螺母类',
+    'Double-Headed Studs': '双头螺柱',
+    'Washer Class': '垫圈类',
+    'Machine Screw': '机螺钉',
+    'Self-Tapping Nails': '自攻螺钉',
+    'Drill Tail Filaments': '钻尾丝',
+    'Expansion Anchor': '锚固件',
+    'Other Fasteners': '其他紧固件',
+    'Custom Metal Parts': '定制金属件',
+    'Hex Bolt': '六角螺栓',
+    'Stainless Steel Hex Bolt': '不锈钢六角螺栓',
+    'Flange Bolt': '法兰螺栓',
+    'High-Strength Flange Bolt': '高强度法兰螺栓',
+    'Square Head Bolt': '方头螺栓',
+    'Hex Socket Bolt (Allen Bolt)': '内六角螺栓',
+    'High-Strength Hex Bolt': '高强度六角螺栓',
+    'Set Screw (Set Bolt)': '紧定螺钉',
+    'Carriage Bolt': '马车螺栓',
+    'Allen Key Bolt (Internal Hex)': '内六角螺栓',
+    'Hex Nut': '六角螺母',
+    'Stainless Steel Hex Nut': '不锈钢六角螺母',
+    'Thin Hex Nut': '薄六角螺母',
+    'Flange Nut': '法兰螺母',
+    'Nylon Lock Nut': '尼龙锁紧螺母',
+    'Wing Nut': '蝶形螺母',
+    'Cap Nut': '盖形螺母',
+    'High-Strength Hex Nut': '高强度六角螺母',
+    'Coupling Nut': '连接螺母',
+    'Heavy Hex Nut': '重型六角螺母',
+    'Double End Stud': '双头螺柱',
+    'Stainless Double End Stud': '不锈钢双头螺柱',
+    'Full Thread Stud': '全螺纹螺柱',
+    'Stainless Full Thread Stud': '不锈钢全螺纹螺柱',
+    'PTFE Full Thread Stud': 'PTFE 全螺纹螺柱',
+    'Flat Washer': '平垫圈',
+    'Stainless Flat Washer': '不锈钢平垫圈',
+    'Spring Washer': '弹簧垫圈',
+    'Stainless Spring Washer': '不锈钢弹簧垫圈',
+    'High-Strength Flat Washer': '高强度平垫圈',
+    'High-Strength Spring Washer': '高强度弹簧垫圈',
+    'Stainless Countersunk Phillips Machine Screw': '不锈钢十字沉头机螺钉',
+    'Stainless Pan Head Phillips Machine Screw': '不锈钢十字盘头机螺钉',
+    'Chipboard Screw': '纤维板钉',
+    'Coarse Thread Drywall Screw': '粗牙干壁钉',
+    'Fine Thread Drywall Screw': '细牙干壁钉',
+    'Flat Head Phillips Self-Tapping Screw': '十字沉头自攻螺钉',
+    'Pan Head Self-Tapping Screw': '盘头自攻螺钉',
+    'Truss Head Self-Tapping Screw': '大扁头自攻螺钉',
+    'Hex Head Drilling Screw': '六角头钻尾丝',
+    'Washer Head Drilling Screw': '带垫头钻尾丝',
+    'Pan Head Drilling Screw': '盘头钻尾丝',
+    'Painted Drilling Screw': '彩色钻尾丝',
+    'Expansion Bolt': '膨胀螺栓',
+    'Anchor Bolt': '地脚螺栓',
+    'Chemical Anchor Bolt': '化学锚栓',
+    'Concrete Undercut Anchor': '混凝土倒锥锚栓',
+    'Hot-Dip Galvanized Chemical Anchor': '热镀锌化学锚栓',
+    'Blind Rivet': '抽芯铆钉'
+  };
+  const ruPhrase = {
+    'Back to': 'Назад к',
+    'View All': 'Все',
+    'Carbon Steel': 'Углеродистая сталь',
+    'Stainless Steel': 'Нержавеющая сталь',
+    'Alloy Steel': 'Легированная сталь',
+    'Brass': 'Латунь',
+    'Aluminum': 'Алюминий',
+    'Copper': 'Медь',
+    'Zinc Plated': 'Цинковое покрытие',
+    'Hot-dip Galvanized': 'Горячее цинкование',
+    'Hot-Dip Galvanized': 'Горячее цинкование',
+    'Black Oxide': 'Чернение',
+    'Plain': 'Без покрытия',
+    'Custom Drawing': 'По чертежу',
+    'Customized': 'Индивидуально',
+    'Bolt Class': 'Болты',
+    'Nuts Class': 'Гайки',
+    'Double-Headed Studs': 'Двухсторонние шпильки',
+    'Washer Class': 'Шайбы',
+    'Machine Screw': 'Машинные винты',
+    'Self-Tapping Nails': 'Саморезы',
+    'Drill Tail Filaments': 'Сверлоконечные винты',
+    'Expansion Anchor': 'Анкеры',
+    'Other Fasteners': 'Другой крепеж',
+    'Custom Metal Parts': 'Металлические детали на заказ',
+    'Hex Bolt': 'Шестигранный болт',
+    'Stainless Steel Hex Bolt': 'Шестигранный болт из нержавеющей стали',
+    'Flange Bolt': 'Фланцевый болт',
+    'High-Strength Flange Bolt': 'Высокопрочный фланцевый болт',
+    'Square Head Bolt': 'Болт с квадратной головкой',
+    'Hex Socket Bolt (Allen Bolt)': 'Болт с внутренним шестигранником',
+    'High-Strength Hex Bolt': 'Высокопрочный шестигранный болт',
+    'Set Screw (Set Bolt)': 'Установочный винт',
+    'Carriage Bolt': 'Кареточный болт',
+    'Allen Key Bolt (Internal Hex)': 'Болт под шестигранный ключ',
+    'Hex Nut': 'Шестигранная гайка',
+    'Stainless Steel Hex Nut': 'Шестигранная гайка из нержавеющей стали',
+    'Thin Hex Nut': 'Тонкая шестигранная гайка',
+    'Flange Nut': 'Фланцевая гайка',
+    'Nylon Lock Nut': 'Гайка с нейлоновым фиксатором',
+    'Wing Nut': 'Барашковая гайка',
+    'Cap Nut': 'Колпачковая гайка',
+    'High-Strength Hex Nut': 'Высокопрочная шестигранная гайка',
+    'Coupling Nut': 'Соединительная гайка',
+    'Heavy Hex Nut': 'Тяжелая шестигранная гайка',
+    'Double End Stud': 'Двухсторонняя шпилька',
+    'Stainless Double End Stud': 'Нержавеющая двухсторонняя шпилька',
+    'Full Thread Stud': 'Полностью резьбовая шпилька',
+    'Stainless Full Thread Stud': 'Нержавеющая полностью резьбовая шпилька',
+    'PTFE Full Thread Stud': 'PTFE полностью резьбовая шпилька',
+    'Flat Washer': 'Плоская шайба',
+    'Stainless Flat Washer': 'Нержавеющая плоская шайба',
+    'Spring Washer': 'Пружинная шайба',
+    'Stainless Spring Washer': 'Нержавеющая пружинная шайба',
+    'High-Strength Flat Washer': 'Высокопрочная плоская шайба',
+    'High-Strength Spring Washer': 'Высокопрочная пружинная шайба',
+    'Stainless Countersunk Phillips Machine Screw': 'Нержавеющий машинный винт с потайной головкой',
+    'Stainless Pan Head Phillips Machine Screw': 'Нержавеющий машинный винт с полукруглой головкой',
+    'Chipboard Screw': 'Винт для ДСП',
+    'Coarse Thread Drywall Screw': 'Винт для гипсокартона с крупной резьбой',
+    'Fine Thread Drywall Screw': 'Винт для гипсокартона с мелкой резьбой',
+    'Flat Head Phillips Self-Tapping Screw': 'Саморез с потайной головкой',
+    'Pan Head Self-Tapping Screw': 'Саморез с полукруглой головкой',
+    'Truss Head Self-Tapping Screw': 'Саморез с широкой головкой',
+    'Hex Head Drilling Screw': 'Сверлоконечный винт с шестигранной головкой',
+    'Washer Head Drilling Screw': 'Сверлоконечный винт с шайбой',
+    'Pan Head Drilling Screw': 'Сверлоконечный винт с полукруглой головкой',
+    'Painted Drilling Screw': 'Окрашенный сверлоконечный винт',
+    'Expansion Bolt': 'Распорный болт',
+    'Anchor Bolt': 'Анкерный болт',
+    'Chemical Anchor Bolt': 'Химический анкерный болт',
+    'Concrete Undercut Anchor': 'Анкер для бетона с подрезкой',
+    'Hot-Dip Galvanized Chemical Anchor': 'Химический анкер горячего цинкования',
+    'Blind Rivet': 'Вытяжная заклепка'
+  };
+  const arPhrase = {
+    'Back to': 'العودة إلى',
+    'View All': 'عرض كل',
+    'Carbon Steel': 'فولاذ كربوني',
+    'Stainless Steel': 'فولاذ مقاوم للصدأ',
+    'Alloy Steel': 'فولاذ سبائكي',
+    'Brass': 'نحاس أصفر',
+    'Aluminum': 'ألمنيوم',
+    'Copper': 'نحاس',
+    'Zinc Plated': 'مطلي بالزنك',
+    'Hot-dip Galvanized': 'مجلفن بالغمس الساخن',
+    'Hot-Dip Galvanized': 'مجلفن بالغمس الساخن',
+    'Black Oxide': 'أكسيد أسود',
+    'Plain': 'عادي',
+    'Custom Drawing': 'حسب الرسم',
+    'Customized': 'مخصص',
+    'Bolt Class': 'البراغي',
+    'Nuts Class': 'الصواميل',
+    'Double-Headed Studs': 'مسامير مزدوجة الطرف',
+    'Washer Class': 'الغسالات',
+    'Machine Screw': 'مسامير الماكينة',
+    'Self-Tapping Nails': 'مسامير قلاوظ ذاتي',
+    'Drill Tail Filaments': 'مسامير ذات رأس حفر',
+    'Expansion Anchor': 'المثبتات',
+    'Other Fasteners': 'مثبتات أخرى',
+    'Custom Metal Parts': 'قطع معدنية مخصصة',
+    'Hex Bolt': 'برغي سداسي',
+    'Stainless Steel Hex Bolt': 'برغي سداسي من الفولاذ المقاوم للصدأ',
+    'Flange Bolt': 'برغي فلنجة',
+    'High-Strength Flange Bolt': 'برغي فلنجة عالي القوة',
+    'Square Head Bolt': 'برغي برأس مربع',
+    'Hex Socket Bolt (Allen Bolt)': 'برغي سداسي داخلي',
+    'High-Strength Hex Bolt': 'برغي سداسي عالي القوة',
+    'Set Screw (Set Bolt)': 'برغي تثبيت',
+    'Carriage Bolt': 'برغي عربة',
+    'Allen Key Bolt (Internal Hex)': 'برغي ألن داخلي',
+    'Hex Nut': 'صامولة سداسية',
+    'Stainless Steel Hex Nut': 'صامولة سداسية من الفولاذ المقاوم للصدأ',
+    'Thin Hex Nut': 'صامولة سداسية رفيعة',
+    'Flange Nut': 'صامولة فلنجة',
+    'Nylon Lock Nut': 'صامولة قفل نايلون',
+    'Wing Nut': 'صامولة جناحية',
+    'Cap Nut': 'صامولة غطاء',
+    'High-Strength Hex Nut': 'صامولة سداسية عالية القوة',
+    'Coupling Nut': 'صامولة توصيل',
+    'Heavy Hex Nut': 'صامولة سداسية ثقيلة',
+    'Double End Stud': 'مسمار مزدوج الطرف',
+    'Stainless Double End Stud': 'مسمار مزدوج الطرف من الفولاذ المقاوم للصدأ',
+    'Full Thread Stud': 'مسمار كامل القلاوظ',
+    'Stainless Full Thread Stud': 'مسمار كامل القلاوظ من الفولاذ المقاوم للصدأ',
+    'PTFE Full Thread Stud': 'مسمار كامل القلاوظ PTFE',
+    'Flat Washer': 'غسالة مسطحة',
+    'Stainless Flat Washer': 'غسالة مسطحة من الفولاذ المقاوم للصدأ',
+    'Spring Washer': 'غسالة زنبركية',
+    'Stainless Spring Washer': 'غسالة زنبركية من الفولاذ المقاوم للصدأ',
+    'High-Strength Flat Washer': 'غسالة مسطحة عالية القوة',
+    'High-Strength Spring Washer': 'غسالة زنبركية عالية القوة',
+    'Stainless Countersunk Phillips Machine Screw': 'مسمار ماكينة غاطس من الفولاذ المقاوم للصدأ',
+    'Stainless Pan Head Phillips Machine Screw': 'مسمار ماكينة برأس دائري من الفولاذ المقاوم للصدأ',
+    'Chipboard Screw': 'مسمار ألواح خشبية',
+    'Coarse Thread Drywall Screw': 'مسمار دريوال خشن القلاوظ',
+    'Fine Thread Drywall Screw': 'مسمار دريوال ناعم القلاوظ',
+    'Flat Head Phillips Self-Tapping Screw': 'مسمار قلاوظ ذاتي برأس غاطس',
+    'Pan Head Self-Tapping Screw': 'مسمار قلاوظ ذاتي برأس دائري',
+    'Truss Head Self-Tapping Screw': 'مسمار قلاوظ ذاتي برأس عريض',
+    'Hex Head Drilling Screw': 'مسمار حفر برأس سداسي',
+    'Washer Head Drilling Screw': 'مسمار حفر برأس مع غسالة',
+    'Pan Head Drilling Screw': 'مسمار حفر برأس دائري',
+    'Painted Drilling Screw': 'مسمار حفر مطلي',
+    'Expansion Bolt': 'برغي تمدد',
+    'Anchor Bolt': 'برغي تثبيت',
+    'Chemical Anchor Bolt': 'برغي تثبيت كيميائي',
+    'Concrete Undercut Anchor': 'مثبت خرسانة مقطوع',
+    'Hot-Dip Galvanized Chemical Anchor': 'مثبت كيميائي مجلفن بالغمس الساخن',
+    'Blind Rivet': 'برشام أعمى'
+  };
+  const langSelect = document.getElementById('langSelect');
+  const dictionaries = { zh: zhText, ru: ruText, ar: arText };
+  const phraseDictionaries = { zh: zhPhrase, ru: ruPhrase, ar: arPhrase };
+  const productName = document.querySelector('h1')?.textContent.trim() || '';
+  const pageTitle = document.title;
+  const textNodes = [];
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      if (node.parentElement && ['SCRIPT', 'STYLE', 'OPTION'].includes(node.parentElement.tagName)) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    textNodes.push({ node, original: node.nodeValue });
+  }
+  const applyPhrase = (text, phrases) => {
+    let result = text;
+    Object.entries(phrases || {}).forEach(([key, value]) => {
+      result = result.split(key).join(value);
+    });
+    return result;
+  };
+  const translateText = (text, dict, phrases) => {
+    const trimmed = text.trim();
+    if (!trimmed) return text;
+    let translated = dict[trimmed] || trimmed;
+    if (!dict[trimmed]) translated = applyPhrase(translated, phrases);
+    return text.replace(trimmed, translated);
+  };
+  const translatedProductName = (lang) => (dictionaries[lang] && dictionaries[lang][productName]) || productName;
+  const localizedParagraph = (lang, type) => {
+    const name = translatedProductName(lang);
+    if (lang === 'zh') {
+      if (type === 'quote') return `请发送尺寸、材质、表面处理、数量、图纸（如有）和目的港信息，我们将回复适合出口订单的实用报价。`;
+      return `${name}适用于工程固定、机械装配、钢结构、设备安装及工业采购场景。我们可根据材质等级、执行标准、表面处理、包装方式和出口订单数量提供定制供应。`;
+    }
+    if (lang === 'ru') {
+      if (type === 'quote') return `Отправьте размер, материал, покрытие, количество, чертежи при наличии и порт назначения. Мы подготовим практичное экспортное предложение.`;
+      return `${name} подходит для инженерного крепления, сборки оборудования, стальных конструкций, монтажа и промышленных закупок. Мы можем поставлять продукцию по требованиям к материалу, стандарту, покрытию, упаковке и объему экспортного заказа.`;
+    }
+    if (lang === 'ar') {
+      if (type === 'quote') return `أرسل المقاس والمادة ومعالجة السطح والكمية والرسومات إن وجدت وميناء الوجهة، وسنقدم عرض سعر عملياً مناسباً للتصدير.`;
+      return `${name} مناسب للتثبيت الهندسي وتجميع المعدات والهياكل الفولاذية والتركيب والمشتريات الصناعية. يمكننا التوريد حسب درجة المادة والمعيار ومعالجة السطح وطريقة التغليف وكمية طلب التصدير.`;
+    }
+    return '';
+  };
+  const localizedApplications = {
+    zh: ['工程结构固定', '机械设备装配', '钢结构连接', '建筑与基础设施项目', '工业框架和支架安装'],
+    ru: ['Крепление инженерных конструкций', 'Сборка машин и оборудования', 'Соединение стальных конструкций', 'Строительные и инфраструктурные проекты', 'Монтаж промышленных рам и кронштейнов'],
+    ar: ['تثبيت الهياكل الهندسية', 'تجميع الآلات والمعدات', 'وصل الهياكل الفولاذية', 'مشاريع البناء والبنية التحتية', 'تركيب الإطارات والدعامات الصناعية']
+  };
+  const setLanguage = (lang) => {
+    const dict = dictionaries[lang] || {};
+    const phrases = phraseDictionaries[lang] || {};
+    textNodes.forEach(item => {
+      item.node.nodeValue = lang === 'en' ? item.original : translateText(item.original, dict, phrases);
+    });
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.title = lang === 'en' ? pageTitle : translateText(pageTitle, dict, phrases);
+    if (lang !== 'en') {
+      const paragraphs = Array.from(document.querySelectorAll('.hero p, .panel p'));
+      paragraphs.forEach((p, index) => {
+        if (p.closest('.cta')) return;
+        if (p.textContent.trim().length > 70) p.textContent = localizedParagraph(lang, 'overview');
+      });
+      const ctaParagraph = document.querySelector('.cta p');
+      if (ctaParagraph) ctaParagraph.textContent = localizedParagraph(lang, 'quote');
+      const appItems = Array.from(document.querySelectorAll('.applications li'));
+      if (appItems.length && localizedApplications[lang]) {
+        appItems.forEach((li, index) => {
+          li.textContent = localizedApplications[lang][index % localizedApplications[lang].length];
+        });
+      }
+    }
+    localStorage.setItem('dingruiLang', lang);
+  };
+  if (langSelect) {
+    const saved = 'en';
+    langSelect.value = saved;
+    setLanguage(saved);
+    langSelect.addEventListener('change', (event) => setLanguage(event.target.value));
+  }
+})();
+</script>
+
 </body>
 </html>
