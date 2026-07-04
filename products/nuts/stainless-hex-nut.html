@@ -61,6 +61,33 @@
   
     .floating-whatsapp-wrap:hover .whatsapp-options,.floating-whatsapp-wrap:focus-within .whatsapp-options{opacity:1;visibility:visible;transform:translateY(0)}
 
+  
+    .whatsapp-options {
+      pointer-events: none;
+      transform: translateY(12px) scale(0.96);
+      transform-origin: bottom right;
+      transition:
+        opacity 0.22s ease,
+        transform 0.24s cubic-bezier(.2,.8,.2,1),
+        visibility 0.22s ease;
+    }
+
+    .floating-whatsapp-wrap:hover .whatsapp-options,
+    .floating-whatsapp-wrap:focus-within .whatsapp-options,
+    .floating-whatsapp-wrap[open] .whatsapp-options {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .floating-whatsapp-wrap:not(:hover):not(:focus-within):not([open]) .whatsapp-options {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px) scale(0.96);
+      pointer-events: none;
+    }
+
   </style>
 </head>
 <body>
