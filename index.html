@@ -679,19 +679,21 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(135deg, #0f2a4a 0%, #153e75 52%, #1e3a8a 100%);
+      background:
+        radial-gradient(circle at 78% 26%, rgba(22,100,192,0.08), transparent 34%),
+        linear-gradient(160deg, #ffffff 0%, #f8fafc 54%, #eef3f9 100%);
       opacity: 0;
       transition: opacity 0.42s ease;
     }
 
     .category-card:hover {
       transform: translateY(-12px);
-      border-color: rgba(30, 58, 138, 0.28);
-      box-shadow: 0 30px 70px rgba(11, 35, 65, 0.2);
+      border-color: rgba(22, 100, 192, 0.22);
+      box-shadow: 0 28px 66px rgba(11, 35, 65, 0.16);
     }
 
     .category-card:hover::before {
-      opacity: 1;
+      opacity: 0.98;
     }
 
     .category-label {
@@ -728,8 +730,8 @@
 
     .category-card:hover .category-photo {
       opacity: 1;
-      filter: saturate(1.08) contrast(1.05) drop-shadow(0 24px 26px rgba(0, 0, 0, 0.28));
-      transform: translateX(8px) translateY(-10px) rotate(-3deg) scale(1.12);
+      filter: saturate(1.04) contrast(1.03) drop-shadow(0 24px 26px rgba(11, 35, 65, 0.16));
+      transform: translateX(6px) translateY(-8px) rotate(-3deg) scale(1.1);
     }
 
 
@@ -849,7 +851,7 @@
       font-size: 12px;
       font-weight: 900;
       white-space: nowrap;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 10px 24px rgba(11, 35, 65, 0.12);
       transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
     }
 
@@ -863,15 +865,15 @@
     }
 
     .category-action.secondary {
-      background: rgba(255,255,255,0.12);
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.18);
+      background: #ffffff;
+      color: var(--navy);
+      border: 1px solid rgba(22,100,192,0.18);
       cursor: pointer;
     }
 
     .category-action.secondary:hover {
-      background: rgba(255,255,255,0.2);
-      border-color: rgba(255,255,255,0.34);
+      background: #f4f8fd;
+      border-color: rgba(22,100,192,0.34);
     }
 
     .category-card:hover .category-label,
@@ -882,7 +884,7 @@
     }
 
     .category-card:hover h3 {
-      color: #ffffff;
+      color: var(--navy);
     }
 
     .category-card:hover .category-hover {
@@ -955,6 +957,33 @@
       border: 15px solid #a7b3c3;
       border-radius: 50%;
       box-shadow: inset 0 8px 16px rgba(0,0,0,0.1), 0 14px 28px rgba(11,35,65,0.16);
+    }
+
+    .product-thumb.has-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      padding: 22px;
+    }
+
+    .product-thumb.has-image::before,
+    .product-thumb.has-image::after {
+      display: none;
+    }
+
+    .product-thumb.has-image img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 18px rgba(11,35,65,.16));
+      transition: transform .45s ease;
+    }
+
+    .product-card:hover .product-thumb.has-image img {
+      transform: scale(1.05) rotate(-3deg);
     }
 
     .product-body {
@@ -1117,6 +1146,17 @@
     .contact-card span,
     .contact-card a {
       color: rgba(255,255,255,0.72);
+    }
+
+    .contact-phone-list {
+      display: grid;
+      gap: 6px;
+    }
+
+    .contact-phone-list a {
+      display: block;
+      line-height: 1.5;
+      letter-spacing: .02em;
     }
 
     form {
@@ -1352,7 +1392,7 @@
   <div class="topbar">
     <div class="container topbar-inner">
       <div>Professional Fasteners & Custom Metal Parts Exporter</div>
-      <div><strong>Phone:</strong> <a href="tel:+8618803081507">+86 188 0308 1507</a> &nbsp; | &nbsp; <strong>Email:</strong> <a href="mailto:hebeibinli@gmail.com">hebeibinli@gmail.com</a></div>
+      <div><strong>Phone:</strong> <a href="tel:+8615831830173">+86 158 3183 0173</a> / <a href="tel:+8618103304525">+86 181 0330 4525</a> &nbsp; | &nbsp; <strong>Email:</strong> <a href="mailto:zzmsn1107@gmail.com">zzmsn1107@gmail.com</a></div>
     </div>
   </div>
 
@@ -1427,9 +1467,9 @@
       <div class="container about-grid">
         <div class="about-panel">
           <div class="label">About Company</div>
-          <h2>One-stop export partner for hardware fasteners.</h2>
-          <p>Handan Dingrui Metal Products Co., Ltd. is positioned as a professional supplier of threaded fastening hardware and customized metal parts. The company focuses on product development, manufacturing coordination, quality control, packaging, and export service.</p>
-          <p>Our product scope covers stainless steel 201 / 304 / 316 series, high-strength carbon steel fasteners, hex bolts, socket screws, nuts, copper parts, self-tapping screws, drilling screws, expansion bolts, anchor bolts, and related standard parts.</p>
+          <h2>中国紧固件产业基地的高品质金属紧固件制造与出口企业。</h2>
+          <p>邯郸鼎锐金属制品有限公司位于中国紧固件产业核心基地——河北邯郸，专注于高品质金属紧固件研发、生产与全球出口。</p>
+          <p>公司整合成熟的金属制品供应链资源，为全球客户提供稳定、高效的一站式紧固件解决方案。</p>
           <div class="check-list">
             <div class="check-item"><span>✓</span> International and national standard production support</div>
             <div class="check-item"><span>✓</span> Quality control before shipment</div>
@@ -1451,7 +1491,12 @@
         <div class="about-details">
           <article class="detail-card" id="company-profile">
             <h3>Company Profile</h3>
-            <p>Based in Handan, Hebei, Handan Dingrui Metal Products Co., Ltd. connects China’s metal products manufacturing resources with global markets. The company focuses on export trade and fastener supply, providing bolts, nuts, screws, washers, anchors, threaded rods, stainless steel fasteners, and non-standard metal parts, together with quotation, sample confirmation, production follow-up, inspection, export packaging, logistics coordination, and long-term supply chain service.</p>
+            <p>邯郸鼎锐金属制品有限公司位于中国紧固件产业核心基地——河北邯郸，是一家专注于高品质金属紧固件研发、生产与全球出口的专业制造企业。</p>
+            <p>公司致力于整合中国成熟的金属制品供应链资源，为全球客户提供稳定、高效的一站式紧固件解决方案，助力客户提升采购效率与供应链竞争力。</p>
+            <p>主营产品涵盖：螺栓、螺母、螺钉、自攻螺丝、钻尾螺丝、垫圈、牙条、锚栓、不锈钢紧固件以及各类非标定制金属件，广泛应用于建筑工程、钢结构、机械制造、光伏系统、家具五金及工业装配领域。</p>
+            <p>公司不仅提供标准化产品供应，还为客户提供完整的外贸服务体系，包括：报价支持、样品开发、技术确认、订单生产跟进、质量检验控制、出口包装设计以及全球物流协调，确保每一批订单稳定交付。</p>
+            <p>鼎锐始终坚持“质量为核心、客户为导向、长期合作为目标”的经营理念，产品远销中东、东南亚、欧洲、南美及非洲等多个国家和地区，赢得了全球客户的长期信赖。</p>
+            <p>未来，我们将继续提升制造能力与国际服务水平，成为值得全球客户信赖的紧固件长期合作伙伴。</p>
           </article>
         </div>
       </div>
@@ -1611,7 +1656,7 @@
         </div>
         <div class="grid product-grid">
           <article class="product-card">
-            <div class="product-thumb"></div>
+            <div class="product-thumb has-image"><img src="assets/products/coarse-thread-drywall-screw.jpg" alt="Self-tapping and drilling screws" /></div>
             <div class="product-body">
               <h3>Self-tapping & Drilling Screws</h3>
               <p>Self-tapping screws, drywall screws, chipboard screws, and drilling screws for building and hardware use.</p>
@@ -1619,7 +1664,7 @@
             </div>
           </article>
           <article class="product-card">
-            <div class="product-thumb"></div>
+            <div class="product-thumb has-image"><img src="assets/products/full-thread-stud.jpg" alt="Full Thread Stud" /></div>
             <div class="product-body">
               <h3>Full Thread Stud</h3>
               <p>Full thread studs and threaded rods for construction fixing, machinery installation, and adjustable support systems.</p>
@@ -1627,7 +1672,7 @@
             </div>
           </article>
           <article class="product-card">
-            <div class="product-thumb"></div>
+            <div class="product-thumb has-image"><img src="assets/products/high-strength-hex-bolt.jpg" alt="High Strength Outer Hexagon Bolts" /></div>
             <div class="product-body">
               <h3>High Strength Outer Hexagon Bolts</h3>
               <p>Carbon steel and alloy steel bolts for machinery, construction, steel structures, and industrial assembly.</p>
@@ -1710,15 +1755,18 @@
           <div class="contact-cards">
             <div class="contact-card">
               <b>Phone / WhatsApp</b>
-              <a href="tel:+8618803081507">+86 188 0308 1507</a>
+              <div class="contact-phone-list">
+                <a href="tel:+8615831830173">+86 158 3183 0173</a>
+                <a href="tel:+8618103304525">+86 181 0330 4525</a>
+              </div>
             </div>
             <div class="contact-card">
               <b>Email</b>
-              <a href="mailto:hebeibinli@gmail.com">hebeibinli@gmail.com</a>
+              <a href="mailto:zzmsn1107@gmail.com">zzmsn1107@gmail.com</a>
             </div>
             <div class="contact-card">
               <b>Address</b>
-              <span>Handan City, Hebei Province, China</span>
+              <span>No. 702, Zhonghua North Street, Congtai District, Handan City, Hebei Province, China</span>
             </div>
           </div>
         </div>
@@ -1893,7 +1941,7 @@
       'Tell us the product name, material, standard, size, quantity, surface treatment, packaging requirement, and destination country. We will reply with a quotation plan.': '请告诉我们产品名称、材质、标准、尺寸、数量、表面处理、包装要求和目的国家，我们将回复报价方案。',
       'Phone / WhatsApp': '电话 / WhatsApp',
       'Address': '地址',
-      'Handan City, Hebei Province, China': '中国河北省邯郸市',
+      'No. 702, Zhonghua North Street, Congtai District, Handan City, Hebei Province, China': '中国河北省邯郸市丛台区中华北大街702号',
       'Your Name': '您的姓名',
       'Country': '国家/地区',
       'Product Category': '产品类别',
@@ -2016,7 +2064,7 @@
       'Tell us the product name, material, standard, size, quantity, surface treatment, packaging requirement, and destination country. We will reply with a quotation plan.': 'Сообщите название изделия, материал, стандарт, размер, количество, покрытие, требования к упаковке и страну назначения. Мы ответим планом报价.',
       'Phone / WhatsApp': 'Телефон / WhatsApp',
       'Address': 'Адрес',
-      'Handan City, Hebei Province, China': 'г. Ханьдань, провинция Хэбэй, Китай',
+      'No. 702, Zhonghua North Street, Congtai District, Handan City, Hebei Province, China': '№ 702, улица Чжунхуа Бэйдацзе, район Цунтай, г. Ханьдань, провинция Хэбэй, Китай',
       'Your Name': 'Ваше имя',
       'Country': 'Страна',
       'Product Category': 'Категория продукта',
@@ -2132,7 +2180,7 @@
       'Tell us the product name, material, standard, size, quantity, surface treatment, packaging requirement, and destination country. We will reply with a quotation plan.': 'أخبرنا باسم المنتج والمادة والمعيار والمقاس والكمية ومعالجة السطح ومتطلبات التغليف وبلد الوجهة، وسنرد بخطة عرض السعر.',
       'Phone / WhatsApp': 'الهاتف / واتساب',
       'Address': 'العنوان',
-      'Handan City, Hebei Province, China': 'مدينة هاندان، مقاطعة خبي، الصين',
+      'No. 702, Zhonghua North Street, Congtai District, Handan City, Hebei Province, China': 'رقم 702، شارع تشونغهوا الشمالي، حي تسونغتاي، مدينة هاندان، مقاطعة خبي، الصين',
       'Your Name': 'اسمك',
       'Country': 'الدولة',
       'Product Category': 'فئة المنتج',
