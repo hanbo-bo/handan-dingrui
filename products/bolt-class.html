@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -27,17 +27,17 @@
     .breadcrumb a{color:var(--blue);font-weight:700}
     main{padding:40px 0 72px}
     .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-    .product-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:all .35s cubic-bezier(.4,0,.2,1);cursor:pointer;display:flex;flex-direction:column}
+    .product-card{background:#fff;border-radius:24px;overflow:hidden;transition:all .35s cubic-bezier(.4,0,.2,1);cursor:pointer;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(11,35,65,.06)}
     .product-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(11,35,65,.14)}
     .product-card:hover .card-img img{transform:scale(1.05)}
-    .product-card:hover .card-btn{background:var(--red);color:#fff;padding-left:28px;padding-right:28px}
-    .card-img{height:240px;overflow:hidden;background:#f8f9fb;display:flex;align-items:center;justify-content:center}
-    .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.4,0,.2,1)}
-    .card-info{padding:24px;flex:1;display:flex;flex-direction:column}
-    .card-info h3{font-size:20px;color:var(--navy);margin-bottom:6px;font-weight:900}
+    .card-img{height:260px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;padding:20px}
+    .card-img img{width:100%;height:100%;object-fit:contain;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+    .card-info{padding:22px 24px 28px;flex:1;display:flex;flex-direction:column}
+    .card-info h3{font-size:22px;color:var(--navy);margin-bottom:8px;font-weight:900}
     .card-info h3 span{display:block;font-size:14px;font-weight:400;color:var(--muted);margin-top:4px}
-    .card-info p{font-size:13px;color:var(--muted);margin-bottom:16px;flex:1}
-    .card-btn{display:inline-flex;align-items:center;justify-content:center;height:42px;border-radius:999px;border:2px solid var(--red);color:var(--red);font-weight:800;font-size:13px;transition:all .3s ease;align-self:flex-start}
+    .card-info p{font-size:14px;color:var(--muted);margin-bottom:20px;flex:1;line-height:1.6}
+    .card-btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 24px;border-radius:999px;background:var(--red);color:#fff;font-weight:800;font-size:13px;transition:all .3s ease;align-self:flex-start;box-shadow:0 6px 16px rgba(230,0,18,.25)}
+    .card-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(230,0,18,.35)}
     footer{padding:28px 0;background:#071a31;color:rgba(255,255,255,.72);font-size:14px}
     @media(max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:600px){.product-grid{grid-template-columns:1fr}.nav{flex-direction:column;align-items:flex-start;padding:12px 0}}
@@ -50,18 +50,18 @@
         <img src="../assets/dingrui-logo.jpg" alt="Dingrui Logo" />
         <span>Handan Dingrui Metal Products Co., Ltd.<br/>邯郸鼎锐金属制品有限公司</span>
       </a>
-      <a class="back" href="../index.html#products">Back to Products / 返回产品中心</a>
+      <a class="back" href="../index.html#products">Back to Products</a>
     </div>
   </header>
   <section class="hero">
     <div class="container">
-      <div class="label">Products 产品</div>
-      <h1>Bolt Class<span>螺栓类</span></h1>
+      <div class="label">Products</div>
+      <h1>Bolt Class</h1>
       <p>Hex bolts, flange bolts, carriage bolts, square head bolts, socket bolts, high-strength bolts and more. Stainless steel, carbon steel and alloy steel available.</p>
     </div>
   </section>
   <div class="container">
-    <div class="breadcrumb"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../index.html#products">Products</a> &nbsp;/&nbsp; Bolt Class 螺栓类</div>
+    <div class="breadcrumb"><a href="../index.html">Home</a> &nbsp;/&nbsp; <a href="../index.html#products">Products</a> &nbsp;/&nbsp; Bolt Class</div>
   </div>
   <main>
     <div class="container">
@@ -69,12 +69,12 @@
         
       <a class="product-card" href="bolts/hex-bolt.html">
         <div class="card-img">
-          <img src="../assets/products/hex-bolt-cover.jpg" alt="Hex Bolt" loading="lazy" />
+          <img src="../assets/products/hex-bolt-cover-clean.png" alt="Hex Bolt" loading="lazy" />
         </div>
         <div class="card-info">
-          <h3>Hex Bolt<span>外六角螺栓</span></h3>
+          <h3>Hex Bolt</h3>
           <p>Stainless steel 304/316, Carbon steel 4.8/8.8/10.9/12.9, Alloy steel</p>
-          <div class="card-btn">VIEW DETAILS 查看详情</div>
+          <div class="card-btn">VIEW DETAILS</div>
         </div>
       </a>
       <a class="product-card" href="bolts/stainless-hex-bolt.html">
@@ -82,9 +82,9 @@
           <img src="../assets/products/stainless-hex-bolt.jpg" alt="Stainless Steel Hex Bolt" loading="lazy" />
         </div>
         <div class="card-info">
-          <h3>Stainless Steel Hex Bolt<span>不锈钢外六角螺栓</span></h3>
+          <h3>Stainless Steel Hex Bolt</h3>
           <p>Stainless steel 201, 304, 316, 316L, A2-70, A4-80</p>
-          <div class="card-btn">VIEW DETAILS 查看详情</div>
+          <div class="card-btn">VIEW DETAILS</div>
         </div>
       </a>
       <a class="product-card" href="bolts/flange-bolt.html">
@@ -92,9 +92,9 @@
           <img src="../assets/products/flange-bolt.jpg" alt="Flange Bolt" loading="lazy" />
         </div>
         <div class="card-info">
-          <h3>Flange Bolt<span>法兰螺栓</span></h3>
+          <h3>Flange Bolt</h3>
           <p>Carbon steel 8.8/10.9, Stainless steel 304/316</p>
-          <div class="card-btn">VIEW DETAILS 查看详情</div>
+          <div class="card-btn">VIEW DETAILS</div>
         </div>
       </a>
       <a class="product-card" href="bolts/high-strength-flange-bolt.html">
@@ -102,9 +102,9 @@
           <img src="../assets/products/high-strength-flange-bolt.jpg" alt="High-Strength Flange Bolt" loading="lazy" />
         </div>
         <div class="card-info">
-          <h3>High-Strength Flange Bolt<span>高强度法兰螺栓</span></h3>
+          <h3>High-Strength Flange Bolt</h3>
           <p>Carbon steel 10.9/12.9, Alloy steel SCM435</p>
-          <div class="card-btn">VIEW DETAILS 查看详情</div>
+          <div class="card-btn">VIEW DETAILS</div>
         </div>
       </a>
       <a class="product-card" href="bolts/square-head-bolt.html">
@@ -112,9 +112,9 @@
           <img src="../assets/products/square-head-bolt.jpg" alt="Square Head Bolt" loading="lazy" />
         </div>
         <div class="card-info">
-          <h3>Square Head Bolt<span>方头螺栓</span></h3>
+          <h3>Square Head Bolt</h3>
           <p>Carbon steel 4.8/8.8, Stainless steel 304/316</p>
-          <div class="card-btn">VIEW DETAILS 查看详情</div>
+          <div class="card-btn">VIEW DETAILS</div>
         </div>
       </a>
       <a class="product-card" href="bolts/hex-socket-bolt.html">
@@ -122,9 +122,9 @@
           <img src="../assets/products/hex-socket-bolt.jpg" alt="Hex Socket Bolt (Allen Bolt)" loading="lazy" />
         </div>
         <div class="card-info">
-          <h3>Hex Socket Bolt (Allen Bolt)<span>内六角螺栓</span></h3>
+          <h3>Hex Socket Bolt (Allen Bolt)</h3>
           <p>Carbon steel 8.8/10.9/12.9, Stainless steel 304/316, Alloy steel</p>
-          <div class="card-btn">VIEW DETAILS 查看详情</div>
+          <div class="card-btn">VIEW DETAILS</div>
         </div>
       </a>
       <a class="product-card" href="bolts/high-strength-hex-bolt.html">
@@ -132,9 +132,9 @@
           <img src="../assets/products/high-strength-hex-bolt.jpg" alt="High-Strength Hex Bolt" loading="lazy" />
         </div>
         <div class="card-info">
-          <h3>High-Strength Hex Bolt<span>高强度外六角螺栓</span></h3>
+          <h3>High-Strength Hex Bolt</h3>
           <p>Carbon steel 8.8/10.9/12.9, Alloy steel 40Cr, 35CrMo</p>
-          <div class="card-btn">VIEW DETAILS 查看详情</div>
+          <div class="card-btn">VIEW DETAILS</div>
         </div>
       </a>
       <a class="product-card" href="bolts/set-screw.html">
@@ -142,9 +142,9 @@
           <img src="../assets/products/set-screw.jpg" alt="Set Screw (Set Bolt)" loading="lazy" />
         </div>
         <div class="card-info">
-          <h3>Set Screw (Set Bolt)<span>紧定螺钉</span></h3>
+          <h3>Set Screw (Set Bolt)</h3>
           <p>Stainless steel 304/316, Carbon steel 35/45#, Alloy steel</p>
-          <div class="card-btn">VIEW DETAILS 查看详情</div>
+          <div class="card-btn">VIEW DETAILS</div>
         </div>
       </a>
       <a class="product-card" href="bolts/carriage-bolt.html">
@@ -152,9 +152,9 @@
           <img src="../assets/products/carriage-bolt.png" alt="Carriage Bolt" loading="lazy" />
         </div>
         <div class="card-info">
-          <h3>Carriage Bolt<span>马车螺栓</span></h3>
+          <h3>Carriage Bolt</h3>
           <p>Carbon steel 4.8/8.8, Stainless steel 304/316</p>
-          <div class="card-btn">VIEW DETAILS 查看详情</div>
+          <div class="card-btn">VIEW DETAILS</div>
         </div>
       </a>
       <a class="product-card" href="bolts/allen-key-bolt.html">
@@ -162,9 +162,9 @@
           <img src="../assets/products/allen-key-bolt.jpg" alt="Allen Key Bolt (Internal Hex)" loading="lazy" />
         </div>
         <div class="card-info">
-          <h3>Allen Key Bolt (Internal Hex)<span>内六角圆柱头螺钉</span></h3>
+          <h3>Allen Key Bolt (Internal Hex)</h3>
           <p>Carbon steel 8.8/10.9/12.9, Stainless steel 304/316/316L</p>
-          <div class="card-btn">VIEW DETAILS 查看详情</div>
+          <div class="card-btn">VIEW DETAILS</div>
         </div>
       </a>
       </div>
