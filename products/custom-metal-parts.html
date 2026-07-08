@@ -785,6 +785,21 @@
     });
   };
 
+  const originalHeroTexts = [];
+  const originalCtaText = document.querySelector('.cta p')?.textContent || '';
+  const originalAppTexts = [];
+  (() => {
+    const paragraphs = Array.from(document.querySelectorAll('.hero p, .panel p'));
+    paragraphs.forEach((p, index) => {
+      if (p.closest('.cta')) return;
+      originalHeroTexts[index] = p.textContent;
+    });
+    const appItems = Array.from(document.querySelectorAll('.applications li'));
+    appItems.forEach((li, index) => {
+      originalAppTexts[index] = li.textContent;
+    });
+  })();
+
   const setLanguage = (lang) => {
     const dict = dictionaries[lang] || {};
     const phrases = phraseDictionaries[lang] || {};
@@ -794,20 +809,20 @@
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.title = lang === 'en' ? pageTitle : translateText(pageTitle, dict, phrases);
-    if (lang !== 'en') {
-      const paragraphs = Array.from(document.querySelectorAll('.hero p, .panel p'));
-      paragraphs.forEach((p, index) => {
-        if (p.closest('.cta')) return;
-        if (p.textContent.trim().length > 70) p.textContent = localizedParagraph(lang, 'overview');
-      });
-      const ctaParagraph = document.querySelector('.cta p');
-      if (ctaParagraph) ctaParagraph.textContent = localizedParagraph(lang, 'quote');
-      const appItems = Array.from(document.querySelectorAll('.applications li'));
-      if (appItems.length && localizedApplications[lang]) {
-        appItems.forEach((li, index) => {
-          li.textContent = localizedApplications[lang][index % localizedApplications[lang].length];
-        });
+    const paragraphs = Array.from(document.querySelectorAll('.hero p, .panel p'));
+    paragraphs.forEach((p, index) => {
+      if (p.closest('.cta')) return;
+      if (p.textContent.trim().length > 70 || originalHeroTexts[index]) {
+        p.textContent = lang === 'en' ? (originalHeroTexts[index] || p.textContent) : localizedParagraph(lang, 'overview');
       }
+    });
+    const ctaParagraph = document.querySelector('.cta p');
+    if (ctaParagraph) ctaParagraph.textContent = lang === 'en' ? originalCtaText : localizedParagraph(lang, 'quote');
+    const appItems = Array.from(document.querySelectorAll('.applications li'));
+    if (appItems.length) {
+      appItems.forEach((li, index) => {
+        li.textContent = lang === 'en' ? (originalAppTexts[index] || li.textContent) : (localizedApplications[lang] ? localizedApplications[lang][index % localizedApplications[lang].length] : (originalAppTexts[index] || li.textContent));
+      });
     }
     localStorage.setItem('dingruiLang', lang);
     syncProductLinks(lang);

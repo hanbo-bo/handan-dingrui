@@ -1,6 +1,6 @@
 # 邯郸鼎锐金属制品有限公司
 
->邯郸鼎锐金属制品有限公司——专业紧固件及定制金属零部件出口商
+> Handan Dingrui Metal Products Co., Ltd. — Professional Fastener & Custom Metal Parts Exporter
 
 ---
 
@@ -55,8 +55,8 @@
 
 ## 联系方式
 
-- **电话 / WhatsApp**：+86 181 0330 4525
-- **邮箱**：zzmsn1107@gmail.com
+- **电话 / WhatsApp**：+86 188 0308 1507
+- **邮箱**：hebeibinli@gmail.com
 - **地址**：中国河北省邯郸市
 
 ---
@@ -80,9 +80,9 @@
 
 1. 将代码推送到 GitHub 仓库
 2. 进入仓库 Settings → Pages
-3.源选择“从分支部署”，分支选择 main / root
+3. Source 选择 Deploy from a branch，Branch 选择 main / root
 4. 等待几秒后即可通过 `https://你的用户名.github.io/仓库名` 访问
 
 ---
 
-&copy;2026年邯郸鼎锐金属制品有限公司 版权所有。
+&copy; 2026 Handan Dingrui Metal Products Co., Ltd. All rights reserved.

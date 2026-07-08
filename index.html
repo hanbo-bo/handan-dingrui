@@ -12,6 +12,7 @@
       --navy: #0b2341;
       --blue: #1664c0;
       --orange: #f59a23;
+      --red: #e60012;
       --ink: #172033;
       --muted: #687386;
       --line: #dfe6ef;
@@ -784,149 +785,72 @@
     }
 
     .category-card {
-      position: relative;
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all .35s cubic-bezier(.4,0,.2,1);
+      cursor: pointer;
       display: flex;
       flex-direction: column;
-      min-height: 330px;
-      aspect-ratio: 4 / 5;
-      padding: 24px;
-      border-radius: 30px;
-      background:
-        radial-gradient(circle at 78% 30%, rgba(255, 255, 255, 0.96), transparent 32%),
-        linear-gradient(160deg, #ffffff 0%, #f5f7fb 55%, #eef2f8 100%);
-      border: 1px solid rgba(223, 230, 239, 0.82);
-      overflow: hidden;
-      box-shadow: 0 18px 44px rgba(11, 35, 65, 0.08);
-      isolation: isolate;
-      transition: transform 0.45s cubic-bezier(.2,.8,.2,1), box-shadow 0.45s ease, border-color 0.45s ease;
-    }
-
-    .category-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        radial-gradient(circle at 78% 26%, rgba(22,100,192,0.08), transparent 34%),
-        linear-gradient(160deg, #ffffff 0%, #f8fafc 54%, #eef3f9 100%);
-      opacity: 0;
-      transition: opacity 0.42s ease;
+      box-shadow: 0 4px 20px rgba(11,35,65,.06);
+      border: none;
+      min-height: auto;
+      aspect-ratio: auto;
+      padding: 0;
+      position: relative;
     }
 
     .category-card:hover {
-      transform: translateY(-12px);
-      border-color: rgba(22, 100, 192, 0.22);
-      box-shadow: 0 28px 66px rgba(11, 35, 65, 0.16);
-    }
-
-    .category-card:hover::before {
-      opacity: 0.98;
-    }
-
-    .category-label {
-      position: relative;
-      z-index: 4;
-      color: #7b8798;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      transition: color 0.35s ease, opacity 0.35s ease;
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(11,35,65,.14);
     }
 
     .category-visual {
-      position: relative;
-      z-index: 3;
-      flex: 1;
+      height: 200px;
+      overflow: hidden;
+      background: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 10px -8px 2px;
-      min-height: 150px;
+      padding: 20px;
+      margin: 0;
+      min-height: auto;
+      font-size: 0;
+      line-height: 0;
     }
 
     .category-photo {
-      width: min(92%, 250px);
-      max-height: 180px;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      opacity: 0.68;
-      filter: saturate(0.9) contrast(0.98) drop-shadow(0 18px 22px rgba(11, 35, 65, 0.14));
-      transform: translateX(0) rotate(-7deg) scale(1);
-      transition: opacity 0.45s ease, transform 0.52s cubic-bezier(.2,.8,.2,1), filter 0.45s ease;
+      opacity: 1;
+      filter: none;
+      transform: none;
+      transition: transform .5s cubic-bezier(.4,0,.2,1);
+      display: block;
     }
 
     .category-card:hover .category-photo {
+      transform: scale(1.05);
       opacity: 1;
-      filter: saturate(1.04) contrast(1.03) drop-shadow(0 24px 26px rgba(11, 35, 65, 0.16));
-      transform: translateX(6px) translateY(-8px) rotate(-3deg) scale(1.1);
-    }
-
-
-    .category-logo-mark {
-      width: 128px;
-      height: 128px;
-      border-radius: 38px;
-      display: grid;
-      place-items: center;
-      position: relative;
-      background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(226,233,244,.86));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 24px 42px rgba(11,35,65,.12);
-      transition: transform .45s ease, opacity .35s ease;
-    }
-    .category-logo-mark::before {
-      content: "";
-      position: absolute;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 34% 28%, #fff, #b8c3d2 48%, #6d7e92 100%);
-      box-shadow: -34px 24px 0 -12px #b8c3d2, 34px 24px 0 -12px #b8c3d2, 0 -34px 0 -16px #e60012;
-    }
-    .category-logo-mark::after {
-      content: "OF";
-      position: absolute;
-      bottom: 16px;
-      right: 18px;
-      font-size: 18px;
-      font-weight: 1000;
-      color: #0b2341;
-      letter-spacing: -.08em;
-    }
-    .category-card:hover .category-logo-mark {
-      transform: scale(1.06) rotate(-4deg);
-      opacity: .95;
-    }
-
-    .category-ghost {
-      width: 106px;
-      height: 106px;
-      border-radius: 34px;
-      display: grid;
-      place-items: center;
-      color: rgba(15, 42, 74, 0.18);
-      background: linear-gradient(145deg, rgba(255,255,255,0.86), rgba(222,228,238,0.75));
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: -0.08em;
-      transition: opacity 0.35s ease, transform 0.45s ease;
-    }
-
-    .category-card:hover .category-ghost {
-      opacity: 0.18;
-      transform: scale(1.08) rotate(-4deg);
+      filter: none;
     }
 
     .category-main {
-      position: relative;
-      z-index: 4;
+      padding: 18px 20px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: static;
+      z-index: auto;
     }
 
     .category-card h3 {
       color: var(--navy);
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1.15;
       letter-spacing: -0.03em;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
       transition: color 0.35s ease;
     }
 
@@ -934,96 +858,36 @@
       color: #6b778c;
       font-size: 13px;
       line-height: 1.45;
-      max-width: 220px;
+      max-width: none;
       transition: color 0.35s ease, opacity 0.35s ease;
+      margin-bottom: 16px;
+      flex: 1;
     }
 
     .view-details {
-      position: relative;
-      z-index: 4;
-      display: inline-flex;
-      margin-top: 18px;
-      color: #667489;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.35s ease, transform 0.35s ease, opacity 0.35s ease;
-    }
-
-    .category-hover {
-      position: absolute;
-      inset: auto 18px 28px;
-      z-index: 5;
-      opacity: 0;
-      transform: translateY(14px);
-      pointer-events: none;
-      transition: opacity 0.38s ease, transform 0.38s ease;
-    }
-
-    .category-actions {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-bottom: 0;
-      width: 100%;
-    }
-
-    .category-action {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
-      min-width: 0;
-      width: 100%;
-      padding: 8px 12px;
+      height: 36px;
+      padding: 0 20px;
       border-radius: 999px;
-      font-size: 11.5px;
-      font-weight: 900;
-      line-height: 1.15;
-      white-space: normal;
-      text-align: center;
-      overflow-wrap: anywhere;
-      box-shadow: 0 10px 24px rgba(11, 35, 65, 0.12);
-      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      background: var(--red);
+      color: #fff;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-top: 0;
+      transition: all .3s ease;
+      align-self: flex-start;
+      box-shadow: 0 6px 16px rgba(230,0,18,.25);
+      position: static;
+      z-index: auto;
     }
 
-    .category-action:hover {
+    .view-details:hover {
       transform: translateY(-2px);
-    }
-
-    .category-action.primary {
-      background: #e6002e;
-      color: #ffffff;
-    }
-
-    .category-action.secondary {
-      background: #ffffff;
-      color: var(--navy);
-      border: 1px solid rgba(22,100,192,0.18);
-      cursor: pointer;
-    }
-
-    .category-action.secondary:hover {
-      background: #f4f8fd;
-      border-color: rgba(22,100,192,0.34);
-    }
-
-    .category-card:hover .category-label,
-    .category-card:hover .category-meta,
-    .category-card:hover .view-details {
-      opacity: 0;
-      transform: translateY(-6px);
-    }
-
-    .category-card:hover h3 {
-      color: var(--navy);
-    }
-
-    .category-card:hover .category-hover {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
+      box-shadow: 0 10px 24px rgba(230,0,18,.35);
     }
 
     @media (max-width: 1020px) {
@@ -1037,22 +901,9 @@
         grid-template-columns: 1fr;
       }
 
-      .category-card {
-        min-height: 320px;
-      }
 
-      .category-hover {
-        inset: auto 20px 26px;
-      }
 
-      .category-actions {
-        grid-template-columns: 1fr;
-      }
 
-      .category-action {
-        min-height: 40px;
-        font-size: 12px;
-      }
     }
 
 
@@ -1947,131 +1798,94 @@
         </div>
 
         <div class="grid category-grid">
-          <a class="category-card featured-bolt" href="products/bolt-class.html">
-            <div class="category-label">PRODUCT CATEGORY</div>
+          <a class="category-card" href="products/bolt-class.html">
             <div class="category-visual">
               <img class="category-photo" src="assets/products/hex-bolt-cover-clean.png" alt="Hex Bolt" />
             </div>
             <div class="category-main">
               <h3>Bolt Class</h3>
               <p class="category-meta">Carbon Steel · Zinc Plated · Construction</p>
-              <div class="view-details">VIEW DETAILS +</div>
-            </div>
-            <div class="category-hover">
-              <div class="category-actions">
-                <span class="category-action primary">View Details →</span>
-                <span class="category-action secondary">Quick Quote</span>
-              </div>
+              <div class="view-details">VIEW DETAILS</div>
             </div>
           </a>
-          <a class="category-card featured-nut" href="products/nuts-class.html">
-            <div class="category-label">PRODUCT CATEGORY</div>
+          <a class="category-card" href="products/nuts-class.html">
             <div class="category-visual">
               <img class="category-photo" src="assets/products/hex-nut.jpg" alt="Hex Nut" />
             </div>
             <div class="category-main">
               <h3>Nuts</h3>
               <p class="category-meta">Hex Nut · Stainless Steel · DIN / GB</p>
-              <div class="view-details">VIEW DETAILS +</div>
-            </div>
-            <div class="category-hover">
-              <div class="category-actions"><span class="category-action primary">View Details →</span><span class="category-action secondary">Quick Quote</span></div>
+              <div class="view-details">VIEW DETAILS</div>
             </div>
           </a>
-          <a class="category-card featured-stud" href="products/double-headed-studs.html">
-            <div class="category-label">PRODUCT CATEGORY</div>
+          <a class="category-card" href="products/double-headed-studs.html">
             <div class="category-visual">
               <img class="category-photo" src="assets/products/stainless-double-end-stud.jpg" alt="Stainless Steel Double End Stud" />
             </div>
             <div class="category-main">
               <h3>Studs</h3>
               <p class="category-meta">Double End · Stainless Steel · Full Thread</p>
-              <div class="view-details">VIEW DETAILS +</div>
-            </div>
-            <div class="category-hover">
-              <div class="category-actions"><span class="category-action primary">View Details →</span><span class="category-action secondary">Quick Quote</span></div>
+              <div class="view-details">VIEW DETAILS</div>
             </div>
           </a>
-          <a class="category-card featured-washer" href="products/washer-class.html">
-            <div class="category-label">PRODUCT CATEGORY</div>
+          <a class="category-card" href="products/washer-class.html">
             <div class="category-visual">
               <img class="category-photo" src="assets/products/stainless-flat-washer.jpg" alt="Stainless Steel Flat Washer" />
             </div>
             <div class="category-main">
               <h3>Washers</h3>
               <p class="category-meta">Stainless Flat Washer · Spring Washer · Load Distribution</p>
-              <div class="view-details">VIEW DETAILS +</div>
-            </div>
-            <div class="category-hover">
-              <div class="category-actions"><span class="category-action primary">View Details →</span><span class="category-action secondary">Quick Quote</span></div>
+              <div class="view-details">VIEW DETAILS</div>
             </div>
           </a>
-          <a class="category-card featured-machine-screw" href="products/machine-screw.html">
-            <div class="category-label">PRODUCT CATEGORY</div>
+          <a class="category-card" href="products/machine-screw.html">
             <div class="category-visual">
               <img class="category-photo" src="assets/products/stainless-countersunk-phillips-machine-screw.jpg" alt="Stainless Steel Countersunk Phillips Machine Screw" />
             </div>
             <div class="category-main">
               <h3>Machine Screws</h3>
               <p class="category-meta">Phillips · Stainless Steel · Countersunk / Pan Head</p>
-              <div class="view-details">VIEW DETAILS +</div>
-            </div>
-            <div class="category-hover">
-              <div class="category-actions"><span class="category-action primary">View Details →</span><span class="category-action secondary">Quick Quote</span></div>
+              <div class="view-details">VIEW DETAILS</div>
             </div>
           </a>
-          <a class="category-card featured-self-tapping" href="products/self-tapping-nails.html">
-            <div class="category-label">PRODUCT CATEGORY</div>
+          <a class="category-card" href="products/self-tapping-nails.html">
             <div class="category-visual">
               <img class="category-photo" src="assets/products/coarse-thread-drywall-screw.jpg" alt="Coarse Thread Drywall Screw" />
             </div>
             <div class="category-main">
               <h3>Self-Tapping</h3>
               <p class="category-meta">Drywall · Chipboard · Sheet Metal</p>
-              <div class="view-details">VIEW DETAILS +</div>
-            </div>
-            <div class="category-hover">
-              <div class="category-actions"><span class="category-action primary">View Details →</span><span class="category-action secondary">Quick Quote</span></div>
+              <div class="view-details">VIEW DETAILS</div>
             </div>
           </a>
-          <a class="category-card featured-drill-tail" href="products/drill-tail-filaments.html">
-            <div class="category-label">PRODUCT CATEGORY</div>
+          <a class="category-card" href="products/drill-tail-filaments.html">
             <div class="category-visual">
               <img class="category-photo" src="assets/products/hex-head-drilling-screw.jpg" alt="Hex Head Drilling Screw" />
             </div>
             <div class="category-main">
               <h3>Drill Tail</h3>
               <p class="category-meta">Hex Head · Washer Head · Roofing</p>
-              <div class="view-details">VIEW DETAILS +</div>
-            </div>
-            <div class="category-hover">
-              <div class="category-actions"><span class="category-action primary">View Details →</span><span class="category-action secondary">Quick Quote</span></div>
+              <div class="view-details">VIEW DETAILS</div>
             </div>
           </a>
-          <a class="category-card featured-anchor" href="products/expansion-anchor.html">
-            <div class="category-label">PRODUCT CATEGORY</div>
+          <a class="category-card" href="products/expansion-anchor.html">
             <div class="category-visual">
               <img class="category-photo" src="assets/products/expansion-bolt.jpg" alt="Expansion Bolt" />
             </div>
             <div class="category-main">
               <h3>Anchors</h3>
               <p class="category-meta">Expansion · Chemical · Concrete Fixing</p>
-              <div class="view-details">VIEW DETAILS +</div>
-            </div>
-            <div class="category-hover">
-              <div class="category-actions"><span class="category-action primary">View Details →</span><span class="category-action secondary">Quick Quote</span></div>
+              <div class="view-details">VIEW DETAILS</div>
             </div>
           </a>
           <a class="category-card featured-other-fastener is-extra-category" href="products/other-fastener.html">
-            <div class="category-label">PRODUCT CATEGORY</div>
-            <div class="category-visual"><div class="category-logo-mark" aria-hidden="true"></div></div>
+            <div class="category-visual">
+              <img class="category-photo" src="assets/products/other-fastener.jpg" alt="Other Fasteners" />
+            </div>
             <div class="category-main">
               <h3>Other Fasteners</h3>
               <p class="category-meta">Rivets · Hooks · Curtain Wall Parts</p>
-              <div class="view-details">VIEW DETAILS +</div>
-            </div>
-            <div class="category-hover">
-              <div class="category-actions"><span class="category-action primary">View Details →</span><span class="category-action secondary">Quick Quote</span></div>
+              <div class="view-details">VIEW DETAILS</div>
             </div>
           </a>
 
@@ -2304,7 +2118,11 @@
     const langSelect = document.getElementById('langSelect');
     const productMoreBtn = document.getElementById('productMoreBtn');
     const categoryGrid = document.querySelector('.category-grid');
-    let currentLang = 'zh';
+
+    const validLangs = ['zh', 'en', 'ru', 'ar'];
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    const detectedLang = validLangs.includes(urlLang) ? urlLang : (localStorage.getItem('dingruiLang') || 'en');
+    let currentLang = detectedLang;
 
 
     const zhText = {
@@ -3010,21 +2828,15 @@
       link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
 
-    document.querySelectorAll('.category-action.secondary').forEach((button) => {
-      button.addEventListener('click', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        window.location.hash = 'contact';
-      });
-    });
-
     quoteForm.addEventListener('submit', (event) => {
       event.preventDefault();
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 4200);
     });
 
-    setLanguage(localStorage.getItem('dingruiLang') || 'en');
+    langSelect.value = detectedLang;
+    setLanguage(detectedLang);
+    langSelect.addEventListener('change', (event) => setLanguage(event.target.value));
   </script>
 
 <script>
