@@ -55,8 +55,8 @@
 
 ## 联系方式
 
-- **电话 / WhatsApp**：+86 188 0308 1507
-- **邮箱**：hebeibinli@gmail.com
+- **电话 / WhatsApp**：+86 181 0330 4525
+- **邮箱**：DingRuiFastener@dingruifastener.com
 - **地址**：中国河北省邯郸市
 
 ---
