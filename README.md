@@ -83,6 +83,7 @@
 3. Source 选择 Deploy from a branch，Branch 选择 main / root
 4. 等待几秒后即可通过 `https://你的用户名.github.io/仓库名` 访问
 5. test auto deploy
+6.
 
 ---
 
