@@ -2305,9 +2305,24 @@
     textNodes.forEach(item => {
       item.node.nodeValue = lang === 'en' ? item.original : translateText(item.original, dict, phrases);
     });
+    // Translate breadcrumb last item
+    const breadcrumb = document.querySelector('.breadcrumb');
+    if (breadcrumb && productName && lang !== 'en') {
+      const bcWalker = document.createTreeWalker(breadcrumb, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        }
+      });
+      const bcTextNodes = [];
+      while (bcWalker.nextNode()) bcTextNodes.push(bcWalker.currentNode);
+      const lastBcNode = bcTextNodes[bcTextNodes.length - 1];
+      if (lastBcNode && lastBcNode.nodeValue.includes(productName)) {
+        lastBcNode.nodeValue = lastBcNode.nodeValue.replace(productName, translatedProductName(lang));
+      }
+    }
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.title = lang === 'en' ? pageTitle : translateText(pageTitle, dict, phrases);
+    document.title = translatedProductName(lang) + ' | ' + (companyTexts[lang]?.name || companyTexts.en.name);
     const paragraphs = Array.from(document.querySelectorAll('.hero p, .panel p'));
     paragraphs.forEach((p, index) => {
       if (p.closest('.cta')) return;
