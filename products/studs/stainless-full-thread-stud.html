@@ -2171,7 +2171,7 @@
 
   const validLangs = ['zh', 'en', 'ru', 'ar'];
   const urlLang = new URLSearchParams(window.location.search).get('lang');
-  const initialLang = validLangs.includes(urlLang) ? urlLang : (localStorage.getItem('dingruiLang') || 'en');
+  const initialLang = validLangs.includes(urlLang) ? urlLang : ('en');
   const dictionaries = { zh: zhText, ru: ruText, ar: arText };
   const phraseDictionaries = { zh: zhPhrase, ru: ruPhrase, ar: arPhrase };
   const productName = document.querySelector('h1')?.textContent.trim() || '';

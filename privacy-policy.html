@@ -195,7 +195,7 @@
   const langSelect = document.getElementById('langSelect');
   const validLangs = ['zh', 'en', 'ru', 'ar'];
   const urlLang = new URLSearchParams(window.location.search).get('lang');
-  const initialLang = validLangs.includes(urlLang) ? urlLang : (localStorage.getItem('dingruiLang') || 'en');
+  const initialLang = validLangs.includes(urlLang) ? urlLang : ('en');
 
   const translations = {
     zh: {
