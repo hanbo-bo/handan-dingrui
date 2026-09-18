@@ -1452,6 +1452,12 @@
       flex-wrap: wrap;
     }
 
+    .footer-privacy-link {
+      color: #60a5fa;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
     .toast {
       position: fixed;
       right: 24px;
@@ -2095,6 +2101,7 @@
     <div class="container footer-inner">
       <div data-footer-company>© <span id="year"></span> Handan Dingrui Metal Products Co., Ltd. All rights reserved.</div>
       <div data-footer-tagline>Fasteners · Hardware · Custom Metal Parts · Global Export</div>
+      <a href="privacy-policy.html" class="footer-privacy-link" data-footer-privacy>Privacy Policy</a>
     </div>
   </footer>
 
@@ -4272,22 +4279,26 @@
       en: {
         name: 'Handan Dingrui Metal Products Co., Ltd.',
         footerCompany: '© {year} Handan Dingrui Metal Products Co., Ltd. All rights reserved.',
-        footerTagline: 'Fasteners · Hardware · Custom Metal Parts · Global Export'
+        footerTagline: 'Fasteners · Hardware · Custom Metal Parts · Global Export',
+        footerPrivacy: 'Privacy Policy'
       },
       zh: {
         name: '邯郸鼎锐金属制品有限公司',
         footerCompany: '© {year} 邯郸鼎锐金属制品有限公司 版权所有。',
-        footerTagline: '紧固件 · 五金制品 · 定制金属件 · 全球出口'
+        footerTagline: '紧固件 · 五金制品 · 定制金属件 · 全球出口',
+        footerPrivacy: '隐私政策'
       },
       ru: {
         name: 'Ханьдань Динжуй Металлические изделия Co., Ltd.',
         footerCompany: '© {year} Ханьдань Динжуй Металлические изделия Co., Ltd. Все права защищены.',
-        footerTagline: 'Крепеж · Металлоизделия · Детали на заказ · Международный экспорт'
+        footerTagline: 'Крепеж · Металлоизделия · Детали на заказ · Международный экспорт',
+        footerPrivacy: 'Политика конфиденциальности'
       },
       ar: {
         name: 'شركة هاندان دينغروي للمنتجات المعدنية المحدودة',
         footerCompany: '© {year} شركة هاندان دينغروي للمنتجات المعدنية المحدودة جميع الحقوق محفوظة.',
-        footerTagline: 'مثبتات · منتجات معدنية · قطع معدنية مخصصة · تصدير عالمي'
+        footerTagline: 'مثبتات · منتجات معدنية · قطع معدنية مخصصة · تصدير عالمي',
+        footerPrivacy: 'سياسة الخصوصية'
       }
     };
 
@@ -4308,6 +4319,9 @@
       });
       document.querySelectorAll('[data-footer-tagline]').forEach((node) => {
         node.textContent = text.footerTagline;
+      });
+      document.querySelectorAll('[data-footer-privacy]').forEach((node) => {
+        node.textContent = text.footerPrivacy;
       });
     }
 

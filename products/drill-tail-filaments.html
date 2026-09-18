@@ -25,7 +25,7 @@
     .card-img{height:270px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;padding:20px}.card-img img{width:100%;height:100%;object-fit:contain;transition:transform .5s cubic-bezier(.4,0,.2,1)}
     .card-info{padding:22px 24px 28px;flex:1;display:flex;flex-direction:column}.card-info h3{font-size:22px;color:var(--navy);margin-bottom:8px;font-weight:900;line-height:1.25}.card-info p{font-size:14px;color:var(--muted);margin-bottom:20px;flex:1;line-height:1.6}
     .card-btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 24px;border-radius:999px;background:var(--red);color:#fff;font-weight:800;font-size:13px;align-self:flex-start;box-shadow:0 6px 16px rgba(230,0,18,.25)}
-    footer{padding:28px 0;background:#071a31;color:rgba(255,255,255,.72);font-size:14px}
+    footer{padding:28px 0;background:#071a31;color:rgba(255,255,255,.72);font-size:14px}.footer-privacy-link{color:#60a5fa;text-decoration:underline;font-weight:500}
     @media(max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.brand-name{max-width:176px;font-size:13px;line-height:1.15}.product-grid{grid-template-columns:1fr}.nav{flex-direction:column;align-items:flex-start;padding:12px 0}}
   
     .detail-lang-toggle{min-height:42px;padding:0 42px 0 16px;border:1px solid var(--line);border-radius:999px;background-color:#fff;background-image:linear-gradient(45deg,transparent 50%,var(--navy) 50%),linear-gradient(135deg,var(--navy) 50%,transparent 50%);background-position:calc(100% - 18px) 18px,calc(100% - 12px) 18px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;color:var(--navy);font-weight:800;appearance:none;-webkit-appearance:none}
@@ -144,7 +144,9 @@
       <a class="whatsapp-option" href="https://wa.me/8618103304525" target="_blank" rel="noopener"><span>WhatsApp 2</span><small>+86 181 0330 4525</small></a>
     </div>
   </details>
-<footer><div class="container" data-footer-company>&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div></footer>
+<footer><div class="container" data-footer-company>&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div>
+    <a href="../privacy-policy.html" class="footer-privacy-link" data-footer-privacy>Privacy Policy</a>
+  </footer>
 
 
 <script>
@@ -2240,19 +2242,23 @@
   const companyTexts = {
     en: {
       name: 'Handan Dingrui Metal Products Co., Ltd.',
-      footerCompany: '© Handan Dingrui Metal Products Co., Ltd. Fasteners · Export Trade · Custom Metal Parts'
+      footerCompany: '© Handan Dingrui Metal Products Co., Ltd. Fasteners · Export Trade · Custom Metal Parts',
+      footerPrivacy: 'Privacy Policy'
     },
     zh: {
       name: '邯郸鼎锐金属制品有限公司',
-      footerCompany: '© 邯郸鼎锐金属制品有限公司 紧固件 · 出口贸易 · 定制金属件'
+      footerCompany: '© 邯郸鼎锐金属制品有限公司 紧固件 · 出口贸易 · 定制金属件',
+      footerPrivacy: '隐私政策'
     },
     ru: {
       name: 'Ханьдань Динжуй Металлические изделия Co., Ltd.',
-      footerCompany: '© Ханьдань Динжуй Металлические изделия Co., Ltd. Крепеж · Экспорт · Металлические детали на заказ'
+      footerCompany: '© Ханьдань Динжуй Металлические изделия Co., Ltd. Крепеж · Экспорт · Металлические детали на заказ',
+      footerPrivacy: 'Политика конфиденциальности'
     },
     ar: {
       name: 'شركة هاندان دينغروي للمنتجات المعدنية المحدودة',
-      footerCompany: '© شركة هاندان دينغروي للمنتجات المعدنية المحدودة مثبتات · تجارة تصدير · قطع معدنية مخصصة'
+      footerCompany: '© شركة هاندان دينغروي للمنتجات المعدنية المحدودة مثبتات · تجارة تصدير · قطع معدنية مخصصة',
+      footerPrivacy: 'سياسة الخصوصية'
     }
   };
 
@@ -2269,6 +2275,9 @@
     });
     document.querySelectorAll('[data-footer-company]').forEach((node) => {
       node.textContent = text.footerCompany;
+    });
+    document.querySelectorAll('[data-footer-privacy]').forEach((node) => {
+      node.textContent = text.footerPrivacy;
     });
   };
 

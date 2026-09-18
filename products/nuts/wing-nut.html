@@ -38,7 +38,7 @@
     .applications{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.applications li{list-style:none;padding:18px;border-radius:20px;background:#fff;border:1px solid var(--line);color:#3b4960;font-weight:800;font-size:14px;box-shadow:0 10px 28px rgba(11,35,65,.06)}
     .cta{margin-top:34px;padding:34px;border-radius:30px;background:linear-gradient(135deg,#0b2341,#123d70);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
     .cta p{color:rgba(255,255,255,.72);margin-top:4px}.cta .btn-secondary{background:#fff;color:var(--navy)}
-    footer{padding:28px 0;background:#071a31;color:rgba(255,255,255,.72);font-size:14px}
+    footer{padding:28px 0;background:#071a31;color:rgba(255,255,255,.72);font-size:14px}.footer-privacy-link{color:#60a5fa;text-decoration:underline;font-weight:500}
     @media(max-width:900px){.hero-grid,.overview{grid-template-columns:1fr}.applications{grid-template-columns:repeat(2,1fr)}.product-stage{min-height:420px}.nav{align-items:flex-start;flex-direction:column;padding:12px 0}}
     @media(max-width:560px){.brand-name{max-width:176px;font-size:13px;line-height:1.15}.applications{grid-template-columns:1fr}.hero-grid{padding:52px 0}}
   
@@ -138,7 +138,9 @@
     </div>
   </details>
 
-  <footer><div class="container" data-footer-company>&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div></footer>
+  <footer><div class="container" data-footer-company>&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div>
+    <a href="../../privacy-policy.html" class="footer-privacy-link" data-footer-privacy>Privacy Policy</a>
+  </footer>
 
 
 <script>
@@ -2234,19 +2236,23 @@
   const companyTexts = {
     en: {
       name: 'Handan Dingrui Metal Products Co., Ltd.',
-      footerCompany: '© Handan Dingrui Metal Products Co., Ltd. Fasteners · Export Trade · Custom Metal Parts'
+      footerCompany: '© Handan Dingrui Metal Products Co., Ltd. Fasteners · Export Trade · Custom Metal Parts',
+      footerPrivacy: 'Privacy Policy'
     },
     zh: {
       name: '邯郸鼎锐金属制品有限公司',
-      footerCompany: '© 邯郸鼎锐金属制品有限公司 紧固件 · 出口贸易 · 定制金属件'
+      footerCompany: '© 邯郸鼎锐金属制品有限公司 紧固件 · 出口贸易 · 定制金属件',
+      footerPrivacy: '隐私政策'
     },
     ru: {
       name: 'Ханьдань Динжуй Металлические изделия Co., Ltd.',
-      footerCompany: '© Ханьдань Динжуй Металлические изделия Co., Ltd. Крепеж · Экспорт · Металлические детали на заказ'
+      footerCompany: '© Ханьдань Динжуй Металлические изделия Co., Ltd. Крепеж · Экспорт · Металлические детали на заказ',
+      footerPrivacy: 'Политика конфиденциальности'
     },
     ar: {
       name: 'شركة هاندان دينغروي للمنتجات المعدنية المحدودة',
-      footerCompany: '© شركة هاندان دينغروي للمنتجات المعدنية المحدودة مثبتات · تجارة تصدير · قطع معدنية مخصصة'
+      footerCompany: '© شركة هاندان دينغروي للمنتجات المعدنية المحدودة مثبتات · تجارة تصدير · قطع معدنية مخصصة',
+      footerPrivacy: 'سياسة الخصوصية'
     }
   };
 
@@ -2263,6 +2269,9 @@
     });
     document.querySelectorAll('[data-footer-company]').forEach((node) => {
       node.textContent = text.footerCompany;
+    });
+    document.querySelectorAll('[data-footer-privacy]').forEach((node) => {
+      node.textContent = text.footerPrivacy;
     });
   };
 

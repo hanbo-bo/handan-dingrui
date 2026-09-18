@@ -7,7 +7,7 @@
     header{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;backdrop-filter:blur(14px)}.nav{min-height:78px;display:flex;justify-content:space-between;align-items:center;gap:22px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--navy);font-size:15px}.brand-name{display:block;max-width:clamp(150px,22vw,260px);font-size:clamp(13px,1.2vw,15px);line-height:1.18;font-weight:900;color:var(--navy);letter-spacing:-.01em}.brand img{width:56px;height:56px;border-radius:14px;object-fit:cover;border:1px solid var(--line)}.back{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:999px;background:var(--navy);color:#fff;font-weight:800;font-size:14px}
     .hero{background:linear-gradient(120deg,#071a31,#123d70);color:#fff;padding:60px 0;overflow:hidden;position:relative}.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:56px 56px;opacity:.7}.hero .container{position:relative;z-index:1;text-align:center}.label{color:#f7b95f;text-transform:uppercase;letter-spacing:.18em;font-size:13px;font-weight:900;margin-bottom:14px}.hero h1{font-size:clamp(38px,6vw,68px);line-height:1.05;letter-spacing:-.04em;margin-bottom:18px}.hero p{color:rgba(255,255,255,.78);font-size:18px;max-width:760px;margin:0 auto}.breadcrumb{padding:16px 0;color:var(--muted);font-size:14px}.breadcrumb a{color:var(--blue);font-weight:700}
     main{padding:40px 0 72px}.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.product-card{background:#fff;border-radius:24px;overflow:hidden;transition:all .35s cubic-bezier(.4,0,.2,1);cursor:pointer;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(11,35,65,.06)}.product-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(11,35,65,.14)}.product-card:hover .card-img img{transform:scale(1.05)}.card-img{height:270px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;padding:20px}.card-img img{width:100%;height:100%;object-fit:contain;transition:transform .5s cubic-bezier(.4,0,.2,1)}.card-info{padding:22px 24px 28px;flex:1;display:flex;flex-direction:column}.card-info h3{font-size:22px;color:var(--navy);margin-bottom:8px;font-weight:900;line-height:1.25}.card-info p{font-size:14px;color:var(--muted);margin-bottom:20px;flex:1;line-height:1.6}.card-btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 24px;border-radius:999px;background:var(--red);color:#fff;font-weight:800;font-size:13px;align-self:flex-start;box-shadow:0 6px 16px rgba(230,0,18,.25)}
-    footer{padding:28px 0;background:#071a31;color:rgba(255,255,255,.72);font-size:14px}@media(max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.brand-name{max-width:176px;font-size:13px;line-height:1.15}.product-grid{grid-template-columns:1fr}.nav{flex-direction:column;align-items:flex-start;padding:12px 0}}
+    footer{padding:28px 0;background:#071a31;color:rgba(255,255,255,.72);font-size:14px}.footer-privacy-link{color:#60a5fa;text-decoration:underline;font-weight:500}@media(max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.brand-name{max-width:176px;font-size:13px;line-height:1.15}.product-grid{grid-template-columns:1fr}.nav{flex-direction:column;align-items:flex-start;padding:12px 0}}
   
     .detail-lang-toggle{min-height:42px;padding:0 42px 0 16px;border:1px solid var(--line);border-radius:999px;background-color:#fff;background-image:linear-gradient(45deg,transparent 50%,var(--navy) 50%),linear-gradient(135deg,var(--navy) 50%,transparent 50%);background-position:calc(100% - 18px) 18px,calc(100% - 12px) 18px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;color:var(--navy);font-weight:800;appearance:none;-webkit-appearance:none}
     .nav-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -129,7 +129,9 @@
       <a class="whatsapp-option" href="https://wa.me/8618103304525" target="_blank" rel="noopener"><span>WhatsApp 2</span><small>+86 181 0330 4525</small></a>
     </div>
   </details>
-<footer><div class="container" data-footer-company>&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div></footer>
+<footer><div class="container" data-footer-company>&copy; Handan Dingrui Metal Products Co., Ltd. Fasteners &middot; Export Trade &middot; Custom Metal Parts</div>
+    <a href="../privacy-policy.html" class="footer-privacy-link" data-footer-privacy>Privacy Policy</a>
+  </footer>
 
 
 <script>
@@ -2225,19 +2227,23 @@
   const companyTexts = {
     en: {
       name: 'Handan Dingrui Metal Products Co., Ltd.',
-      footerCompany: '© Handan Dingrui Metal Products Co., Ltd. Fasteners · Export Trade · Custom Metal Parts'
+      footerCompany: '© Handan Dingrui Metal Products Co., Ltd. Fasteners · Export Trade · Custom Metal Parts',
+      footerPrivacy: 'Privacy Policy'
     },
     zh: {
       name: '邯郸鼎锐金属制品有限公司',
-      footerCompany: '© 邯郸鼎锐金属制品有限公司 紧固件 · 出口贸易 · 定制金属件'
+      footerCompany: '© 邯郸鼎锐金属制品有限公司 紧固件 · 出口贸易 · 定制金属件',
+      footerPrivacy: '隐私政策'
     },
     ru: {
       name: 'Ханьдань Динжуй Металлические изделия Co., Ltd.',
-      footerCompany: '© Ханьдань Динжуй Металлические изделия Co., Ltd. Крепеж · Экспорт · Металлические детали на заказ'
+      footerCompany: '© Ханьдань Динжуй Металлические изделия Co., Ltd. Крепеж · Экспорт · Металлические детали на заказ',
+      footerPrivacy: 'Политика конфиденциальности'
     },
     ar: {
       name: 'شركة هاندان دينغروي للمنتجات المعدنية المحدودة',
-      footerCompany: '© شركة هاندان دينغروي للمنتجات المعدنية المحدودة مثبتات · تجارة تصدير · قطع معدنية مخصصة'
+      footerCompany: '© شركة هاندان دينغروي للمنتجات المعدنية المحدودة مثبتات · تجارة تصدير · قطع معدنية مخصصة',
+      footerPrivacy: 'سياسة الخصوصية'
     }
   };
 
@@ -2254,6 +2260,9 @@
     });
     document.querySelectorAll('[data-footer-company]').forEach((node) => {
       node.textContent = text.footerCompany;
+    });
+    document.querySelectorAll('[data-footer-privacy]').forEach((node) => {
+      node.textContent = text.footerPrivacy;
     });
   };
 

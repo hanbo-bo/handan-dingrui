@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Handan Dingrui Metal Products Co., Ltd.</title>
+    <link rel="icon" href="assets/dingrui-logo.jpg" type="image/jpeg" />
 
     <!-- 工业风专业排版样式 -->
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, "Microsoft YaHei", "PingFang SC", Helvetica, sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
@@ -34,6 +35,27 @@
             font-size: 18px;
         }
 
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .brand-name {
+            font-size: 15px;
+            line-height: 1.2;
+        }
+
         .lang-toggle {
             padding: 6px 12px;
             cursor: pointer;
@@ -41,6 +63,20 @@
             border: 1px solid #4b5563;
             background: #374151;
             color: #fff;
+        }
+
+        .breadcrumb {
+            padding: 16px 20px;
+            color: #6b7280;
+            font-size: 14px;
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .breadcrumb a {
+            color: #3b82f6;
+            font-weight: 600;
+            text-decoration: none;
         }
 
         .container {
@@ -100,6 +136,204 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        footer {
+            background: #071a31;
+            color: rgba(255, 255, 255, 0.72);
+            padding: 28px 20px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-privacy-link {
+            color: #60a5fa;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        /* WhatsApp floating button */
+        .whatsapp-options {
+            position: absolute;
+            display: grid;
+            gap: 8px;
+            padding: 10px;
+            border-radius: 18px;
+            background: #fff;
+            border: 1px solid #dfe6ef;
+            box-shadow: 0 18px 46px rgba(11, 35, 65, 0.16);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+            min-width: 190px;
+            z-index: 10001;
+        }
+
+        .whatsapp-option {
+            display: grid;
+            gap: 2px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            color: #0b2341;
+            background: #f4fbf7;
+            border: 1px solid rgba(37, 211, 102, 0.16);
+            font-weight: 900;
+            line-height: 1.2;
+            text-decoration: none;
+        }
+
+        .whatsapp-option small {
+            color: #687386;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .floating-whatsapp-wrap {
+            position: fixed;
+            right: 24px;
+            bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+            z-index: 10000;
+            display: block;
+        }
+
+        .floating-whatsapp-wrap summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        .floating-whatsapp-wrap summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .floating-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 66px;
+            min-height: 66px;
+            padding: 11px 16px 11px 12px;
+            border-radius: 999px;
+            color: #fff;
+            background: linear-gradient(135deg, #25d366, #12a84f);
+            box-shadow: 0 18px 42px rgba(18, 168, 79, 0.38);
+            font-weight: 900;
+            border: 2px solid rgba(255, 255, 255, 0.78);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .floating-whatsapp:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 56px rgba(18, 168, 79, 0.48);
+        }
+
+        .floating-whatsapp-icon {
+            display: inline-flex;
+            width: 42px;
+            height: 42px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.16);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+        }
+
+        .floating-whatsapp svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .floating-whatsapp-text {
+            display: grid;
+            line-height: 1.15;
+        }
+
+        .floating-whatsapp-text small {
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .floating-whatsapp-text span {
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .floating-whatsapp-options {
+            right: 0;
+            bottom: calc(100% + 12px);
+            transform: translateY(12px);
+        }
+
+        .whatsapp-options {
+            pointer-events: none;
+            transform: translateY(12px) scale(0.96);
+            transform-origin: bottom right;
+            transition: opacity 0.22s ease, transform 0.24s cubic-bezier(.2, .8, .2, 1), visibility 0.22s ease;
+        }
+
+        .floating-whatsapp-wrap:hover .whatsapp-options,
+        .floating-whatsapp-wrap:focus-within .whatsapp-options,
+        .floating-whatsapp-wrap[open] .whatsapp-options {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .floating-whatsapp-wrap:not(:hover):not(:focus-within):not([open]) .whatsapp-options {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px) scale(0.96);
+            pointer-events: none;
+        }
+
+        .floating-whatsapp-wrap::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 100%;
+            width: 220px;
+            height: 18px;
+            background: transparent;
+            pointer-events: auto;
+        }
+
+        @media (max-width: 680px) {
+            .floating-whatsapp-wrap {
+                right: calc(16px + env(safe-area-inset-right, 0px));
+                bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+            }
+
+            .floating-whatsapp {
+                width: 58px;
+                height: 58px;
+                min-width: 58px;
+                min-height: 58px;
+                padding: 10px;
+                border-radius: 50%;
+            }
+
+            .floating-whatsapp-text {
+                display: none;
+            }
+
+            .floating-whatsapp-options {
+                right: 0;
+                bottom: calc(100% + 10px);
+                min-width: 190px;
+                max-width: calc(100vw - 32px);
+            }
+        }
     </style>
 
     <!-- 谷歌 SEO 结构化数据 -->
@@ -123,15 +357,23 @@
 <body>
 
     <header>
-        <div class="logo" data-text="Handan Dingrui Metal Products Co., Ltd.">Handan Dingrui Metal Products Co., Ltd.
-        </div>
+        <a class="brand" href="index.html" aria-label="Handan Dingrui Metal Products Co., Ltd.">
+            <img src="assets/dingrui-logo.jpg" alt="Handan Dingrui Metal Products Co., Ltd. logo" />
+            <span class="brand-name" data-text="Handan Dingrui Metal Products Co., Ltd.">Handan Dingrui Metal Products Co., Ltd.</span>
+        </a>
         <div>
-            <select id="langSelect" class="lang-toggle">
+            <select id="langSelect" class="lang-toggle" aria-label="Switch language">
                 <option value="en">EN</option>
                 <option value="zh">中文</option>
+                <option value="ru">Русский</option>
+                <option value="ar">العربية</option>
             </select>
         </div>
     </header>
+
+    <div class="breadcrumb">
+        <a href="index.html" data-text="Home">Home</a> &rsaquo; <span data-text="About Us">About Us</span>
+    </div>
 
     <div class="container">
         <!-- 核心简介 -->
@@ -141,8 +383,7 @@
         <p><em><span data-text="Your Reliable Partner for Professional Fasteners & Custom Metal Parts Exporting.">Your
                     Reliable Partner for Professional Fasteners & Custom Metal Parts Exporting.</span></em></p>
 
-        <p
-            data-text="Located in Handan City, Hebei Province—the heart of China's fastener manufacturing industry—Handan Dingrui Metal Products Co., Ltd. is a modernized enterprise dedicated to connecting premium Chinese industrial resources with the global market. Founded in 2018, we specialize in providing one-stop sourcing, precise customization, and reliable export services for global importers, distributors, engineering contractors, and industrial buyers.">
+        <p data-text="Located in Handan City, Hebei Province—the heart of China's fastener manufacturing industry—Handan Dingrui Metal Products Co., Ltd. is a modernized enterprise dedicated to connecting premium Chinese industrial resources with the global market. Founded in 2018, we specialize in providing one-stop sourcing, precise customization, and reliable export services for global importers, distributors, engineering contractors, and industrial buyers.">
             Located in Handan City, Hebei Province—the heart of China's fastener manufacturing industry—Handan Dingrui
             Metal Products Co., Ltd. is a modernized enterprise dedicated to connecting premium Chinese industrial
             resources with the global market. Founded in 2018, we specialize in providing one-stop sourcing, precise
@@ -154,16 +395,14 @@
         <h2 data-text="What We Do">What We Do</h2>
 
         <h3 data-text="1. Global Export Services">1. Global Export Services</h3>
-        <p
-            data-text="We streamline the international trade process for buyers worldwide, offering comprehensive support from initial inquiry to final doorstep delivery. We support flexible trade terms including FOB, CIF, and DDP to match your logistics preferences.">
+        <p data-text="We streamline the international trade process for buyers worldwide, offering comprehensive support from initial inquiry to final doorstep delivery. We support flexible trade terms including FOB, CIF, and DDP to match your logistics preferences.">
             We streamline the international trade process for buyers worldwide, offering comprehensive support from
             initial inquiry to final doorstep delivery. We support flexible trade terms including FOB, CIF, and DDP to
             match your logistics preferences.
         </p>
 
         <h3 data-text="2. Comprehensive Fastener Supply">2. Comprehensive Fastener Supply</h3>
-        <p
-            data-text="We offer a vast portfolio of standard and non-standard industrial fasteners to fulfill diverse project requirements:">
+        <p data-text="We offer a vast portfolio of standard and non-standard industrial fasteners to fulfill diverse project requirements:">
             We offer a vast portfolio of standard and non-standard industrial fasteners to fulfill diverse project
             requirements:
         </p>
@@ -196,35 +435,33 @@
                         data-text="Brass screws, brass nuts, brass threaded inserts, electrical hardware, and precision turned brass components.">Brass
                         screws, brass nuts, brass threaded inserts, electrical hardware, and precision turned brass
                         components.</span></li>
-                <li><strong><span data-text="Other Fasteners & Accessories:">Other Fasteners &
+                <li><strong><span data-text="Other Fasteners & Accessories:">Other Fasteners &amp;
                             Accessories:</span></strong> <span
                         data-text="Rivets, threaded rods, stud bolts, hooks, eye bolts, and curtain wall accessories.">Rivets,
                         threaded rods, stud bolts, hooks, eye bolts, and curtain wall accessories.</span></li>
             </ul>
         </div>
 
-        <h3 data-text="3. Custom Manufacturing & OEM/ODM">3. Custom Manufacturing & OEM/ODM</h3>
-        <p
-            data-text="With robust capabilities in machining, stamping, and casting, we process custom metal components exactly according to your technical drawings or physical samples. Custom branding and tailored packaging are fully supported.">
+        <h3 data-text="3. Custom Manufacturing & OEM/ODM">3. Custom Manufacturing &amp; OEM/ODM</h3>
+        <p data-text="With robust capabilities in machining, stamping, and casting, we process custom metal components exactly according to your technical drawings or physical samples. Custom branding and tailored packaging are fully supported.">
             With robust capabilities in machining, stamping, and casting, we process custom metal components exactly
             according to your technical drawings or physical samples. Custom branding and tailored packaging are fully
             supported.
         </p>
 
         <!-- 材质与表面处理 -->
-        <h2 data-text="Materials & Surface Treatments">Materials & Surface Treatments</h2>
-        <p
-            data-text="To ensure durability and compliance with international standards, we supply products in various grades and finishes:">
+        <h2 data-text="Materials & Surface Treatments">Materials &amp; Surface Treatments</h2>
+        <p data-text="To ensure durability and compliance with international standards, we supply products in various grades and finishes:">
             To ensure durability and compliance with international standards, we supply products in various grades and
             finishes:
         </p>
         <ul>
             <li><strong><span data-text="Stainless Steel:">Stainless Steel:</span></strong> <span
                     data-text="201, 304, 316, and 410 series.">201, 304, 316, and 410 series.</span></li>
-            <li><strong><span data-text="Carbon Steel & Alloy Steel:">Carbon Steel & Alloy Steel:</span></strong> <span
+            <li><strong><span data-text="Carbon Steel & Alloy Steel:">Carbon Steel &amp; Alloy Steel:</span></strong> <span
                     data-text="Grade 8.8, 10.9, and 12.9 high-strength fasteners.">Grade 8.8, 10.9, and 12.9
                     high-strength fasteners.</span></li>
-            <li><strong><span data-text="Copper & Brass Alloys.">Copper & Brass Alloys.</span></strong></li>
+            <li><strong><span data-text="Copper & Brass Alloys.">Copper &amp; Brass Alloys.</span></strong></li>
             <li><strong><span data-text="Surface Finishes:">Surface Finishes:</span></strong> <span
                     data-text="Zinc plated (Cr3+/Cr6+), Hot-Dip Galvanized (HDG), Black Oxide, Dacromet, Plain, and more.">Zinc
                     plated (Cr3+/Cr6+), Hot-Dip Galvanized (HDG), Black Oxide, Dacromet, Plain, and more.</span></li>
@@ -235,127 +472,356 @@
         <ul>
             <li><strong><span data-text="Expert Technical Team:">Expert Technical Team:</span></strong> <span
                     data-text="Our experienced sales and account managers provide professional alignment on drawings, international standards (DIN, ANSI, ISO, BS), materials, and custom packaging.">Our
-                    experienced sales and account managers provide professional alignment on drawings, international
-                    standards (DIN, ANSI, ISO, BS), materials, and custom packaging.</span></li>
+                        experienced sales and account managers provide professional alignment on drawings, international
+                        standards (DIN, ANSI, ISO, BS), materials, and custom packaging.</span></li>
             <li><strong><span data-text="Strict Quality Control (QC):">Strict Quality Control (QC):</span></strong>
                 <span
                     data-text="We perform rigorous pre-shipment inspections covering dimensions, thread tolerance, material grade, hardness, coating thickness, visual appearance, quantity, and packaging integrity.">We
-                    perform rigorous pre-shipment inspections covering dimensions, thread tolerance, material grade,
-                    hardness, coating thickness, visual appearance, quantity, and packaging integrity.</span></li>
+                        perform rigorous pre-shipment inspections covering dimensions, thread tolerance, material grade,
+                        hardness, coating thickness, visual appearance, quantity, and packaging integrity.</span></li>
             <li><strong><span data-text="Cost-Effective Solutions:">Cost-Effective Solutions:</span></strong> <span
                     data-text="Through direct factory sourcing and strategic category integration, we optimize production schemes to give you the most competitive pricing.">Through
-                    direct factory sourcing and strategic category integration, we optimize production schemes to give
-                    you the most competitive pricing.</span></li>
+                        direct factory sourcing and strategic category integration, we optimize production schemes to give
+                        you the most competitive pricing.</span></li>
             <li><strong><span data-text="Punctual Delivery Management:">Punctual Delivery Management:</span></strong>
                 <span
                     data-text="We manage strict production schedules, packing timelines, and shipping coordination to ensure your cargo arrives on time, every time.">We
-                    manage strict production schedules, packing timelines, and shipping coordination to ensure your
-                    cargo arrives on time, every time.</span></li>
+                        manage strict production schedules, packing timelines, and shipping coordination to ensure your
+                        cargo arrives on time, every time.</span></li>
         </ul>
 
         <!-- 流程板块 -->
         <h2 data-text="Our Streamlined Sourcing Process">Our Streamlined Sourcing Process</h2>
         <ol>
-            <li><strong><span data-text="Inquiry & Consultation:">Inquiry & Consultation:</span></strong> <span
+            <li><strong><span data-text="Inquiry & Consultation:">Inquiry &amp; Consultation:</span></strong> <span
                     data-text="Send us your product specifications, drawings, samples, target price, and estimated volume.">Send
-                    us your product specifications, drawings, samples, target price, and estimated volume.</span></li>
+                        us your product specifications, drawings, samples, target price, and estimated volume.</span></li>
             <li><strong><span data-text="Quotation:">Quotation:</span></strong> <span
                     data-text="Receive a detailed quote covering materials, standards, finishes, MOQ, packaging, and trade terms.">Receive
-                    a detailed quote covering materials, standards, finishes, MOQ, packaging, and trade terms.</span>
+                        a detailed quote covering materials, standards, finishes, MOQ, packaging, and trade terms.</span>
             </li>
             <li><strong><span data-text="Sample Confirmation:">Sample Confirmation:</span></strong> <span
                     data-text="We arrange sample production or pre-production approval before launching mass manufacturing.">We
-                    arrange sample production or pre-production approval before launching mass manufacturing.</span>
+                        arrange sample production or pre-production approval before launching mass manufacturing.</span>
             </li>
-            <li><strong><span data-text="Production & Quality Inspection:">Production & Quality
+            <li><strong><span data-text="Production & Quality Inspection:">Production &amp; Quality
                         Inspection:</span></strong> <span
                     data-text="We monitor the manufacturing timeline and execute a thorough quality check before shipment.">We
-                    monitor the manufacturing timeline and execute a thorough quality check before shipment.</span></li>
-            <li><strong><span data-text="Logistics & Delivery:">Logistics & Delivery:</span></strong> <span
+                        monitor the manufacturing timeline and execute a thorough quality check before shipment.</span></li>
+            <li><strong><span data-text="Logistics & Delivery:">Logistics &amp; Delivery:</span></strong> <span
                     data-text="We handle export packaging, shipping marks, customs documentation, and seamless logistics coordination.">We
-                    handle export packaging, shipping marks, customs documentation, and seamless logistics
-                    coordination.</span></li>
+                        handle export packaging, shipping marks, customs documentation, and seamless logistics
+                        coordination.</span></li>
         </ol>
     </div>
 
+    <details class="floating-whatsapp-wrap">
+        <summary class="floating-whatsapp" aria-label="Choose a WhatsApp number">
+            <span class="floating-whatsapp-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.5 0 .16 5.34.16 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.26-1.64a11.9 11.9 0 0 0 5.82 1.48h.01c6.57 0 11.92-5.34 11.92-11.92 0-3.18-1.24-6.17-3.49-8.44ZM12.09 21.8h-.01a9.86 9.86 0 0 1-5.02-1.38l-.36-.21-3.72.98.99-3.63-.23-.37a9.85 9.85 0 0 1-1.51-5.27c0-5.44 4.42-9.86 9.87-9.86 2.64 0 5.11 1.03 6.98 2.9a9.78 9.78 0 0 1 2.89 6.97c0 5.43-4.43 9.86-9.88 9.86Zm5.41-7.39c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.08 3.17 5.04 4.45.7.3 1.25.48 1.68.62.71.23 1.35.19 1.86.12.57-.08 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z" />
+                </svg>
+            </span>
+            <span class="floating-whatsapp-text">
+                <small data-text="Need help?">Need help?</small>
+                <span data-text="Chat on WhatsApp">Chat on WhatsApp</span>
+            </span>
+        </summary>
+        <div class="whatsapp-options floating-whatsapp-options">
+            <a class="whatsapp-option" href="https://wa.me/8615831830173" target="_blank" rel="noopener"><span data-text="WhatsApp 1">WhatsApp 1</span><small>+86 158 3183 0173</small></a>
+            <a class="whatsapp-option" href="https://wa.me/8618103304525" target="_blank" rel="noopener"><span data-text="WhatsApp 2">WhatsApp 2</span><small>+86 181 0330 4525</small></a>
+        </div>
+    </details>
+
+    <footer>
+        <div class="footer-inner">
+            <div data-footer-company>&copy; Handan Dingrui Metal Products Co., Ltd. All rights reserved.</div>
+            <a href="privacy-policy.html" class="footer-privacy-link" data-footer-privacy>Privacy Policy</a>
+        </div>
+    </footer>
+
     <!-- 核心多语言无刷新切换逻辑 -->
     <script>
-        const zhText = {
-            'Handan Dingrui Metal Products Co., Ltd.': '邯郸市鼎睿金属制品有限公司',
-            'About Us': '关于我们',
-            'Welcome to Handan Dingrui Metal Products Co., Ltd.': '欢迎来到邯郸市鼎睿金属制品有限公司',
-            'Your Reliable Partner for Professional Fasteners & Custom Metal Parts Exporting.': '您在专业紧固件及定制金属件出口领域值得信赖的合作伙伴。',
-            'Located in Handan City, Hebei Province—the heart of China\'s fastener manufacturing industry—Handan Dingrui Metal Products Co., Ltd. is a modernized enterprise dedicated to connecting premium Chinese industrial resources with the global market. Founded in 2018, we specialize in providing one-stop sourcing, precise customization, and reliable export services for global importers, distributors, engineering contractors, and industrial buyers.': '邯郸市鼎睿金属制品有限公司位于中国紧固件制造之乡——河北省邯郸市，是一家致力于将中国优质工业资源与全球市场相对接的现代化企业。公司成立于2018年，专注于为全球进口商、分销商、工程承包商和工业买家提供一站式采购、精准定制和可靠的出口服务。',
-            'What We Do': '我们的业务',
-            '1. Global Export Services': '1. 全球出口服务',
-            'We streamline the international trade process for buyers worldwide, offering comprehensive support from initial inquiry to final doorstep delivery. We support flexible trade terms including FOB, CIF, and DDP to match your logistics preferences.': '我们为全球买家简化国际贸易流程，提供从最初询盘到最终送货上门的全面支持。我们支持包括 FOB、CIF 和 DDP 在内的灵活贸易条款，以匹配您的物流偏好。',
-            '2. Comprehensive Fastener Supply': '2. 全面紧固件供应',
-            'We offer a vast portfolio of standard and non-standard industrial fasteners to fulfill diverse project requirements:': '我们提供丰富的标准和非标工业紧固件产品组合，以满足不同的项目需求：',
-            'Bolts:': '螺栓：',
-            'Hex bolts, high-strength structural bolts, U-bolts, carriage bolts, flange bolts, and custom threaded bolts.': '外六角螺栓、高强度结构螺栓、U型螺栓、马车螺栓、法兰螺栓及定制螺纹螺栓。',
-            'Nuts:': '螺母：',
-            'Hex nuts, lock nuts, rivet nuts, welding nuts, flange nuts, brass nuts, and custom non-standard nuts.': '六角螺母、防松螺母、压铆螺母、焊接螺母、法兰螺母、铜螺母及定制非标螺母。',
-            'Screws:': '螺钉：',
-            'Machine screws, socket head cap screws, self-tapping screws, self-drilling screws, concrete screws, and set screws.': '机械螺钉、内六角圆柱头螺钉、自攻螺钉、钻尾螺钉、水泥螺钉和紧定螺钉。',
-            'Washers:': '垫圈：',
-            'Flat washers, spring washers, gaskets, snap rings, retaining rings, and custom stamping washers.': '平垫圈、弹簧垫圈、密封垫片、挡圈、保持圈及定制冲压垫圈。',
-            'Anchors:': '锚栓/膨胀：',
-            'Expansion anchors, anchor bolts, wedge anchors, sleeve anchors, and construction fixing solutions.': '膨胀锚栓、地脚螺栓、车修 gecko (车修锚栓)、套管锚栓及建筑固定解决方案。',
-            'Brass Products:': '铜制品：',
-            'Brass screws, brass nuts, brass threaded inserts, electrical hardware, and precision turned brass components.': '铜螺丝、铜螺母、铜螺纹嵌件、电气五金及精密车削铜部件。',
-            'Other Fasteners & Accessories:': '其他紧固件及配件：',
-            'Rivets, threaded rods, stud bolts, hooks, eye bolts, and curtain wall accessories.': '铆钉、牙条、双头螺栓、吊钩、吊环螺栓及幕墙配件。',
-            '3. Custom Manufacturing & OEM/ODM': '3. 定制加工与 OEM/ODM',
-            'With robust capabilities in machining, stamping, and casting, we process custom metal components exactly according to your technical drawings or physical samples. Custom branding and tailored packaging are fully supported.': '凭借在机械加工、冲压和铸造方面的雄厚实力，我们完全可以根据您的技术图纸或实物样品加工定制金属部件。全力支持定制品牌（唛头）和个性化包装。',
-            'Materials & Surface Treatments': '材质与表面处理',
-            'To ensure durability and compliance with international standards, we supply products in various grades and finishes:': '为确保耐用性并符合国际标准，我们提供各种等级和表面处理的产品：',
-            'Stainless Steel:': '不锈钢：',
-            '201, 304, 316, and 410 series.': '201、304、316 和 410 系列。',
-            'Carbon Steel & Alloy Steel:': '碳钢与合金钢：',
-            'Grade 8.8, 10.9, and 12.9 high-strength fasteners.': '8.8 级、10.9 级和 12.9 级高强度紧固件。',
-            'Copper & Brass Alloys.': '铜及铜合金。',
-            'Surface Finishes:': '表面处理：',
-            'Zinc plated (Cr3+/Cr6+), Hot-Dip Galvanized (HDG), Black Oxide, Dacromet, Plain, and more.': '镀锌（三价铬/六价铬）、热浸镀锌（HDG）、发黑、达克罗、本色等。',
-            'Why Choose Dingrui Fasteners?': '为什么选择鼎睿紧固件？',
-            'Expert Technical Team:': '专家技术团队：',
-            'Our experienced sales and account managers provide professional alignment on drawings, international standards (DIN, ANSI, ISO, BS), materials, and custom packaging.': '我们经验丰富的销售和客户经理在图纸对接、国际标准（DIN、ANSI、ISO、BS）、材质选择和定制包装方面提供专业的对齐服务。',
-            'Strict Quality Control (QC):': '严格的质量控制 (QC)：',
-            'We perform rigorous pre-shipment inspections covering dimensions, thread tolerance, material grade, hardness, coating thickness, visual appearance, quantity, and packaging integrity.': '我们进行严格的出货前检验，涵盖尺寸、螺纹公差、材质等级、硬度、涂层厚度、外观、数量及包装完整性。',
-            'Cost-Effective Solutions:': '高性价比方案：',
-            'Through direct factory sourcing and strategic category integration, we optimize production schemes to give you the most competitive pricing.': '通过工厂直供和策略性的品类整合，我们优化生产方案，为您提供最具竞争力的价格。',
-            'Punctual Delivery Management:': '准时交期管理：',
-            'We manage strict production schedules, packing timelines, and shipping coordination to ensure your cargo arrives on time, every time.': '我们管理严格的生产计划、包装时间表和运输协调，确保您的货物每次都能按时到达。',
-            'Our Streamlined Sourcing Process': '我们精简的采购流程',
-            'Inquiry & Consultation:': '询盘与咨询：',
-            'Send us your product specifications, drawings, samples, target price, and estimated volume.': '请向我们发送您的产品规格、图纸、样品、目标价格和预估采购量。',
-            'Quotation:': '报价：',
-            'Receive a detailed quote covering materials, standards, finishes, MOQ, packaging, and trade terms.': '收到包含材质、标准、表面处理、最小起订量（MOQ）、包装和贸易条款的详细报价单。',
-            'Sample Confirmation:': '样品确认：',
-            'We arrange sample production or pre-production approval before launching mass manufacturing.': '在启动大货生产之前，我们安排样品生产或产前样批准。',
-            'Production & Quality Inspection:': '生产与质量检验：',
-            'We monitor the manufacturing timeline and execute a thorough quality check before shipment.': '我们监控生产进度并在出货前执行全面的质量检查。',
-            'Logistics & Delivery:': '物流与交付：',
-            'We handle export packaging, shipping marks, customs documentation, and seamless logistics coordination.': '我们负责出口包装、唛头、海关单证及无缝的物流协调。'
+        const langSelect = document.getElementById('langSelect');
+        const validLangs = ['zh', 'en', 'ru', 'ar'];
+        const urlLang = new URLSearchParams(window.location.search).get('lang');
+        const initialLang = validLangs.includes(urlLang) ? urlLang : (localStorage.getItem('dingruiLang') || 'en');
+
+        const translations = {
+            zh: {
+                'Handan Dingrui Metal Products Co., Ltd.': '邯郸市鼎睿金属制品有限公司',
+                'Home': '首页',
+                'About Us': '关于我们',
+                'Welcome to Handan Dingrui Metal Products Co., Ltd.': '欢迎来到邯郸市鼎睿金属制品有限公司',
+                'Your Reliable Partner for Professional Fasteners & Custom Metal Parts Exporting.': '您在专业紧固件及定制金属件出口领域值得信赖的合作伙伴。',
+                'Located in Handan City, Hebei Province—the heart of China\'s fastener manufacturing industry—Handan Dingrui Metal Products Co., Ltd. is a modernized enterprise dedicated to connecting premium Chinese industrial resources with the global market. Founded in 2018, we specialize in providing one-stop sourcing, precise customization, and reliable export services for global importers, distributors, engineering contractors, and industrial buyers.': '邯郸市鼎睿金属制品有限公司位于中国紧固件制造之乡——河北省邯郸市，是一家致力于将中国优质工业资源与全球市场相对接的现代化企业。公司成立于2018年，专注于为全球进口商、分销商、工程承包商和工业买家提供一站式采购、精准定制和可靠的出口服务。',
+                'What We Do': '我们的业务',
+                '1. Global Export Services': '1. 全球出口服务',
+                'We streamline the international trade process for buyers worldwide, offering comprehensive support from initial inquiry to final doorstep delivery. We support flexible trade terms including FOB, CIF, and DDP to match your logistics preferences.': '我们为全球买家简化国际贸易流程，提供从最初询盘到最终送货上门的全面支持。我们支持包括 FOB、CIF 和 DDP 在内的灵活贸易条款，以匹配您的物流偏好。',
+                '2. Comprehensive Fastener Supply': '2. 全面紧固件供应',
+                'We offer a vast portfolio of standard and non-standard industrial fasteners to fulfill diverse project requirements:': '我们提供丰富的标准和非标工业紧固件产品组合，以满足不同的项目需求：',
+                'Bolts:': '螺栓：',
+                'Hex bolts, high-strength structural bolts, U-bolts, carriage bolts, flange bolts, and custom threaded bolts.': '外六角螺栓、高强度结构螺栓、U型螺栓、马车螺栓、法兰螺栓及定制螺纹螺栓。',
+                'Nuts:': '螺母：',
+                'Hex nuts, lock nuts, rivet nuts, welding nuts, flange nuts, brass nuts, and custom non-standard nuts.': '六角螺母、防松螺母、压铆螺母、焊接螺母、法兰螺母、铜螺母及定制非标螺母。',
+                'Screws:': '螺钉：',
+                'Machine screws, socket head cap screws, self-tapping screws, self-drilling screws, concrete screws, and set screws.': '机械螺钉、内六角圆柱头螺钉、自攻螺钉、钻尾螺钉、水泥螺钉和紧定螺钉。',
+                'Washers:': '垫圈：',
+                'Flat washers, spring washers, gaskets, snap rings, retaining rings, and custom stamping washers.': '平垫圈、弹簧垫圈、密封垫片、挡圈、保持圈及定制冲压垫圈。',
+                'Anchors:': '锚栓/膨胀：',
+                'Expansion anchors, anchor bolts, wedge anchors, sleeve anchors, and construction fixing solutions.': '膨胀锚栓、地脚螺栓、车修锚栓、套管锚栓及建筑固定解决方案。',
+                'Brass Products:': '铜制品：',
+                'Brass screws, brass nuts, brass threaded inserts, electrical hardware, and precision turned brass components.': '铜螺丝、铜螺母、铜螺纹嵌件、电气五金及精密车削铜部件。',
+                'Other Fasteners & Accessories:': '其他紧固件及配件：',
+                'Rivets, threaded rods, stud bolts, hooks, eye bolts, and curtain wall accessories.': '铆钉、牙条、双头螺栓、吊钩、吊环螺栓及幕墙配件。',
+                '3. Custom Manufacturing & OEM/ODM': '3. 定制加工与 OEM/ODM',
+                'With robust capabilities in machining, stamping, and casting, we process custom metal components exactly according to your technical drawings or physical samples. Custom branding and tailored packaging are fully supported.': '凭借在机械加工、冲压和铸造方面的雄厚实力，我们完全可以根据您的技术图纸或实物样品加工定制金属部件。全力支持定制品牌（唛头）和个性化包装。',
+                'Materials & Surface Treatments': '材质与表面处理',
+                'To ensure durability and compliance with international standards, we supply products in various grades and finishes:': '为确保持久耐用性并符合国际标准，我们提供各种等级和表面处理的产品：',
+                'Stainless Steel:': '不锈钢：',
+                '201, 304, 316, and 410 series.': '201、304、316 和 410 系列。',
+                'Carbon Steel & Alloy Steel:': '碳钢与合金钢：',
+                'Grade 8.8, 10.9, and 12.9 high-strength fasteners.': '8.8 级、10.9 级和 12.9 级高强度紧固件。',
+                'Copper & Brass Alloys.': '铜及铜合金。',
+                'Surface Finishes:': '表面处理：',
+                'Zinc plated (Cr3+/Cr6+), Hot-Dip Galvanized (HDG), Black Oxide, Dacromet, Plain, and more.': '镀锌（三价铬/六价铬）、热浸镀锌（HDG）、发黑、达克罗、本色等。',
+                'Why Choose Dingrui Fasteners?': '为什么选择鼎睿紧固件？',
+                'Expert Technical Team:': '专家技术团队：',
+                'Our experienced sales and account managers provide professional alignment on drawings, international standards (DIN, ANSI, ISO, BS), materials, and custom packaging.': '我们经验丰富的销售和客户经理在图纸对接、国际标准（DIN、ANSI、ISO、BS）、材质选择和定制包装方面提供专业的对齐服务。',
+                'Strict Quality Control (QC):': '严格的质量控制 (QC)：',
+                'We perform rigorous pre-shipment inspections covering dimensions, thread tolerance, material grade, hardness, coating thickness, visual appearance, quantity, and packaging integrity.': '我们进行严格的出货前检验，涵盖尺寸、螺纹公差、材质等级、硬度、涂层厚度、外观、数量及包装完整性。',
+                'Cost-Effective Solutions:': '高性价比方案：',
+                'Through direct factory sourcing and strategic category integration, we optimize production schemes to give you the most competitive pricing.': '通过工厂直供和策略性的品类整合，我们优化生产方案，为您提供最具竞争力的价格。',
+                'Punctual Delivery Management:': '准时交期管理：',
+                'We manage strict production schedules, packing timelines, and shipping coordination to ensure your cargo arrives on time, every time.': '我们管理严格的生产计划、包装时间表和运输协调，确保您的货物每次都能按时到达。',
+                'Our Streamlined Sourcing Process': '我们精简的采购流程',
+                'Inquiry & Consultation:': '询盘与咨询：',
+                'Send us your product specifications, drawings, samples, target price, and estimated volume.': '请向我们发送您的产品规格、图纸、样品、目标价格和预估采购量。',
+                'Quotation:': '报价：',
+                'Receive a detailed quote covering materials, standards, finishes, MOQ, packaging, and trade terms.': '收到包含材质、标准、表面处理、最小起订量（MOQ）、包装和贸易条款的详细报价单。',
+                'Sample Confirmation:': '样品确认：',
+                'We arrange sample production or pre-production approval before launching mass manufacturing.': '在启动大货生产之前，我们安排样品生产或产前样批准。',
+                'Production & Quality Inspection:': '生产与质量检验：',
+                'We monitor the manufacturing timeline and execute a thorough quality check before shipment.': '我们监控生产进度并在出货前执行全面的质量检查。',
+                'Logistics & Delivery:': '物流与交付：',
+                'We handle export packaging, shipping marks, customs documentation, and seamless logistics coordination.': '我们负责出口包装、唛头、海关单证及无缝的物流协调。',
+                'Need help?': '需要帮助？',
+                'Chat on WhatsApp': 'WhatsApp 咨询',
+                'WhatsApp 1': 'WhatsApp 1',
+                'WhatsApp 2': 'WhatsApp 2',
+                'footerCompany': '© 邯郸鼎锐金属制品有限公司 版权所有。',
+                'footerPrivacy': '隐私政策'
+            },
+            ru: {
+                'Handan Dingrui Metal Products Co., Ltd.': 'Ханьдань Динжуй Металлические изделия Co., Ltd.',
+                'Home': 'Главная',
+                'About Us': 'О нас',
+                'Welcome to Handan Dingrui Metal Products Co., Ltd.': 'Добро пожаловать в Ханьдань Динжуй Металлические изделия Co., Ltd.',
+                'Your Reliable Partner for Professional Fasteners & Custom Metal Parts Exporting.': 'Ваш надежный партнер по экспорту профессионального крепежа и定制ных металлических деталей.',
+                'Located in Handan City, Hebei Province—the heart of China\'s fastener manufacturing industry—Handan Dingrui Metal Products Co., Ltd. is a modernized enterprise dedicated to connecting premium Chinese industrial resources with the global market. Founded in 2018, we specialize in providing one-stop sourcing, precise customization, and reliable export services for global importers, distributors, engineering contractors, and industrial buyers.': 'Расположенная в городе Хандань, провинция Хэбэй — центре китайской промышленности по производству крепежа — компания Ханьдань Динжуй Металлические изделия Co., Ltd. является современным предприятием, посвященным соединению премиальных китайских промышленных ресурсов с глобальным рынком. Основанная в 2018 году, мы специализируемся на предоставлении комплексных закупок, точной кастомизации и надежных экспортных услуг для глобальных импортеров, дистрибьюторов, инженерных подрядчиков и промышленных покупателей.',
+                'What We Do': 'Чем мы занимаемся',
+                '1. Global Export Services': '1. Глобальные экспортные услуги',
+                'We streamline the international trade process for buyers worldwide, offering comprehensive support from initial inquiry to final doorstep delivery. We support flexible trade terms including FOB, CIF, and DDP to match your logistics preferences.': 'Мы упрощаем процесс международной торговли для покупателей по всему миру, предлагая комплексную поддержку от первоначального запроса до окончательной доставки до двери. Мы поддерживаем гибкие условия торговли, включая FOB, CIF и DDP, в соответствии с вашими логистическими предпочтениями.',
+                '2. Comprehensive Fastener Supply': '2. Комплексные поставки крепежа',
+                'We offer a vast portfolio of standard and non-standard industrial fasteners to fulfill diverse project requirements:': 'Мы предлагаем широкий портфель стандартных и нестандартных промышленных крепежных изделий для удовлетворения разнообразных проектных требований:',
+                'Bolts:': 'Болты:',
+                'Hex bolts, high-strength structural bolts, U-bolts, carriage bolts, flange bolts, and custom threaded bolts.': 'Шестигранные болты, высокопрочные конструкционные болты, U-образные болты, мебельные болты, фланцевые болты и заказные резьбовые болты.',
+                'Nuts:': 'Гайки:',
+                'Hex nuts, lock nuts, rivet nuts, welding nuts, flange nuts, brass nuts, and custom non-standard nuts.': 'Шестигранные гайки, контргайки, заклепочные гайки, сварные гайки, фланцевые гайки, латунные гайки и заказные нестандартные гайки.',
+                'Screws:': 'Винты:',
+                'Machine screws, socket head cap screws, self-tapping screws, self-drilling screws, concrete screws, and set screws.': 'Машиностроительные винты, винты с внутренним шестигранником, самонарезающие винты, самосверлящие винты, бетонные винты и установочные винты.',
+                'Washers:': 'Шайбы:',
+                'Flat washers, spring washers, gaskets, snap rings, retaining rings, and custom stamping washers.': 'Плоские шайбы, пружинные шайбы, прокладки, стопорные кольца, удерживающие кольца и заказные штампованные шайбы.',
+                'Anchors:': 'Анкеры:',
+                'Expansion anchors, anchor bolts, wedge anchors, sleeve anchors, and construction fixing solutions.': 'Распорные анкеры, анкерные болты, клиновые анкеры, втулочные анкеры и строительные решения для крепления.',
+                'Brass Products:': 'Латунные изделия:',
+                'Brass screws, brass nuts, brass threaded inserts, electrical hardware, and precision turned brass components.': 'Латунные винты, латунные гайки, латунные резьбовые вставки, электрическая фурнитура и прецизионные токарные латунные компоненты.',
+                'Other Fasteners & Accessories:': 'Другой крепеж и аксессуары:',
+                'Rivets, threaded rods, stud bolts, hooks, eye bolts, and curtain wall accessories.': 'Заклепки, шпильки, шпильки с резьбой, крюки, рым-болты и аксессуары для навесных стен.',
+                '3. Custom Manufacturing & OEM/ODM': '3. Заказное производство и OEM/ODM',
+                'With robust capabilities in machining, stamping, and casting, we process custom metal components exactly according to your technical drawings or physical samples. Custom branding and tailored packaging are fully supported.': 'Обладая мощными возможностями в области механической обработки, штамповки и литья, мы изготавливаем заказные металлические компоненты точно в соответствии с вашими техническими чертежами или физическими образцами. Полностью поддерживаем заказное брендирование и индивидуальную упаковку.',
+                'Materials & Surface Treatments': 'Материалы и виды поверхностной обработки',
+                'To ensure durability and compliance with international standards, we supply products in various grades and finishes:': 'Для обеспечения долговечности и соответствия международным стандартам мы поставляем продукцию различных классов и видов обработки:',
+                'Stainless Steel:': 'Нержавеющая сталь:',
+                '201, 304, 316, and 410 series.': 'Серии 201, 304, 316 и 410.',
+                'Carbon Steel & Alloy Steel:': 'Углеродистая и легированная сталь:',
+                'Grade 8.8, 10.9, and 12.9 high-strength fasteners.': 'Высокопрочный крепеж классов 8.8, 10.9 и 12.9.',
+                'Copper & Brass Alloys.': 'Медные и латунные сплавы.',
+                'Surface Finishes:': 'Виды поверхностной обработки:',
+                'Zinc plated (Cr3+/Cr6+), Hot-Dip Galvanized (HDG), Black Oxide, Dacromet, Plain, and more.': 'Оцинкованные (Cr3+/Cr6+), горячеоцинкованные (HDG), оксидированные, дакромет, без покрытия и др.',
+                'Why Choose Dingrui Fasteners?': 'Почему выбирают Dingrui Fasteners?',
+                'Expert Technical Team:': 'Опытная техническая команда:',
+                'Our experienced sales and account managers provide professional alignment on drawings, international standards (DIN, ANSI, ISO, BS), materials, and custom packaging.': 'Наши опытные менеджеры по продажам и работе с клиентами обеспечивают профессиональное согласование по чертежам, международным стандартам (DIN, ANSI, ISO, BS), материалам и заказной упаковке.',
+                'Strict Quality Control (QC):': 'Строгий контроль качества (QC):',
+                'We perform rigorous pre-shipment inspections covering dimensions, thread tolerance, material grade, hardness, coating thickness, visual appearance, quantity, and packaging integrity.': 'Мы проводим тщательные проверки перед отгрузкой, охватывающие размеры, допуски резьбы, класс материала, твердость, толщину покрытия, внешний вид, количество и целостность упаковки.',
+                'Cost-Effective Solutions:': 'Экономичные решения:',
+                'Through direct factory sourcing and strategic category integration, we optimize production schemes to give you the most competitive pricing.': 'Благодаря прямым поставкам с заводов и стратегической интеграции категорий, мы оптимизируем производственные схемы, чтобы предложить вам наиболее конкурентоспособные цены.',
+                'Punctual Delivery Management:': 'Пунктуальное управление доставкой:',
+                'We manage strict production schedules, packing timelines, and shipping coordination to ensure your cargo arrives on time, every time.': 'Мы управляем строгими производственными графиками, сроками упаковки и координацией отгрузки, чтобы ваш груз всегда прибывал вовремя.',
+                'Our Streamlined Sourcing Process': 'Наш оптимизированный процесс закупок',
+                'Inquiry & Consultation:': 'Запрос и консультация:',
+                'Send us your product specifications, drawings, samples, target price, and estimated volume.': 'Отправьте нам спецификации продукции, чертежи, образцы, целевую цену и ориентировочный объем.',
+                'Quotation:': 'Расчет стоимости:',
+                'Receive a detailed quote covering materials, standards, finishes, MOQ, packaging, and trade terms.': 'Получите подробное предложение, включающее материалы, стандарты, виды обработки, MOQ, упаковку и условия торговли.',
+                'Sample Confirmation:': 'Подтверждение образцов:',
+                'We arrange sample production or pre-production approval before launching mass manufacturing.': 'Мы организуем производство образцов или утверждение предпроизводственной партии перед запуском массового производства.',
+                'Production & Quality Inspection:': 'Производство и контроль качества:',
+                'We monitor the manufacturing timeline and execute a thorough quality check before shipment.': 'Мы контролируем сроки производства и проводим тщательную проверку качества перед отгрузкой.',
+                'Logistics & Delivery:': 'Логистика и доставка:',
+                'We handle export packaging, shipping marks, customs documentation, and seamless logistics coordination.': 'Мы отвечаем за экспортную упаковку, транспортные марки, таможенные документы и бесперебойную логистическую координацию.',
+                'Need help?': 'Нужна помощь?',
+                'Chat on WhatsApp': 'Написать в WhatsApp',
+                'WhatsApp 1': 'WhatsApp 1',
+                'WhatsApp 2': 'WhatsApp 2',
+                'footerCompany': '© Ханьдань Динжуй Металлические изделия Co., Ltd. Все права защищены.',
+                'footerPrivacy': 'Политика конфиденциальности'
+            },
+            ar: {
+                'Handan Dingrui Metal Products Co., Ltd.': 'شركة هاندان دينغروي للمنتجات المعدنية المحدودة',
+                'Home': 'الرئيسية',
+                'About Us': 'من نحن',
+                'Welcome to Handan Dingrui Metal Products Co., Ltd.': 'مرحبًا بك في شركة هاندان دينغروي للمنتجات المعدنية المحدودة',
+                'Your Reliable Partner for Professional Fasteners & Custom Metal Parts Exporting.': 'شريكك الموثوق لتصدير المثبتات المهنية وقطع المعادن المخصصة.',
+                'Located in Handan City, Hebei Province—the heart of China\'s fastener manufacturing industry—Handan Dingrui Metal Products Co., Ltd. is a modernized enterprise dedicated to connecting premium Chinese industrial resources with the global market. Founded in 2018, we specialize in providing one-stop sourcing, precise customization, and reliable export services for global importers, distributors, engineering contractors, and industrial buyers.': 'تقع شركة هاندان دينغروي للمنتجات المعدنية المحدودة في مدينة هاندان، مقاطعة خبي — قلب صناعة تصنيع المثبتات في الصين — وهي شركة حديثة تكرس جهودها لربط الموارد الصناعية الصينية الممتازة بالسوق العالمي. تأسست في عام 2018، ونحن متخصصون في توفير خدمات الشراء الشاملة والتخصيص الدقيق وخدمات التصدير الموثوقة للمستوردين والموزعين والمقاولين الهندسيين والمشترين الصناعيين على مستوى العالم.',
+                'What We Do': 'ما نفعله',
+                '1. Global Export Services': '١. خدمات التصدير العالمية',
+                'We streamline the international trade process for buyers worldwide, offering comprehensive support from initial inquiry to final doorstep delivery. We support flexible trade terms including FOB, CIF, and DDP to match your logistics preferences.': 'نحن نبسط عملية التجارة الدولية للمشترين في جميع أنحاء العالم، ونقدم دعمًا شاملاً من الاستفسار الأولي حتى التسليم النهائي عند الباب. نحن ندعم شروط التجارة المرنة بما في ذلك FOB و CIF و DDP لتناسب تفضيلاتك اللوجستية.',
+                '2. Comprehensive Fastener Supply': '٢. توريد المثبتات الشامل',
+                'We offer a vast portfolio of standard and non-standard industrial fasteners to fulfill diverse project requirements:': 'نحن نقدم مجموعة واسعة من المثبتات الصناعية القياسية وغير القياسية لتلبية متطلبات المشاريع المتنوعة:',
+                'Bolts:': 'البراغي:',
+                'Hex bolts, high-strength structural bolts, U-bolts, carriage bolts, flange bolts, and custom threaded bolts.': 'البراغي السداسية، براغي هيكلية عالية القوة، براغي على شكل حرف U، براغي عربات، براغي حوافة، وبراغي ملولبة مخصصة.',
+                'Nuts:': 'الصواميل:',
+                'Hex nuts, lock nuts, rivet nuts, welding nuts, flange nuts, brass nuts, and custom non-standard nuts.': 'صواميل سداسية، صواميل قفل، صواميل برشام، صواميل لحام، صواميل حوافة، صواميل نحاسية، وصواميل غير قياسية مخصصة.',
+                'Screws:': 'اللولب:',
+                'Machine screws, socket head cap screws, self-tapping screws, self-drilling screws, concrete screws, and set screws.': 'لولب الماكينة، لولب رأس مقبس سداسي، لولب ذاتي التنصت، لولب ذاتي الحفر، لولب خرساني، ولولب تثبيت.',
+                'Washers:': 'الغسالات:',
+                'Flat washers, spring washers, gaskets, snap rings, retaining rings, and custom stamping washers.': 'غسالات مسطحة، غسالات زنبركية، حشوات، حلقات قابضة، حلقات تثبيت، وغسالات ختم مخصصة.',
+                'Anchors:': 'المراسي:',
+                'Expansion anchors, anchor bolts, wedge anchors, sleeve anchors, and construction fixing solutions.': 'مراسي التمدد، مسامير التثبيت، مراسي إسفينية، مراسي جلبة، وحلول التثبيت الإنشائي.',
+                'Brass Products:': 'المنتجات النحاسية:',
+                'Brass screws, brass nuts, brass threaded inserts, electrical hardware, and precision turned brass components.': 'مسامير نحاسية، صواميل نحاسية، ملحقات ملولبة نحاسية، أدوات كهربائية، ومكونات نحاسية مشكلة بدقة.',
+                'Other Fasteners & Accessories:': 'مثبتات وملحقات أخرى:',
+                'Rivets, threaded rods, stud bolts, hooks, eye bolts, and curtain wall accessories.': 'برشام، قضبان ملولبة، مسامير تثبيت، خطافات، مسامير عينية، وملحقات الجدران الستائرية.',
+                '3. Custom Manufacturing & OEM/ODM': '٣. التصنيع المخصص و OEM/ODM',
+                'With robust capabilities in machining, stamping, and casting, we process custom metal components exactly according to your technical drawings or physical samples. Custom branding and tailored packaging are fully supported.': 'بفضل القدرات القوية في المعالجة الميكانيكية والختم والصب، نقوم بتصنيع مكونات معدنية مخصصة بدقة وفقًا لرسوماتك التقنية أو العينات المادية. نحن ندعم بالكامل العلامات التجارية المخصصة والتعبئة المصممة خصيصًا.',
+                'Materials & Surface Treatments': 'المواد والمعالجات السطحية',
+                'To ensure durability and compliance with international standards, we supply products in various grades and finishes:': 'لضمان المتانة والامتثال للمعايير الدولية، نحن نوفر المنتجات بدرجات وتشطيبات مختلفة:',
+                'Stainless Steel:': 'الفولاذ المقاوم للصدأ:',
+                '201, 304, 316, and 410 series.': 'سلسلة 201 و 304 و 316 و 410.',
+                'Carbon Steel & Alloy Steel:': 'الفولاذ الكربوني وفولاذ السبائك:',
+                'Grade 8.8, 10.9, and 12.9 high-strength fasteners.': 'مثبتات عالية القوة من الدرجة 8.8 و 10.9 و 12.9.',
+                'Copper & Brass Alloys.': 'سبائك النحاس والنحاس الأصفر.',
+                'Surface Finishes:': 'التشطيبات السطحية:',
+                'Zinc plated (Cr3+/Cr6+), Hot-Dip Galvanized (HDG), Black Oxide, Dacromet, Plain, and more.': 'مطلي بالزنك (Cr3+/Cr6+)، مجلفن بالغمس الساخن (HDG)، أكسيد أسود، داكروبيت، طبيعي، والمزيد.',
+                'Why Choose Dingrui Fasteners?': 'لماذا تختار Dingrui Fasteners؟',
+                'Expert Technical Team:': 'فريق فني خبير:',
+                'Our experienced sales and account managers provide professional alignment on drawings, international standards (DIN, ANSI, ISO, BS), materials, and custom packaging.': 'يقدم مديرو المبيعات والحسابات ذوو الخبرة لدينا التنسيق المهني للرسومات والمعايير الدولية (DIN و ANSI و ISO و BS) والمواد والتعبئة المخصصة.',
+                'Strict Quality Control (QC):': 'مراقبة جودة صارمة (QC):',
+                'We perform rigorous pre-shipment inspections covering dimensions, thread tolerance, material grade, hardness, coating thickness, visual appearance, quantity, and packaging integrity.': 'نحن نجري فحوصات صارمة قبل الشحن تشمل الأبعاد وتسامح الخيوط ودرجة المادة والصلابة وسمك الطلاء والمظهر البصري والكمية وسلامة التعبئة.',
+                'Cost-Effective Solutions:': 'حلول فعالة من حيث التكلفة:',
+                'Through direct factory sourcing and strategic category integration, we optimize production schemes to give you the most competitive pricing.': 'من خلال المصادر المباشرة من المصانع والتكامل الاستراتيجي للفئات، نقوم بتحسين المخططات الإنتاجية لنقدم لك أكثر الأسعار تنافسية.',
+                'Punctual Delivery Management:': 'إدارة التسليم في الموعد:',
+                'We manage strict production schedules, packing timelines, and shipping coordination to ensure your cargo arrives on time, every time.': 'نحن ندير الجداول الزمنية الإنتاجية الصارمة وجداول التعبئة وتنسيق الشحن لضمان وصول شحنتك في الوقت المحدد في كل مرة.',
+                'Our Streamlined Sourcing Process': 'عملية الشراء المبسطة لدينا',
+                'Inquiry & Consultation:': 'الاستفسار والاستشارة:',
+                'Send us your product specifications, drawings, samples, target price, and estimated volume.': 'أرسل لنا مواصفات المنتج والرسومات والعينات والسعر المستهدف والكمية التقديرية.',
+                'Quotation:': 'عرض السعر:',
+                'Receive a detailed quote covering materials, standards, finishes, MOQ, packaging, and trade terms.': 'احصل على عرض سعر تفصيلي يغطي المواد والمعايير والتشطيبات والحد الأدنى للطلب والتعبئة وشروط التجارة.',
+                'Sample Confirmation:': 'تأكيد العينة:',
+                'We arrange sample production or pre-production approval before launching mass manufacturing.': 'نحن نرتب إنتاج العينات أو الموافقة قبل الإنتاج قبل البدء في التصنيع الشامل.',
+                'Production & Quality Inspection:': 'الإنتاج وفحص الجودة:',
+                'We monitor the manufacturing timeline and execute a thorough quality check before shipment.': 'نحن نراقب الجدول الزمني للتصنيع ونجري فحص جودة شامل قبل الشحن.',
+                'Logistics & Delivery:': 'الخدمات اللوجستية والتسليم:',
+                'We handle export packaging, shipping marks, customs documentation, and seamless logistics coordination.': 'نحن نتولى التعبئة التصديرية وعلامات الشحن والمستندات الجمركية والتنسيق اللوجستي السلس.',
+                'Need help?': 'هل تحتاج إلى مساعدة؟',
+                'Chat on WhatsApp': 'تواصل عبر واتساب',
+                'WhatsApp 1': 'واتساب ١',
+                'WhatsApp 2': 'واتساب ٢',
+                'footerCompany': '© شركة هاندان دينغروي للمنتجات المعدنية المحدودة جميع الحقوق محفوظة.',
+                'footerPrivacy': 'سياسة الخصوصية'
+            }
         };
 
-        // 切换逻辑
-        document.getElementById('langSelect').addEventListener('change', function (e) {
-            const selectedLang = e.target.value;
-            const translatableElements = document.querySelectorAll('[data-text]');
-
-            if (selectedLang === 'zh') {
-                document.title = "关于我们 - 邯郸市鼎睿金属制品有限公司";
-                translatableElements.forEach(el => {
-                    const key = el.getAttribute('data-text');
-                    if (zhText[key]) el.textContent = zhText[key];
-                });
-            } else {
-                document.title = "About Us - Handan Dingrui Metal Products Co., Ltd.";
-                translatableElements.forEach(el => {
-                    el.textContent = el.getAttribute('data-text');
-                });
+        const companyTexts = {
+            en: {
+                footerCompany: '© Handan Dingrui Metal Products Co., Ltd. All rights reserved.',
+                footerPrivacy: 'Privacy Policy'
+            },
+            zh: {
+                footerCompany: '© 邯郸鼎锐金属制品有限公司 版权所有。',
+                footerPrivacy: '隐私政策'
+            },
+            ru: {
+                footerCompany: '© Ханьдань Динжуй Металлические изделия Co., Ltd. Все права защищены.',
+                footerPrivacy: 'Политика конфиденциальности'
+            },
+            ar: {
+                footerCompany: '© شركة هاندان دينغروي للمنتجات المعدنية المحدودة جميع الحقوق محفوظة.',
+                footerPrivacy: 'سياسة الخصوصية'
             }
+        };
+
+        const langMeta = {
+            zh: { htmlLang: 'zh-CN', dir: 'ltr', title: '关于我们 - 邯郸市鼎睿金属制品有限公司' },
+            en: { htmlLang: 'en', dir: 'ltr', title: 'About Us - Handan Dingrui Metal Products Co., Ltd.' },
+            ru: { htmlLang: 'ru', dir: 'ltr', title: 'О нас - Ханьдань Динжуй Металлические изделия Co., Ltd.' },
+            ar: { htmlLang: 'ar', dir: 'rtl', title: 'من نحن - شركة هاندان دينغروي للمنتجات المعدنية المحدودة' }
+        };
+
+        function updateCompanyTexts(lang) {
+            const text = companyTexts[lang] || companyTexts.en;
+            document.querySelectorAll('[data-footer-company]').forEach((node) => {
+                node.textContent = text.footerCompany;
+            });
+            document.querySelectorAll('[data-footer-privacy]').forEach((node) => {
+                node.textContent = text.footerPrivacy;
+            });
+        }
+
+        function setLanguage(lang) {
+            const dict = translations[lang] || {};
+            const meta = langMeta[lang] || langMeta.en;
+
+            document.documentElement.lang = meta.htmlLang;
+            document.documentElement.dir = meta.dir;
+            document.body.dir = meta.dir;
+            document.title = meta.title;
+            langSelect.value = lang;
+            localStorage.setItem('dingruiLang', lang);
+
+            document.querySelectorAll('[data-text]').forEach((el) => {
+                const key = el.getAttribute('data-text');
+                if (dict[key]) {
+                    el.textContent = dict[key];
+                } else {
+                    el.textContent = key;
+                }
+            });
+
+            updateCompanyTexts(lang);
+        }
+
+        // 初始化语言
+        langSelect.value = initialLang;
+        setLanguage(initialLang);
+        langSelect.addEventListener('change', function (e) {
+            setLanguage(e.target.value);
         });
+    </script>
+
+    <script>
+        (() => {
+            document.querySelectorAll('.floating-whatsapp-wrap').forEach((item) => {
+                item.addEventListener('mouseenter', () => {
+                    item.setAttribute('open', '');
+                    item.classList.add('is-hover-open');
+                });
+                item.addEventListener('mouseleave', () => {
+                    item.classList.remove('is-hover-open');
+                    item.removeAttribute('open');
+                });
+            });
+        })();
     </script>
 </body>
 
