@@ -23,5 +23,6 @@ jobs:
 
           script: |
             cd /var/www/handan-dingrui
-            git pull origin main
+            git fetch origin
+            git reset --hard origin/main
             systemctl reload nginx
